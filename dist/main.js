@@ -558,6 +558,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const newTask = (name) => {
+    let taskName = name
     let note = ""
     let dueDate = ''
     let completed = false
@@ -565,7 +566,32 @@ const newTask = (name) => {
 
     
     
-    return {name, note, dueDate, completed, priority}
+    return {
+        get name() {
+            return taskName;
+        },
+
+        get note() {
+            return note;
+        },
+
+        get dueDate() {
+            return dueDate;
+        },
+
+        get completed() {
+            return completed;
+        },
+        
+        get priority() {
+            return priority;
+        },
+
+        set taskName(name) {
+            return taskName = name
+        }
+
+    }
 
 }
 
@@ -732,7 +758,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const item = (0,_javascript_task__WEBPACK_IMPORTED_MODULE_1__["default"])('Mow the yard');
 
-console.log(item)
+console.log(item.name)
+item.taskName = "Cut the Grass"
+console.log(item.name)
 })();
 
 /******/ })()
