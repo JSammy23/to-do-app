@@ -1,2 +1,5 @@
 # Ignore node module folder
 node_modules
+
+#Ignore my planning files
+planning
