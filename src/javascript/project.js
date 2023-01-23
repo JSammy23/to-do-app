@@ -1,14 +1,18 @@
 import { toDate, isToday, isThisWeek, subDays } from 'date-fns'
 
 const newProject = (name) => {
+    let projectName = name
     const tasks = []
 
-    const addTask = taskName => {
-        tasks.push(taskName)
+    const addTask = task => {
+        tasks.push(task)
+    }
+    const removeTask = name => {
+        tasks.splice(tasks.findIndex(task => task.taskName === name), 1)
     }
 
 
-    return { tasks, addTask }
+    return { tasks, addTask, removeTask }
 }
 
 export default newProject;
