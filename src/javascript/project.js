@@ -16,15 +16,15 @@ const newProject = (name) => {
 }
 
 
-const projectList = () => {
+const projectList = (() => {
     const list = [];
 
-    const addProject = project => {
+    const add = project => {
         list.push(project)
     }
 
-    return { list, addProject };
-}
+    return { list, add };
+})();
 
 
 
