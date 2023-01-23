@@ -29,7 +29,23 @@ const newTask = (name) => {
         },
 
         set taskName(name) {
-            return taskName = name
+            return taskName = name;
+        },
+
+        set writeNote(note) {
+            return note = note;
+        },
+
+        set date(date) {
+            return dueDate = date
+        },
+
+        set done(status) {
+            return completed = status
+        },
+
+        set priority(status) {
+            return priority = status;
         }
 
     }
