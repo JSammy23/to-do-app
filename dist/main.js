@@ -555,7 +555,8 @@ module.exports = styleTagTransform;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "projectList": () => (/* binding */ projectList)
 /* harmony export */ });
 
 
@@ -574,7 +575,23 @@ const newProject = (name) => {
     return { tasks, addTask, removeTask }
 }
 
+
+const projectList = (() => {
+    const list = [];
+
+    const add = project => {
+        list.push(project)
+    }
+
+    return { list, add };
+})();
+
+
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (newProject);
+
+
 
 /***/ }),
 
@@ -808,13 +825,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const list = (0,_javascript_project__WEBPACK_IMPORTED_MODULE_2__["default"])('list')
 
-list.addTask((0,_javascript_task__WEBPACK_IMPORTED_MODULE_1__["default"])('Mow the yard'))
+const item = (0,_javascript_project__WEBPACK_IMPORTED_MODULE_2__["default"])('item')
 
-console.log(list)
+item.addTask((0,_javascript_task__WEBPACK_IMPORTED_MODULE_1__["default"])('Mow the yard'))
 
+console.log(item)
 
+console.log(_javascript_project__WEBPACK_IMPORTED_MODULE_2__.projectList)
+
+_javascript_project__WEBPACK_IMPORTED_MODULE_2__.projectList.add(item)
 })();
 
 /******/ })()
