@@ -15,4 +15,19 @@ const newProject = (name) => {
     return { tasks, addTask, removeTask }
 }
 
+
+const projectList = () => {
+    const list = [];
+
+    const addProject = project => {
+        list.push(project)
+    }
+
+    return { list, addProject };
+}
+
+
+
+
 export default newProject;
+export { projectList }
