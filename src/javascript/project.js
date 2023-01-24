@@ -13,6 +13,7 @@ const Project = (name) => {
     const addTask = task => {
         tasks.push(task)
     }
+
     const removeTask = name => {
         tasks.splice(tasks.findIndex(task => task.taskName === name), 1)
     }
@@ -29,7 +30,12 @@ const projectList = (() => {
         list.push(project)
     }
 
-    return { list, add };
+    const newProject = name => {
+        let newProj = Project(name)
+        list.push(newProj)
+    }
+
+    return { list, add, newProject };
 })();
 
 
