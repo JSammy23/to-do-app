@@ -1,8 +1,14 @@
 import { toDate, isToday, isThisWeek, subDays } from 'date-fns'
+import Task from './task'
 
-const newProject = (name) => {
+const Project = (name) => {
     let projectName = name
     const tasks = []
+
+    const newTask = name => {
+        let freshTask = Task(name)
+        tasks.push(freshTask)
+    } 
 
     const addTask = task => {
         tasks.push(task)
@@ -12,7 +18,7 @@ const newProject = (name) => {
     }
 
 
-    return { tasks, addTask, removeTask }
+    return { tasks, addTask, removeTask, newTask }
 }
 
 
@@ -29,5 +35,5 @@ const projectList = (() => {
 
 
 
-export default newProject;
+export default Project;
 export { projectList }
