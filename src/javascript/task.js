@@ -1,23 +1,16 @@
-// const Task = (name) => {
-//     let taskName = name
-//     let note = ""
-//     let dueDate = ''
-//     let completed = false
-//     let priority = 'normal';
 
-//     return {
-//         taskName, note, dueDate, completed, priority
-//     }
-    
-    
-// }
 
 const Task = (taskDetails) => {
-    let taskName = taskDetails.name
+    let taskName = taskDetails.taskName
     let note = taskDetails.note
     let dueDate = taskDetails.dueDate
-    let completed = taskDetails.completed
+    let completed = false
     let priority = taskDetails.priority;
+
+    const add = () => {
+        const taskForm = document.getElementById('taskForm')
+        task
+    }
 
     return {
         taskName, note, dueDate, completed, priority
@@ -26,4 +19,15 @@ const Task = (taskDetails) => {
     
 }
 
+const handleForm = (() => {
+    const taskForm = document.getElementById('taskForm')
+    taskForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const formData = new FormData(taskForm)
+    const data = Object.fromEntries(formData)
+    console.log(data)
+})
+})() 
+
 export default Task
+export {handleForm}
