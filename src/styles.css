@@ -8,6 +8,7 @@
     --dark-lightGray: #282828;
     --dark-darkGray: #1f1f1f;
     --dark-wfont: #fff;
+    --accent-pink: #df9dc9;
 }
 
 body {
@@ -46,4 +47,62 @@ body {
 
 #mainBody {
     background-color: var(--dark-darkGray);
+}
+
+.taskForm {
+    /* display: hidden; */
+    position: fixed;
+    top: 25%;
+    left: 35%;
+    border: 2px solid var(--accent-pink);
+    width: 800px;
+    background-color: var(--dark-lightGray);
+    color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 1.25rem;
+}
+
+.formFooter {
+    display: flex;
+    justify-content: end;
+}
+
+.formFooter > button {
+    background: none;
+    outline: none;
+    border: 2px solid var(--accent-pink);
+    border-radius: 15px;
+    color: var(--accent-pink);
+    padding: 8px;
+    cursor: pointer;
+}
+
+input {
+    font-size: 1.25rem;
+}
+
+input[type=text] {
+    width: 500px;
+}
+
+select {
+    font-size: 1.25rem;
+    width: 200px;
+}
+
+.formLegend {
+    padding: 20px;
+}
+
+.formHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+#closeTask {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
 }
