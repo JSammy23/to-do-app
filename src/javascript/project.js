@@ -5,8 +5,8 @@ const Project = (name) => {
     let projectName = name
     const tasks = []
 
-    const newTask = name => {
-        let freshTask = Task(name)
+    const newTask = taskDetails => {
+        const freshTask = Task(taskDetails)
         tasks.push(freshTask)
     } 
 

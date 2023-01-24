@@ -8,8 +8,7 @@ const Task = (taskDetails) => {
     let priority = taskDetails.priority;
 
     const add = () => {
-        const taskForm = document.getElementById('taskForm')
-        task
+        // handle form? 
     }
 
     return {
