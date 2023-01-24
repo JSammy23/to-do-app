@@ -566,8 +566,8 @@ const Project = (name) => {
     let projectName = name
     const tasks = []
 
-    const newTask = name => {
-        let freshTask = (0,_task__WEBPACK_IMPORTED_MODULE_0__["default"])(name)
+    const newTask = taskDetails => {
+        const freshTask = (0,_task__WEBPACK_IMPORTED_MODULE_0__["default"])(taskDetails)
         tasks.push(freshTask)
     } 
 
@@ -629,8 +629,7 @@ const Task = (taskDetails) => {
     let priority = taskDetails.priority;
 
     const add = () => {
-        const taskForm = document.getElementById('taskForm')
-        task
+        // handle form? 
     }
 
     return {
