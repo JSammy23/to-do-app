@@ -1,4 +1,4 @@
-import { toDate, isToday, isThisWeek, subDays } from 'date-fns'
+import { toDate, isToday, isThisWeek, subDays, format, compareAsc } from 'date-fns'
 import Task from './task'
 
 const Project = (name) => {
@@ -24,20 +24,20 @@ const Project = (name) => {
 
 const projectList = []
 
-// const projectList = (() => {
-//     const list = [];
 
-//     const add = project => {
-//         list.push(project)
-//     }
+//Handle default project
+const firstProject = Project('Default')
+projectList.push(firstProject)
+firstProject.newTask({
+    taskName: 'Mow the yard',
+    dueDate: format(new Date(2023, 0, 27), 'MM/dd/yyyy'),
+    note: 'Rain expected Thursday',
+    priority: 'normal'
+})
 
-//     const newProject = name => {
-//         let newProj = Project(name)
-//         list.push(newProj)
-//     }
+console.log(firstProject)
 
-//     return { list, add, newProject };
-// })();
+
 
 
 
