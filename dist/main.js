@@ -26,7 +26,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*, *::before, *::after {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n:root {\n    --dark-lightGray: #282828;\n    --dark-darkGray: #1f1f1f;\n    --dark-wfont: #fff;\n    --accent-pink: #df9dc9;\n}\n\nbody {\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n\n#content {\n    width: 85vw;\n    height: 85vh;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 50px;\n    /* border: 3px solid red; */\n    display: grid;\n    grid-template-columns: 375px auto;\n    grid-template-rows: min-content;\n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);;\n}\n\n#headerBar {\n    grid-column: 1 / span 2;\n    height: 40px;\n    border-bottom: 2px solid blueviolet;\n}\n\n#headerBar,\n#sideBar {\n    background-color: var(--dark-lightGray);\n    color: var(--dark-wfont);\n}\n\n#mainBody {\n    background-color: var(--dark-darkGray);\n}\n\n.taskForm {\n    /* Change display before production */\n    display: none; \n    position: fixed;\n    top: 25%;\n    left: 35%;\n    border: 2px solid var(--accent-pink);\n    width: 800px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    padding: 15px;\n    border-radius: 15px;\n    font-size: 1.25rem;\n}\n\n.formFooter {\n    display: flex;\n    justify-content: end;\n}\n\n.formFooter > button {\n    background: none;\n    outline: none;\n    border: 2px solid var(--accent-pink);\n    border-radius: 15px;\n    color: var(--accent-pink);\n    padding: 8px;\n    cursor: pointer;\n}\n\ninput {\n    font-size: 1.25rem;\n}\n\ninput[type=text] {\n    width: 500px;\n}\n\nselect {\n    font-size: 1.25rem;\n    width: 200px;\n}\n\n.formLegend {\n    padding: 20px;\n}\n\n.formHeader {\n    display: flex;\n    justify-content: space-between;\n}\n\n#closeTask {\n    border: none;\n    outline: none;\n    background: none;\n    cursor: pointer;\n}", "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"AAAA;IACI,SAAS;IACT,UAAU;IACV,sBAAsB;AAC1B;;AAEA;IACI,yBAAyB;IACzB,wBAAwB;IACxB,kBAAkB;IAClB,sBAAsB;AAC1B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,gBAAgB;IAChB,mDAAwC;AAC5C;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;IAChB,2BAA2B;IAC3B,aAAa;IACb,iCAAiC;IACjC,+BAA+B;IAC/B,8CAA8C;IAC9C,sDAAsD;IACtD,mDAAmD;AACvD;;AAEA;IACI,uBAAuB;IACvB,YAAY;IACZ,mCAAmC;AACvC;;AAEA;;IAEI,uCAAuC;IACvC,wBAAwB;AAC5B;;AAEA;IACI,sCAAsC;AAC1C;;AAEA;IACI,qCAAqC;IACrC,aAAa;IACb,eAAe;IACf,QAAQ;IACR,SAAS;IACT,oCAAoC;IACpC,YAAY;IACZ,uCAAuC;IACvC,WAAW;IACX,aAAa;IACb,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,oBAAoB;AACxB;;AAEA;IACI,gBAAgB;IAChB,aAAa;IACb,oCAAoC;IACpC,mBAAmB;IACnB,yBAAyB;IACzB,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,gBAAgB;IAChB,eAAe;AACnB","sourcesContent":["*, *::before, *::after {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n:root {\n    --dark-lightGray: #282828;\n    --dark-darkGray: #1f1f1f;\n    --dark-wfont: #fff;\n    --accent-pink: #df9dc9;\n}\n\nbody {\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    background: url(./assets/img/forest.jpg);\n}\n\n#content {\n    width: 85vw;\n    height: 85vh;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 50px;\n    /* border: 3px solid red; */\n    display: grid;\n    grid-template-columns: 375px auto;\n    grid-template-rows: min-content;\n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);;\n}\n\n#headerBar {\n    grid-column: 1 / span 2;\n    height: 40px;\n    border-bottom: 2px solid blueviolet;\n}\n\n#headerBar,\n#sideBar {\n    background-color: var(--dark-lightGray);\n    color: var(--dark-wfont);\n}\n\n#mainBody {\n    background-color: var(--dark-darkGray);\n}\n\n.taskForm {\n    /* Change display before production */\n    display: none; \n    position: fixed;\n    top: 25%;\n    left: 35%;\n    border: 2px solid var(--accent-pink);\n    width: 800px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    padding: 15px;\n    border-radius: 15px;\n    font-size: 1.25rem;\n}\n\n.formFooter {\n    display: flex;\n    justify-content: end;\n}\n\n.formFooter > button {\n    background: none;\n    outline: none;\n    border: 2px solid var(--accent-pink);\n    border-radius: 15px;\n    color: var(--accent-pink);\n    padding: 8px;\n    cursor: pointer;\n}\n\ninput {\n    font-size: 1.25rem;\n}\n\ninput[type=text] {\n    width: 500px;\n}\n\nselect {\n    font-size: 1.25rem;\n    width: 200px;\n}\n\n.formLegend {\n    padding: 20px;\n}\n\n.formHeader {\n    display: flex;\n    justify-content: space-between;\n}\n\n#closeTask {\n    border: none;\n    outline: none;\n    background: none;\n    cursor: pointer;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "*, *::before, *::after {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n:root {\n    --dark-lightGray: #282828;\n    --dark-darkGray: #1f1f1f;\n    --dark-wfont: #fff;\n    --accent-pink: #df9dc9;\n}\n\nbody {\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n\n#content {\n    width: 85vw;\n    height: 85vh;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 50px;\n    /* border: 3px solid red; */\n    display: grid;\n    grid-template-columns: 375px auto;\n    grid-template-rows: min-content;\n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);;\n}\n\n#headerBar {\n    grid-column: 1 / span 2;\n    height: 40px;\n    border-bottom: 2px solid blueviolet;\n}\n\n#headerBar,\n#sideBar {\n    background-color: var(--dark-lightGray);\n    color: var(--dark-wfont);\n}\n\n#mainBody {\n    background-color: var(--dark-darkGray);\n}\n\n.tile {\n    background-color: var(--dark-darkGray);\n    padding: 8px;\n    cursor: pointer;\n    border: 1px solid blueviolet;\n}\n\n.taskFolders {\n    border-bottom: 2px solid #fff;\n    min-height: 25%;\n    /* padding: 8px; */\n    margin-bottom: 1rem;\n}\n\n.taskForm {\n    /* Change display before production */\n    display: none; \n    position: fixed;\n    top: 25%;\n    left: 35%;\n    border: 2px solid var(--accent-pink);\n    width: 800px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    padding: 15px;\n    border-radius: 15px;\n    font-size: 1.25rem;\n}\n\n.formFooter {\n    display: flex;\n    justify-content: end;\n}\n\n.formFooter > button {\n    background: none;\n    outline: none;\n    border: 2px solid var(--accent-pink);\n    border-radius: 15px;\n    color: var(--accent-pink);\n    padding: 8px;\n    cursor: pointer;\n}\n\ninput {\n    font-size: 1.25rem;\n}\n\ninput[type=text] {\n    width: 500px;\n}\n\nselect {\n    font-size: 1.25rem;\n    width: 200px;\n}\n\n.formLegend {\n    padding: 20px;\n}\n\n.formHeader {\n    display: flex;\n    justify-content: space-between;\n}\n\n#closeTask {\n    border: none;\n    outline: none;\n    background: none;\n    cursor: pointer;\n}", "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"AAAA;IACI,SAAS;IACT,UAAU;IACV,sBAAsB;AAC1B;;AAEA;IACI,yBAAyB;IACzB,wBAAwB;IACxB,kBAAkB;IAClB,sBAAsB;AAC1B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,gBAAgB;IAChB,mDAAwC;AAC5C;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;IAChB,2BAA2B;IAC3B,aAAa;IACb,iCAAiC;IACjC,+BAA+B;IAC/B,8CAA8C;IAC9C,sDAAsD;IACtD,mDAAmD;AACvD;;AAEA;IACI,uBAAuB;IACvB,YAAY;IACZ,mCAAmC;AACvC;;AAEA;;IAEI,uCAAuC;IACvC,wBAAwB;AAC5B;;AAEA;IACI,sCAAsC;AAC1C;;AAEA;IACI,sCAAsC;IACtC,YAAY;IACZ,eAAe;IACf,4BAA4B;AAChC;;AAEA;IACI,6BAA6B;IAC7B,eAAe;IACf,kBAAkB;IAClB,mBAAmB;AACvB;;AAEA;IACI,qCAAqC;IACrC,aAAa;IACb,eAAe;IACf,QAAQ;IACR,SAAS;IACT,oCAAoC;IACpC,YAAY;IACZ,uCAAuC;IACvC,WAAW;IACX,aAAa;IACb,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,oBAAoB;AACxB;;AAEA;IACI,gBAAgB;IAChB,aAAa;IACb,oCAAoC;IACpC,mBAAmB;IACnB,yBAAyB;IACzB,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,gBAAgB;IAChB,eAAe;AACnB","sourcesContent":["*, *::before, *::after {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n:root {\n    --dark-lightGray: #282828;\n    --dark-darkGray: #1f1f1f;\n    --dark-wfont: #fff;\n    --accent-pink: #df9dc9;\n}\n\nbody {\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    background: url(./assets/img/forest.jpg);\n}\n\n#content {\n    width: 85vw;\n    height: 85vh;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 50px;\n    /* border: 3px solid red; */\n    display: grid;\n    grid-template-columns: 375px auto;\n    grid-template-rows: min-content;\n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);;\n}\n\n#headerBar {\n    grid-column: 1 / span 2;\n    height: 40px;\n    border-bottom: 2px solid blueviolet;\n}\n\n#headerBar,\n#sideBar {\n    background-color: var(--dark-lightGray);\n    color: var(--dark-wfont);\n}\n\n#mainBody {\n    background-color: var(--dark-darkGray);\n}\n\n.tile {\n    background-color: var(--dark-darkGray);\n    padding: 8px;\n    cursor: pointer;\n    border: 1px solid blueviolet;\n}\n\n.taskFolders {\n    border-bottom: 2px solid #fff;\n    min-height: 25%;\n    /* padding: 8px; */\n    margin-bottom: 1rem;\n}\n\n.taskForm {\n    /* Change display before production */\n    display: none; \n    position: fixed;\n    top: 25%;\n    left: 35%;\n    border: 2px solid var(--accent-pink);\n    width: 800px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    padding: 15px;\n    border-radius: 15px;\n    font-size: 1.25rem;\n}\n\n.formFooter {\n    display: flex;\n    justify-content: end;\n}\n\n.formFooter > button {\n    background: none;\n    outline: none;\n    border: 2px solid var(--accent-pink);\n    border-radius: 15px;\n    color: var(--accent-pink);\n    padding: 8px;\n    cursor: pointer;\n}\n\ninput {\n    font-size: 1.25rem;\n}\n\ninput[type=text] {\n    width: 500px;\n}\n\nselect {\n    font-size: 1.25rem;\n    width: 200px;\n}\n\n.formLegend {\n    padding: 20px;\n}\n\n.formHeader {\n    display: flex;\n    justify-content: space-between;\n}\n\n#closeTask {\n    border: none;\n    outline: none;\n    background: none;\n    cursor: pointer;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3486,8 +3486,12 @@ module.exports = styleTagTransform;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "closeForm": () => (/* binding */ closeForm),
+/* harmony export */   "displayProjects": () => (/* binding */ displayProjects),
 /* harmony export */   "openForm": () => (/* binding */ openForm)
 /* harmony export */ });
+/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ "./src/javascript/project.js");
+
+
 
 const openForm = () => {
     document.querySelector('.taskForm').style.display = 'block'
@@ -3496,6 +3500,29 @@ const openForm = () => {
 const closeForm = () => {
     document.querySelector('.taskForm').style.display = 'none'
 }
+
+const displayProjects = () => {
+    const projectsDisplay = document.querySelector('.projects')
+    _project__WEBPACK_IMPORTED_MODULE_0__.projectList.forEach(item => {
+        console.log(item.projectName)
+        createTile(item.projectName)
+    });
+}
+
+const createTile = (projectName) => {
+    const projectsDisplay = document.querySelector('.projects')
+    const tile = document.createElement('div')
+    tile.classList.add('tile')
+    const name = document.createElement('h2')
+    name.textContent = projectName
+    tile.appendChild(name)
+    projectsDisplay.appendChild(tile)
+
+    return tile;
+}
+
+displayProjects()
+
 
 
 
@@ -3535,23 +3562,23 @@ const Project = (name) => {
     }
 
 
-    return { tasks, addTask, removeTask, newTask }
+    return { tasks, addTask, removeTask, newTask, projectName }
 }
 
 const projectList = []
 
 
 //Handle default project
-const firstProject = Project('Default')
-projectList.push(firstProject)
-firstProject.newTask({
+const defaultProject = Project('Default')
+projectList.push(defaultProject)
+defaultProject.newTask({
     taskName: 'Mow the yard',
     dueDate: (0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(new Date(2023, 0, 27), 'MM/dd/yyyy'),
     note: 'Rain expected Thursday',
     priority: 'normal'
 })
 
-console.log(firstProject)
+console.log(projectList)
 
 
 
