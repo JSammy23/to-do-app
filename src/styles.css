@@ -49,6 +49,20 @@ body {
     background-color: var(--dark-darkGray);
 }
 
+.tile {
+    background-color: var(--dark-darkGray);
+    padding: 8px;
+    cursor: pointer;
+    border: 1px solid blueviolet;
+}
+
+.taskFolders {
+    border-bottom: 2px solid #fff;
+    min-height: 25%;
+    /* padding: 8px; */
+    margin-bottom: 1rem;
+}
+
 .taskForm {
     /* Change display before production */
     display: none; 
