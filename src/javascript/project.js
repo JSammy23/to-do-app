@@ -35,6 +35,15 @@ defaultProject.newTask({
     priority: 'normal'
 })
 
+const testProj = Project('Test')
+projectList.push(testProj)
+testProj.newTask({
+    taskName: 'Clean the garage',
+    dueDate: format(new Date(2023, 0, 31), 'MM/dd/yyyy'),
+    note: 'First week of Feb will be colder',
+    priority: 'low'
+})
+
 console.log(projectList)
 
 
