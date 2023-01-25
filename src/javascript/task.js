@@ -18,16 +18,6 @@ const Task = (taskDetails) => {
     
 }
 
-const handleForm = (() => {
-    const taskForm = document.getElementById('taskForm')
-    taskForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-    const formData = new FormData(taskForm)
-    const data = Object.fromEntries(formData)
-    console.log(data)
-    
-})
-})() 
+
 
 export default Task
-export {handleForm}
