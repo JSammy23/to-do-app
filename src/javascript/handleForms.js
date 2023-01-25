@@ -12,5 +12,5 @@ const handleForm = (() => {
 })
 })() 
 
-console.log(taskFormObjects)
+// console.log(taskFormObjects)
 export { handleForm, taskFormObjects } 
