@@ -3,11 +3,11 @@ import { projectList } from "./project"
 
 const openForm = () => {
     document.querySelector('.taskForm').style.display = 'block'
-}
+};
 
 const closeForm = () => {
     document.querySelector('.taskForm').style.display = 'none'
-}
+};
 
 const displayProjects = () => {
     const projectsDisplay = document.querySelector('.projects')
@@ -15,7 +15,7 @@ const displayProjects = () => {
         console.log(item.projectName)
         createTile(item.projectName)
     });
-}
+};
 
 const createTile = (projectName) => {
     const projectsDisplay = document.querySelector('.projects')
@@ -27,6 +27,21 @@ const createTile = (projectName) => {
     projectsDisplay.appendChild(tile)
 
     return tile;
+};
+
+const handleTileListeners = () => {
+    const projectTiles = document.querySelectorAll('.tile')
+    projectTiles.forEach(tile => {
+        tile.addEventListener('click', (event) => {
+            // displayTasks(event.target)
+        })
+    })
+}
+
+handleTileListeners()
+
+const displayTasks = (project) => {
+    // Display tasks from this.project list array
 }
 
 displayProjects()
