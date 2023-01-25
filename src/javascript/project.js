@@ -19,7 +19,7 @@ const Project = (name) => {
     }
 
 
-    return { tasks, addTask, removeTask, newTask }
+    return { tasks, addTask, removeTask, newTask, projectName }
 }
 
 const projectList = []
@@ -35,7 +35,7 @@ defaultProject.newTask({
     priority: 'normal'
 })
 
-console.log(defaultProject)
+console.log(projectList)
 
 
 
