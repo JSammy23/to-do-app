@@ -50,7 +50,8 @@ body {
 }
 
 .taskForm {
-    /* display: hidden; */
+    /* Change display before production */
+    display: none; 
     position: fixed;
     top: 25%;
     left: 35%;
