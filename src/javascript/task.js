@@ -25,6 +25,7 @@ const handleForm = (() => {
     const formData = new FormData(taskForm)
     const data = Object.fromEntries(formData)
     console.log(data)
+    
 })
 })() 
 

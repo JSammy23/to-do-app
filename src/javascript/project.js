@@ -22,21 +22,22 @@ const Project = (name) => {
     return { tasks, addTask, removeTask, newTask }
 }
 
+const projectList = []
 
-const projectList = (() => {
-    const list = [];
+// const projectList = (() => {
+//     const list = [];
 
-    const add = project => {
-        list.push(project)
-    }
+//     const add = project => {
+//         list.push(project)
+//     }
 
-    const newProject = name => {
-        let newProj = Project(name)
-        list.push(newProj)
-    }
+//     const newProject = name => {
+//         let newProj = Project(name)
+//         list.push(newProj)
+//     }
 
-    return { list, add, newProject };
-})();
+//     return { list, add, newProject };
+// })();
 
 
 
