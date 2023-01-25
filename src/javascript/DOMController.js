@@ -13,7 +13,20 @@ const displayProjects = () => {
     const projectsDisplay = document.querySelector('.projects')
     projectList.forEach(item => {
         console.log(item.projectName)
+        createTile(item.projectName)
     });
+}
+
+const createTile = (projectName) => {
+    const projectsDisplay = document.querySelector('.projects')
+    const tile = document.createElement('div')
+    tile.classList.add('tile')
+    const name = document.createElement('h2')
+    name.textContent = projectName
+    tile.appendChild(name)
+    projectsDisplay.appendChild(tile)
+
+    return tile;
 }
 
 displayProjects()
