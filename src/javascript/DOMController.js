@@ -1,4 +1,4 @@
-import { projectList } from "./project"
+import { projectList, allTasks } from "./project"
 
 
 const openForm = () => {
@@ -12,12 +12,12 @@ const closeForm = () => {
 const displayProjects = () => {
     const projectsDisplay = document.querySelector('.projects')
     projectList.forEach(item => {
-        console.log(item.projectName)
         createTile(item.projectName)
     });
 };
 
 const createTile = (projectName) => {
+    const body = document.getElementById('mainBody')
     const projectsDisplay = document.querySelector('.projects')
     const tile = document.createElement('div')
     tile.classList.add('tile')
@@ -27,7 +27,7 @@ const createTile = (projectName) => {
     projectsDisplay.appendChild(tile)
     // This puts listeners on dynamic elements
     tile.addEventListener('click', (event) => {
-        console.log(event.target.textContent)
+        body.textContent = '' // Refresh body every click to avoid duplicates
         displayTasks(event.target.textContent)
     })
 
@@ -35,14 +35,20 @@ const createTile = (projectName) => {
 };
 
 // This is only working on static elements
-const handleTileListeners = () => {
-    const projectTiles = document.querySelectorAll('.tile')
-    projectTiles.forEach(tile => {
-        tile.addEventListener('click', (event) => {
-            // displayTasks(event.target)
-            
-        })
+const handleAllTaskListener = () => {
+    const body = document.getElementById('mainBody')
+    const allTasksTile = document.getElementById('allTasks')
+    allTasksTile.addEventListener('click', (event) => {
+        body.textContent = ''
+        displayAllTasks()
     })
+}
+handleAllTaskListener()
+
+const displayAllTasks = () => {
+    for (let i = 0; i < allTasks.length; i++) {
+        createCard(allTasks[i])
+    }
 }
 
 
@@ -64,7 +70,7 @@ const createCard = (task) => {
     const body = document.getElementById('mainBody')
     const card = document.createElement('div')
     card.classList.add('card')
-    // Handle title
+    // Handle title // Title & note need to be in same div
     const titleDiv = document.createElement('div')
     const title = document.createElement('h3')
     title.textContent = task.taskName
