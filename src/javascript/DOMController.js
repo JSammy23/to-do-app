@@ -55,12 +55,20 @@ const displayTasks = (projectName) => {
     //For loop through target project task array items and createCard()
     // console.log(project.tasks[0])
     for (let i = 0; i < project.tasks.length; i++){
-        console.log(project.tasks[i])
+        createCard(project.tasks[i])
     }
 }
 
 
-// const createCard = (task)
+const createCard = (task) => {
+    const body = document.getElementById('mainBody')
+    const card = document.createElement('div')
+    card.classList.add('card')
+    const title = document.createElement('h3')
+    title.textContent = task.taskName
+    card.appendChild(title)
+    body.appendChild(card)
+}
 
 displayProjects()
 
