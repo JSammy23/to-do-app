@@ -71,6 +71,10 @@ body {
     margin-top: 20px;
 }
 
+.note {
+    color: rgba(255, 255, 255, .5);
+}
+
 .card > button {
     background: none;
     outline: none;
