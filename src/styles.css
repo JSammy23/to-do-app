@@ -63,12 +63,27 @@ body {
     border-radius: 10px;
     background-color: var(--dark-lightGray);
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding: 8px;
     width: 85%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
+}
+
+.card > button {
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.taskCheckMark {
+    margin-right: 10px;
+}
+
+.taskEdit {
+    margin-left: auto;
 }
 
 .taskFolders {
