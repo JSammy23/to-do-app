@@ -64,9 +64,44 @@ const createCard = (task) => {
     const body = document.getElementById('mainBody')
     const card = document.createElement('div')
     card.classList.add('card')
+    //Handle title
     const title = document.createElement('h3')
     title.textContent = task.taskName
+
+    //Handle complete button
+    const checkBtn = document.createElement('button')
+    checkBtn.classList.add('taskCheckMark')
+    const circleSvg = document.createElementNS("http://www.w3.org/2000/svg", 'svg')
+    const circlePath = document.createElementNS("http://www.w3.org/2000/svg", 'path')
+
+    circleSvg.setAttribute('width', '25px')
+    circleSvg.setAttribute('viewBox', '0 0 24 24')
+    circleSvg.setAttribute('fill', 'white')
+
+    circlePath.setAttribute('d', 'M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z')
+
+    circleSvg.appendChild(circlePath)
+    checkBtn.appendChild(circleSvg)
+
+    // Handle edit button
+    const editBtn = document.createElement('button')
+    editBtn.classList.add('taskEdit')
+    const dotsSvg = document.createElementNS("http://www.w3.org/2000/svg", 'svg')
+    const dotsPath = document.createElementNS("http://www.w3.org/2000/svg", 'path')
+
+    dotsSvg.setAttribute('width', '25px')
+    dotsSvg.setAttribute('viewBox', '0 0 24 24')
+    dotsSvg.setAttribute('fill', 'white')
+    dotsPath.setAttribute('d', 'M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z')
+
+    dotsSvg.appendChild(dotsPath)
+    editBtn.appendChild(dotsSvg)
+
+
+    // Append card in order 
+    card.appendChild(checkBtn)
     card.appendChild(title)
+    card.appendChild(editBtn)
     body.appendChild(card)
 }
 
