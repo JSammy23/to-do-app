@@ -35,6 +35,13 @@ defaultProject.newTask({
     priority: 'normal'
 })
 
+defaultProject.newTask({
+    taskName: 'Testing a really long title to see if I need to use flex wrap on my title for taskName',
+    dueDate: format(new Date(2023, 0, 30), 'MM/dd/yyyy'),
+    note: 'Where will I display the note?',
+    priority: 'normal'
+})
+
 const testProj = Project('Test')
 projectList.push(testProj)
 testProj.newTask({
