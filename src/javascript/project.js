@@ -51,7 +51,20 @@ testProj.newTask({
     priority: 'low'
 })
 
-console.log(projectList)
+// Gather all tasks into single array
+const grabTasks = []
+const allTasks = []
+projectList.forEach(item => {
+    grabTasks.push(item.tasks)
+})
+console.log(grabTasks)
+for (let i = 0; i < grabTasks.length; i++) {
+    for (let j = 0; j < grabTasks[i].length; j++) {
+        allTasks.push(grabTasks[i][j])
+    }
+}
+console.log(allTasks)
+
 
 
 
@@ -59,4 +72,4 @@ console.log(projectList)
 
 
 export default Project;
-export { projectList }
+export { projectList, allTasks }
