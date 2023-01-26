@@ -64,11 +64,13 @@ const createCard = (task) => {
     const body = document.getElementById('mainBody')
     const card = document.createElement('div')
     card.classList.add('card')
-    //Handle title
+    // Handle title
+    const titleDiv = document.createElement('div')
     const title = document.createElement('h3')
     title.textContent = task.taskName
+    titleDiv.appendChild(title)
 
-    //Handle complete button
+    // Handle complete button
     const checkBtn = document.createElement('button')
     checkBtn.classList.add('taskCheckMark')
     const circleSvg = document.createElementNS("http://www.w3.org/2000/svg", 'svg')
@@ -82,6 +84,12 @@ const createCard = (task) => {
 
     circleSvg.appendChild(circlePath)
     checkBtn.appendChild(circleSvg)
+
+    // Handle note
+    const note = document.createElement('p')
+    note.classList.add('note')
+    note.textContent = task.note
+    titleDiv.appendChild(note)
 
     // Handle edit button
     const editBtn = document.createElement('button')
@@ -100,7 +108,7 @@ const createCard = (task) => {
 
     // Append card in order 
     card.appendChild(checkBtn)
-    card.appendChild(title)
+    card.appendChild(titleDiv)
     card.appendChild(editBtn)
     body.appendChild(card)
 }
