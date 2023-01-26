@@ -27,7 +27,8 @@ const createTile = (projectName) => {
     projectsDisplay.appendChild(tile)
     // This puts listeners on dynamic elements
     tile.addEventListener('click', (event) => {
-        console.log(event.target)
+        console.log(event.target.textContent)
+        displayTasks(event.target.textContent)
     })
 
     return tile;
@@ -48,8 +49,11 @@ const handleTileListeners = () => {
 
 
 
-const displayTasks = (project) => {
+const displayTasks = (projectName) => {
     // Display tasks from this.project list array
+    const project = projectList.find(item => item.projectName === projectName)
+    console.log(project.tasks)
+    //For loop through target project task array items and createCard()
 }
 
 displayProjects()
