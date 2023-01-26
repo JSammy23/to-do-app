@@ -25,20 +25,28 @@ const createTile = (projectName) => {
     name.textContent = projectName
     tile.appendChild(name)
     projectsDisplay.appendChild(tile)
+    // This puts listeners on dynamic elements
+    tile.addEventListener('click', (event) => {
+        console.log(event.target)
+    })
 
     return tile;
 };
 
+// This is only working on static elements
 const handleTileListeners = () => {
     const projectTiles = document.querySelectorAll('.tile')
     projectTiles.forEach(tile => {
         tile.addEventListener('click', (event) => {
             // displayTasks(event.target)
+            
         })
     })
 }
 
-handleTileListeners()
+
+
+
 
 const displayTasks = (project) => {
     // Display tasks from this.project list array
