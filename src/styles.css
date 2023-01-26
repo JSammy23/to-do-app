@@ -26,6 +26,7 @@ body {
     margin-top: 50px;
     /* border: 3px solid red; */
     display: grid;
+    color: var(--dark-wfont);
     grid-template-columns: 375px auto;
     grid-template-rows: min-content;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);
@@ -47,6 +48,7 @@ body {
 
 #mainBody {
     background-color: var(--dark-darkGray);
+
 }
 
 .tile {
@@ -54,6 +56,19 @@ body {
     padding: 8px;
     cursor: pointer;
     border-bottom: 1px solid blueviolet;
+}
+
+.card {
+    /* border: 2px solid red; */
+    border-radius: 10px;
+    background-color: var(--dark-lightGray);
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
 }
 
 .taskFolders {
