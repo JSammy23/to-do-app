@@ -52,9 +52,15 @@ const handleTileListeners = () => {
 const displayTasks = (projectName) => {
     // Display tasks from this.project list array
     const project = projectList.find(item => item.projectName === projectName)
-    console.log(project.tasks)
     //For loop through target project task array items and createCard()
+    // console.log(project.tasks[0])
+    for (let i = 0; i < project.tasks.length; i++){
+        console.log(project.tasks[i])
+    }
 }
+
+
+// const createCard = (task)
 
 displayProjects()
 
