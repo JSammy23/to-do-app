@@ -1,6 +1,15 @@
 import { projectList, allTasks, todaysTasks, weeklyTasks } from "./project"
 
 
+let activeProject = undefined;
+
+// Set active project
+const setActiveProject = (projectName) => {
+    activeProject = projectName
+    console.log(activeProject)
+}
+
+
 const openForm = () => {
     document.querySelector('.taskForm').style.display = 'block'
 };
@@ -16,6 +25,7 @@ const displayProjects = () => {
     });
 };
 
+// Create project tile in sidebar
 const createTile = (projectName) => {
     const body = document.getElementById('mainBody')
     const projectsDisplay = document.querySelector('.projects')
@@ -29,18 +39,20 @@ const createTile = (projectName) => {
     tile.addEventListener('click', (event) => {
         body.textContent = '' // Refresh body every click to avoid duplicates
         displayTasks(event.target.textContent)
+        setActiveProject(event.target.textContent)
     })
 
     return tile;
 };
 
-
+// Handle all tasks tile
 const handleAllTaskListener = (() => {
     const body = document.getElementById('mainBody')
     const allTasksTile = document.getElementById('allTasks')
     allTasksTile.addEventListener('click', (event) => {
         body.textContent = ''
         displayAllTasks()
+        setActiveProject(event.target.textContent)
     })
 })();
 
@@ -51,6 +63,7 @@ const displayAllTasks = () => {
     }
 };
 
+// Handle today's tasks tile
 const handleTodaysTaskListener = (() => {
     const body = document.getElementById('mainBody')
     const todaysTaskTile = document.getElementById('todaysTasks')
@@ -66,6 +79,7 @@ const displayTodaysTasks = () => {
     }
 };
 
+// Handle this week's tasks tile
 const handleWeeklyTask = (() => {
     const body = document.getElementById('mainBody')
     const thisWeek = document.getElementById('thisWeek')
@@ -85,10 +99,8 @@ const displayWeeklyTasks = () => {
 
 
 const displayTasks = (projectName) => {
-    // Display tasks from this.project list array
     const project = projectList.find(item => item.projectName === projectName)
     //For loop through target project task array items and createCard()
-    // console.log(project.tasks[0])
     for (let i = 0; i < project.tasks.length; i++){
         createCard(project.tasks[i])
     }
@@ -148,7 +160,32 @@ const createCard = (task) => {
     body.appendChild(card)
 };
 
+// Create add button in sidebar
+// TO DO: Size is not responding
+const createAddBtn = (() => {
+    // Create buttom
+    const controls = document.querySelector('.sideBarControls')
+    const addBtn = document.createElement('button')
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", 'svg')
+    const path = document.createElementNS("http://www.w3.org/2000/svg", 'path')
+
+    svg.setAttribute('width', '100%')
+    svg.setAttribute('fill', 'blueviolet')
+    path.setAttribute('d', 'M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z')
+
+    svg.appendChild(path)
+    addBtn.appendChild(svg)
+    controls.appendChild(addBtn)
+
+    // Add event listener
+    addBtn.addEventListener('click', openForm)
+
+    
+})()
+
+
+
 displayProjects();
 
 
-export { openForm, closeForm, displayProjects }
+export { openForm, closeForm, activeProject }
