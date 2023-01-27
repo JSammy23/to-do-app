@@ -1,4 +1,4 @@
-import { projectList, allTasks } from "./project"
+import { projectList, allTasks, todaysTasks } from "./project"
 
 
 const openForm = () => {
@@ -34,23 +34,37 @@ const createTile = (projectName) => {
     return tile;
 };
 
-// This is only working on static elements
-const handleAllTaskListener = () => {
+
+const handleAllTaskListener = (() => {
     const body = document.getElementById('mainBody')
     const allTasksTile = document.getElementById('allTasks')
     allTasksTile.addEventListener('click', (event) => {
         body.textContent = ''
         displayAllTasks()
     })
-}
-handleAllTaskListener()
+})();
+
 
 const displayAllTasks = () => {
     for (let i = 0; i < allTasks.length; i++) {
         createCard(allTasks[i])
     }
-}
+};
 
+const handleTodaysTaskListener = (() => {
+    const body = document.getElementById('mainBody')
+    const todaysTaskTile = document.getElementById('todaysTasks')
+    todaysTaskTile.addEventListener('click', (event) => {
+        body.textContent = ''
+        displayTodaysTasks()
+    })
+})();
+
+const displayTodaysTasks = () => {
+    for (let i = 0; i < todaysTasks.length; i++) {
+        createCard(todaysTasks[i])
+    }
+};
 
 
 
@@ -63,7 +77,7 @@ const displayTasks = (projectName) => {
     for (let i = 0; i < project.tasks.length; i++){
         createCard(project.tasks[i])
     }
-}
+};
 
 
 const createCard = (task) => {
@@ -117,9 +131,9 @@ const createCard = (task) => {
     card.appendChild(titleDiv)
     card.appendChild(editBtn)
     body.appendChild(card)
-}
+};
 
-displayProjects()
+displayProjects();
 
 
 export { openForm, closeForm, displayProjects }
