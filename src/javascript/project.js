@@ -63,10 +63,12 @@ for (let i = 0; i < grabTasks.length; i++) {
         allTasks.push(grabTasks[i][j])
     }
 }
-console.log(allTasks)
 
-
+// Gather all Tasks due Today
 const todaysTasks = allTasks.filter(task => isToday(task.dueDate))
+
+// Gather all tasks due this week
+const weeklyTasks = allTasks.filter(task => isThisWeek(task.dueDate))
     
 
 
@@ -74,4 +76,4 @@ const todaysTasks = allTasks.filter(task => isToday(task.dueDate))
 
 
 export default Project;
-export { projectList, allTasks, todaysTasks }
+export { projectList, allTasks, todaysTasks, weeklyTasks }
