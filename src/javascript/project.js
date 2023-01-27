@@ -1,4 +1,4 @@
-import { toDate, isToday, isThisWeek, subDays, format, compareAsc } from 'date-fns'
+import { toDate, isToday, isThisWeek, subDays, format, compareAsc, parseISO } from 'date-fns'
 import Task from './task'
 
 const Project = (name) => {
@@ -30,14 +30,14 @@ const defaultProject = Project('Default')
 projectList.push(defaultProject)
 defaultProject.newTask({
     taskName: 'Mow the yard',
-    dueDate: format(new Date(2023, 0, 27), 'MM/dd/yyyy'),
+    dueDate: new Date(2023, 0, 27),
     note: 'Rain expected Thursday',
     priority: 'normal'
 })
 
 defaultProject.newTask({
     taskName: 'Testing a really long title to see if I need to use flex wrap on my title for taskName',
-    dueDate: format(new Date(2023, 0, 30), 'MM/dd/yyyy'),
+    dueDate: new Date(2023, 0, 30),
     note: 'Where will I display the note?',
     priority: 'normal'
 })
@@ -46,7 +46,7 @@ const testProj = Project('Test')
 projectList.push(testProj)
 testProj.newTask({
     taskName: 'Clean the garage',
-    dueDate: format(new Date(2023, 0, 31), 'MM/dd/yyyy'),
+    dueDate: new Date(2023, 0, 31),
     note: 'First week of Feb will be colder',
     priority: 'low'
 })
@@ -65,11 +65,13 @@ for (let i = 0; i < grabTasks.length; i++) {
 }
 console.log(allTasks)
 
-
-
+const getTodaysTasks = () => {
+    const todaysTasks = allTasks.filter(task => isToday(task.dueDate))
+    return todaysTasks
+}
 
 
 
 
 export default Project;
-export { projectList, allTasks }
+export { projectList, allTasks, todaysTasks }
