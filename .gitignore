@@ -3,3 +3,6 @@ node_modules
 
 #Ignore my planning files
 planning
+
+#ignore dist folder until final commit
+dist
