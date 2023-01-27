@@ -46,6 +46,28 @@ body {
     color: var(--dark-wfont);
 }
 
+#sideBar {
+    border-right: 1px solid black;
+    box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);
+    -webkit-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);
+    -moz-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+.sideBarControls {
+    margin-top: auto;
+}
+
+.sideBarControls > button {
+    border: none;
+    outline: none;
+    background: none;
+    margin-top: auto;
+    width: 92px;
+}
+
 #mainBody {
     background-color: var(--dark-darkGray);
 
@@ -56,6 +78,14 @@ body {
     padding: 8px;
     cursor: pointer;
     border-bottom: 1px solid blueviolet;
+}
+
+.tile:focus {
+    color: blueviolet;
+}
+
+.tile:nth-child(odd) {
+    background-color: var(--dark-lightGray);
 }
 
 .card {
