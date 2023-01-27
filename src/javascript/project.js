@@ -20,7 +20,7 @@ const Project = (name) => {
 
 
     return { tasks, addTask, removeTask, newTask, projectName }
-}
+};
 
 const projectList = []
 
@@ -33,14 +33,14 @@ defaultProject.newTask({
     dueDate: new Date(2023, 0, 27),
     note: 'Rain expected Thursday',
     priority: 'normal'
-})
+});
 
 defaultProject.newTask({
     taskName: 'Testing a really long title to see if I need to use flex wrap on my title for taskName',
     dueDate: new Date(2023, 0, 30),
     note: 'Where will I display the note?',
     priority: 'normal'
-})
+});
 
 const testProj = Project('Test')
 projectList.push(testProj)
@@ -49,20 +49,20 @@ testProj.newTask({
     dueDate: new Date(2023, 0, 31),
     note: 'First week of Feb will be colder',
     priority: 'low'
-})
+});
 
 // Gather all tasks into single array
 const grabTasks = []
 const allTasks = []
 projectList.forEach(item => {
     grabTasks.push(item.tasks)
-})
-console.log(grabTasks)
+});
+
 for (let i = 0; i < grabTasks.length; i++) {
     for (let j = 0; j < grabTasks[i].length; j++) {
         allTasks.push(grabTasks[i][j])
     }
-}
+};
 
 // Gather all Tasks due Today
 const todaysTasks = allTasks.filter(task => isToday(task.dueDate))
