@@ -1,4 +1,4 @@
-import { projectList, allTasks, todaysTasks } from "./project"
+import { projectList, allTasks, todaysTasks, weeklyTasks } from "./project"
 
 
 const openForm = () => {
@@ -63,6 +63,21 @@ const handleTodaysTaskListener = (() => {
 const displayTodaysTasks = () => {
     for (let i = 0; i < todaysTasks.length; i++) {
         createCard(todaysTasks[i])
+    }
+};
+
+const handleWeeklyTask = (() => {
+    const body = document.getElementById('mainBody')
+    const thisWeek = document.getElementById('thisWeek')
+    thisWeek.addEventListener('click', (event) => {
+        body.textContent = ''
+        displayWeeklyTasks()
+    })
+})();
+
+const displayWeeklyTasks = () => {
+    for (let i = 0; i < weeklyTasks.length; i++) {
+        createCard(weeklyTasks[i])
     }
 };
 
