@@ -65,10 +65,10 @@ for (let i = 0; i < grabTasks.length; i++) {
 }
 console.log(allTasks)
 
-const getTodaysTasks = () => {
-    const todaysTasks = allTasks.filter(task => isToday(task.dueDate))
-    return todaysTasks
-}
+
+const todaysTasks = allTasks.filter(task => isToday(task.dueDate))
+    
+
 
 
 
