@@ -1,6 +1,6 @@
 import { allTasks, projectList, todaysTasks, weeklyTasks } from "./project"
 import Task from "./task"
-import { activeProject, refreshDOM } from "./DOMController"
+import { activeProject, refreshDOM, displayTasks } from "./DOMController"
 import { isToday, isThisWeek } from "date-fns"
 
 const taskFormObjects = []
@@ -23,23 +23,24 @@ const handleForm = (() => {
 
 const addNewTask = taskData => {
     const newTask = Task(taskData)
-    const date = new Date(taskData.dueDate)
+    const date = new Date(taskData.dueDate.replace(/-/g, '\/'))
     if (activeProject === 'All Tasks' || activeProject === undefined) {
         allTasks.push(newTask)
-    } 
-    if (isToday(date)) {
+        console.log('Fired first if')
+    } else if ((activeProject !== 'All Tasks' || activeProject !== undefined)) {
+        const currentProject = projectList.find(item => item.projectName === activeProject)
+        currentProject.tasks.push(newTask)
+        console.log(currentProject.tasks)
+        refreshDOM()
+        displayTasks(activeProject)
+        console.log('Fired second if')
+    }
+    if (isToday(date)){
         todaysTasks.push(newTask)
     }
     if (isThisWeek(date)) {
         weeklyTasks.push(newTask)
     }
-    
-    const currentProject = projectList.find(item => item.projectName === activeProject)
-    currentProject.tasks.push(newTask)
-    console.log(currentProject.tasks)
-
-    
-    refreshDOM()
 }
 
 
