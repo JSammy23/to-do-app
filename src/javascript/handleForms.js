@@ -12,5 +12,13 @@ const handleForm = (() => {
 })
 })() 
 
+const openForm = () => {
+    document.querySelector('.taskForm').style.display = 'block'
+};
+
+const closeForm = () => {
+    document.querySelector('.taskForm').style.display = 'none'
+};
+
 // console.log(taskFormObjects)
-export { handleForm, taskFormObjects } 
+export { openForm, closeForm } 

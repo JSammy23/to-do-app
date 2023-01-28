@@ -1,5 +1,6 @@
 import { projectList, allTasks, todaysTasks, weeklyTasks } from "./project"
 import addIcon from '../assets/icons/plus-circle.png'
+import { openForm } from "./handleForms";
 
 let activeProject = undefined;
 
@@ -9,14 +10,6 @@ const setActiveProject = (projectName) => {
     console.log(activeProject)
 }
 
-
-const openForm = () => {
-    document.querySelector('.taskForm').style.display = 'block'
-};
-
-const closeForm = () => {
-    document.querySelector('.taskForm').style.display = 'none'
-};
 
 const displayProjects = () => {
     const projectsDisplay = document.querySelector('.projects')
@@ -161,7 +154,7 @@ const createCard = (task) => {
 };
 
 // Create add button in sidebar
-// TO DO: Size is not responding
+// TO DO: Change color to match theme
 const createAddBtn = (() => {
     // Create buttom
     const controls = document.querySelector('.sideBarControls')
@@ -184,4 +177,4 @@ const createAddBtn = (() => {
 displayProjects();
 
 
-export { openForm, closeForm, activeProject }
+export {  activeProject }
