@@ -179,4 +179,4 @@ const refreshDOM = () => {
 displayProjects();
 
 
-export {  activeProject, refreshDOM }
+export {  activeProject, refreshDOM, displayTasks }
