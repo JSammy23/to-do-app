@@ -52,17 +52,23 @@ testProj.newTask({
 });
 
 // Gather all tasks into single array
-const grabTasks = []
-const allTasks = []
-projectList.forEach(item => {
-    grabTasks.push(item.tasks)
-});
 
-for (let i = 0; i < grabTasks.length; i++) {
-    for (let j = 0; j < grabTasks[i].length; j++) {
-        allTasks.push(grabTasks[i][j])
-    }
+const allTasks = []
+
+const gatherTasks = () => {
+    const grabTasks = []
+    projectList.forEach(item => {
+        grabTasks.push(item.tasks)
+    });
+    allTasks.length = 0;
+    for (let i = 0; i < grabTasks.length; i++) {
+        for (let j = 0; j < grabTasks[i].length; j++) {
+            allTasks.push(grabTasks[i][j])
+        }
+    };
+    
 };
+gatherTasks()
 
 // Gather all Tasks due Today
 const todaysTasks = allTasks.filter(task => isToday(task.dueDate))
@@ -76,4 +82,4 @@ const weeklyTasks = allTasks.filter(task => isThisWeek(task.dueDate))
 
 
 export default Project;
-export { projectList, allTasks, todaysTasks, weeklyTasks }
+export { projectList, allTasks, todaysTasks, weeklyTasks, gatherTasks }
