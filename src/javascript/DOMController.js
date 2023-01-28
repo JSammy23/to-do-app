@@ -1,5 +1,5 @@
 import { projectList, allTasks, todaysTasks, weeklyTasks } from "./project"
-
+import addIcon from '../assets/icons/plus-circle.png'
 
 let activeProject = undefined;
 
@@ -166,15 +166,11 @@ const createAddBtn = (() => {
     // Create buttom
     const controls = document.querySelector('.sideBarControls')
     const addBtn = document.createElement('button')
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", 'svg')
-    const path = document.createElementNS("http://www.w3.org/2000/svg", 'path')
-
-    svg.setAttribute('width', '100%')
-    svg.setAttribute('fill', 'blueviolet')
-    path.setAttribute('d', 'M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z')
-
-    svg.appendChild(path)
-    addBtn.appendChild(svg)
+    const icon = document.createElement('img')
+    icon.src = addIcon
+    icon.setAttribute('width', '92px')
+    
+    addBtn.appendChild(icon)
     controls.appendChild(addBtn)
 
     // Add event listener
