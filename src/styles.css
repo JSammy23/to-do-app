@@ -65,7 +65,7 @@ body {
     outline: none;
     background: none;
     margin-top: auto;
-    width: 92px;
+    cursor: pointer;
 }
 
 #mainBody {
