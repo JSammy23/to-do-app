@@ -1,3 +1,8 @@
+import { allTasks, projectList, todaysTasks, weeklyTasks } from "./project"
+import Task from "./task"
+import { activeProject, refreshDOM } from "./DOMController"
+import { isToday, isThisWeek } from "date-fns"
+
 const taskFormObjects = []
 
 const handleForm = (() => {
@@ -5,12 +10,39 @@ const handleForm = (() => {
     taskForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const formData = new FormData(taskForm)
-    const data = Object.fromEntries(formData)
-    // console.log(data)
-    taskFormObjects.push(data)
+    const taskData = Object.fromEntries(formData)
+    
+    taskFormObjects.push(taskData)
+    addNewTask(taskData)
+
+    closeForm()
+    taskForm.reset()
     
 })
 })() 
+
+const addNewTask = taskData => {
+    const newTask = Task(taskData)
+    const date = new Date(taskData.dueDate)
+    if (activeProject === 'All Tasks' || activeProject === undefined) {
+        allTasks.push(newTask)
+    } 
+    if (isToday(date)) {
+        todaysTasks.push(newTask)
+    }
+    if (isThisWeek(date)) {
+        weeklyTasks.push(newTask)
+    }
+    
+    const currentProject = projectList.find(item => item.projectName === activeProject)
+    currentProject.tasks.push(newTask)
+    console.log(currentProject.tasks)
+
+    
+    refreshDOM()
+}
+
+
 
 const openForm = () => {
     document.querySelector('.taskForm').style.display = 'block'
