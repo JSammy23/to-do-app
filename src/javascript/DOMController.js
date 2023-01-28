@@ -109,6 +109,7 @@ const createCard = (task) => {
     // Handle complete button
     const checkBtn = document.createElement('button')
     checkBtn.classList.add('taskCheckMark')
+    checkBtn.setAttribute('id', task.taskName)
     const circleSvg = document.createElementNS("http://www.w3.org/2000/svg", 'svg')
     const circlePath = document.createElementNS("http://www.w3.org/2000/svg", 'path')
 
@@ -120,6 +121,7 @@ const createCard = (task) => {
 
     circleSvg.appendChild(circlePath)
     checkBtn.appendChild(circleSvg)
+    listenForTaskCompletion(checkBtn)
 
     // Handle note
     const note = document.createElement('p')
@@ -140,6 +142,7 @@ const createCard = (task) => {
 
     dotsSvg.appendChild(dotsPath)
     editBtn.appendChild(dotsSvg)
+    // TODO: listenForEditTask(editBtn)
 
 
     // Append card in order 
@@ -174,7 +177,13 @@ const refreshDOM = () => {
     gatherTasks()
 }
 
-
+// Listen for completed task
+const listenForTaskCompletion = (button) => {
+    button.addEventListener('click', (event) => {
+        console.log(event.target.closest('button').id)
+        // Trigger current task completed = true
+    })
+}
 
 displayProjects();
 
