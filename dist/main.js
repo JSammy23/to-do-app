@@ -1005,6 +1005,7 @@ module.exports = styleTagTransform;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "activeProject": () => (/* binding */ activeProject),
+/* harmony export */   "displayTasks": () => (/* binding */ displayTasks),
 /* harmony export */   "refreshDOM": () => (/* binding */ refreshDOM)
 /* harmony export */ });
 /* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ "./src/javascript/project.js");
@@ -1121,6 +1122,7 @@ const createCard = (task) => {
     // Handle complete button
     const checkBtn = document.createElement('button')
     checkBtn.classList.add('taskCheckMark')
+    checkBtn.setAttribute('id', task.taskName)
     const circleSvg = document.createElementNS("http://www.w3.org/2000/svg", 'svg')
     const circlePath = document.createElementNS("http://www.w3.org/2000/svg", 'path')
 
@@ -1132,6 +1134,7 @@ const createCard = (task) => {
 
     circleSvg.appendChild(circlePath)
     checkBtn.appendChild(circleSvg)
+    listenForTaskCompletion(checkBtn)
 
     // Handle note
     const note = document.createElement('p')
@@ -1152,6 +1155,7 @@ const createCard = (task) => {
 
     dotsSvg.appendChild(dotsPath)
     editBtn.appendChild(dotsSvg)
+    // TODO: listenForEditTask(editBtn)
 
 
     // Append card in order 
@@ -1186,7 +1190,13 @@ const refreshDOM = () => {
     ;(0,_project__WEBPACK_IMPORTED_MODULE_0__.gatherTasks)()
 }
 
-
+// Listen for completed task
+const listenForTaskCompletion = (button) => {
+    button.addEventListener('click', (event) => {
+        console.log(event.target.closest('button').id)
+        // Trigger current task completed = true
+    })
+}
 
 displayProjects();
 
@@ -1236,23 +1246,24 @@ const handleForm = (() => {
 
 const addNewTask = taskData => {
     const newTask = (0,_task__WEBPACK_IMPORTED_MODULE_1__["default"])(taskData)
-    const date = new Date(taskData.dueDate)
+    const date = new Date(taskData.dueDate.replace(/-/g, '\/'))
     if (_DOMController__WEBPACK_IMPORTED_MODULE_2__.activeProject === 'All Tasks' || _DOMController__WEBPACK_IMPORTED_MODULE_2__.activeProject === undefined) {
         _project__WEBPACK_IMPORTED_MODULE_0__.allTasks.push(newTask)
-    } 
-    if ((0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(date)) {
+        // console.log('Fired first if')
+    } else if ((_DOMController__WEBPACK_IMPORTED_MODULE_2__.activeProject !== 'All Tasks' || _DOMController__WEBPACK_IMPORTED_MODULE_2__.activeProject !== undefined)) {
+        const currentProject = _project__WEBPACK_IMPORTED_MODULE_0__.projectList.find(item => item.projectName === _DOMController__WEBPACK_IMPORTED_MODULE_2__.activeProject)
+        currentProject.tasks.push(newTask)
+        console.log(currentProject.tasks)
+        ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.refreshDOM)()
+        ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.displayTasks)(_DOMController__WEBPACK_IMPORTED_MODULE_2__.activeProject)
+        // console.log('Fired second if')
+    }
+    if ((0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(date)){
         _project__WEBPACK_IMPORTED_MODULE_0__.todaysTasks.push(newTask)
     }
     if ((0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(date)) {
         _project__WEBPACK_IMPORTED_MODULE_0__.weeklyTasks.push(newTask)
     }
-    
-    const currentProject = _project__WEBPACK_IMPORTED_MODULE_0__.projectList.find(item => item.projectName === _DOMController__WEBPACK_IMPORTED_MODULE_2__.activeProject)
-    currentProject.tasks.push(newTask)
-    console.log(currentProject.tasks)
-
-    
-    ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.refreshDOM)()
 }
 
 
