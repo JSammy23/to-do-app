@@ -1,4 +1,4 @@
-import { projectList, allTasks, todaysTasks, weeklyTasks } from "./project"
+import { projectList, allTasks, todaysTasks, weeklyTasks, gatherTasks } from "./project"
 import addIcon from '../assets/icons/plus-circle.png'
 import { openForm } from "./handleForms";
 
@@ -20,7 +20,6 @@ const displayProjects = () => {
 
 // Create project tile in sidebar
 const createTile = (projectName) => {
-    const body = document.getElementById('mainBody')
     const projectsDisplay = document.querySelector('.projects')
     const tile = document.createElement('div')
     tile.classList.add('tile')
@@ -30,7 +29,7 @@ const createTile = (projectName) => {
     projectsDisplay.appendChild(tile)
     // This puts listeners on dynamic elements
     tile.addEventListener('click', (event) => {
-        body.textContent = '' // Refresh body every click to avoid duplicates
+        refreshDOM()
         displayTasks(event.target.textContent)
         setActiveProject(event.target.textContent)
     })
@@ -40,10 +39,9 @@ const createTile = (projectName) => {
 
 // Handle all tasks tile
 const handleAllTaskListener = (() => {
-    const body = document.getElementById('mainBody')
     const allTasksTile = document.getElementById('allTasks')
     allTasksTile.addEventListener('click', (event) => {
-        body.textContent = ''
+        refreshDOM()
         displayAllTasks()
         setActiveProject(event.target.textContent)
     })
@@ -58,10 +56,9 @@ const displayAllTasks = () => {
 
 // Handle today's tasks tile
 const handleTodaysTaskListener = (() => {
-    const body = document.getElementById('mainBody')
     const todaysTaskTile = document.getElementById('todaysTasks')
     todaysTaskTile.addEventListener('click', (event) => {
-        body.textContent = ''
+        refreshDOM()
         displayTodaysTasks()
     })
 })();
@@ -74,10 +71,9 @@ const displayTodaysTasks = () => {
 
 // Handle this week's tasks tile
 const handleWeeklyTask = (() => {
-    const body = document.getElementById('mainBody')
     const thisWeek = document.getElementById('thisWeek')
     thisWeek.addEventListener('click', (event) => {
-        body.textContent = ''
+        refreshDOM()
         displayWeeklyTasks()
     })
 })();
@@ -172,9 +168,15 @@ const createAddBtn = (() => {
     
 })()
 
+const refreshDOM = () => {
+    const body = document.getElementById('mainBody')
+    body.textContent = ''
+    gatherTasks()
+}
+
 
 
 displayProjects();
 
 
-export {  activeProject }
+export {  activeProject, refreshDOM }
