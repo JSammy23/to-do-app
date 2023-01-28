@@ -1005,11 +1005,12 @@ module.exports = styleTagTransform;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "activeProject": () => (/* binding */ activeProject),
-/* harmony export */   "closeForm": () => (/* binding */ closeForm),
-/* harmony export */   "openForm": () => (/* binding */ openForm)
+/* harmony export */   "refreshDOM": () => (/* binding */ refreshDOM)
 /* harmony export */ });
 /* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ "./src/javascript/project.js");
 /* harmony import */ var _assets_icons_plus_circle_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/icons/plus-circle.png */ "./src/assets/icons/plus-circle.png");
+/* harmony import */ var _handleForms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./handleForms */ "./src/javascript/handleForms.js");
+
 
 
 
@@ -1022,14 +1023,6 @@ const setActiveProject = (projectName) => {
 }
 
 
-const openForm = () => {
-    document.querySelector('.taskForm').style.display = 'block'
-};
-
-const closeForm = () => {
-    document.querySelector('.taskForm').style.display = 'none'
-};
-
 const displayProjects = () => {
     const projectsDisplay = document.querySelector('.projects')
     _project__WEBPACK_IMPORTED_MODULE_0__.projectList.forEach(item => {
@@ -1039,7 +1032,6 @@ const displayProjects = () => {
 
 // Create project tile in sidebar
 const createTile = (projectName) => {
-    const body = document.getElementById('mainBody')
     const projectsDisplay = document.querySelector('.projects')
     const tile = document.createElement('div')
     tile.classList.add('tile')
@@ -1049,7 +1041,7 @@ const createTile = (projectName) => {
     projectsDisplay.appendChild(tile)
     // This puts listeners on dynamic elements
     tile.addEventListener('click', (event) => {
-        body.textContent = '' // Refresh body every click to avoid duplicates
+        refreshDOM()
         displayTasks(event.target.textContent)
         setActiveProject(event.target.textContent)
     })
@@ -1059,10 +1051,9 @@ const createTile = (projectName) => {
 
 // Handle all tasks tile
 const handleAllTaskListener = (() => {
-    const body = document.getElementById('mainBody')
     const allTasksTile = document.getElementById('allTasks')
     allTasksTile.addEventListener('click', (event) => {
-        body.textContent = ''
+        refreshDOM()
         displayAllTasks()
         setActiveProject(event.target.textContent)
     })
@@ -1077,10 +1068,9 @@ const displayAllTasks = () => {
 
 // Handle today's tasks tile
 const handleTodaysTaskListener = (() => {
-    const body = document.getElementById('mainBody')
     const todaysTaskTile = document.getElementById('todaysTasks')
     todaysTaskTile.addEventListener('click', (event) => {
-        body.textContent = ''
+        refreshDOM()
         displayTodaysTasks()
     })
 })();
@@ -1093,10 +1083,9 @@ const displayTodaysTasks = () => {
 
 // Handle this week's tasks tile
 const handleWeeklyTask = (() => {
-    const body = document.getElementById('mainBody')
     const thisWeek = document.getElementById('thisWeek')
     thisWeek.addEventListener('click', (event) => {
-        body.textContent = ''
+        refreshDOM()
         displayWeeklyTasks()
     })
 })();
@@ -1173,7 +1162,7 @@ const createCard = (task) => {
 };
 
 // Create add button in sidebar
-// TO DO: Size is not responding
+// TO DO: Change color to match theme
 const createAddBtn = (() => {
     // Create buttom
     const controls = document.querySelector('.sideBarControls')
@@ -1186,10 +1175,16 @@ const createAddBtn = (() => {
     controls.appendChild(addBtn)
 
     // Add event listener
-    addBtn.addEventListener('click', openForm)
+    addBtn.addEventListener('click', _handleForms__WEBPACK_IMPORTED_MODULE_2__.openForm)
 
     
 })()
+
+const refreshDOM = () => {
+    const body = document.getElementById('mainBody')
+    body.textContent = ''
+    ;(0,_project__WEBPACK_IMPORTED_MODULE_0__.gatherTasks)()
+}
 
 
 
@@ -1197,6 +1192,81 @@ displayProjects();
 
 
 
+
+/***/ }),
+
+/***/ "./src/javascript/handleForms.js":
+/*!***************************************!*\
+  !*** ./src/javascript/handleForms.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "closeForm": () => (/* binding */ closeForm),
+/* harmony export */   "openForm": () => (/* binding */ openForm)
+/* harmony export */ });
+/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ "./src/javascript/project.js");
+/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task */ "./src/javascript/task.js");
+/* harmony import */ var _DOMController__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DOMController */ "./src/javascript/DOMController.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/isToday/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/isThisWeek/index.js");
+
+
+
+
+
+const taskFormObjects = []
+
+const handleForm = (() => {
+    const taskForm = document.getElementById('taskForm')
+    taskForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const formData = new FormData(taskForm)
+    const taskData = Object.fromEntries(formData)
+    
+    taskFormObjects.push(taskData)
+    addNewTask(taskData)
+
+    closeForm()
+    taskForm.reset()
+    
+})
+})() 
+
+const addNewTask = taskData => {
+    const newTask = (0,_task__WEBPACK_IMPORTED_MODULE_1__["default"])(taskData)
+    const date = new Date(taskData.dueDate)
+    if (_DOMController__WEBPACK_IMPORTED_MODULE_2__.activeProject === 'All Tasks' || _DOMController__WEBPACK_IMPORTED_MODULE_2__.activeProject === undefined) {
+        _project__WEBPACK_IMPORTED_MODULE_0__.allTasks.push(newTask)
+    } 
+    if ((0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(date)) {
+        _project__WEBPACK_IMPORTED_MODULE_0__.todaysTasks.push(newTask)
+    }
+    if ((0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(date)) {
+        _project__WEBPACK_IMPORTED_MODULE_0__.weeklyTasks.push(newTask)
+    }
+    
+    const currentProject = _project__WEBPACK_IMPORTED_MODULE_0__.projectList.find(item => item.projectName === _DOMController__WEBPACK_IMPORTED_MODULE_2__.activeProject)
+    currentProject.tasks.push(newTask)
+    console.log(currentProject.tasks)
+
+    
+    ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.refreshDOM)()
+}
+
+
+
+const openForm = () => {
+    document.querySelector('.taskForm').style.display = 'block'
+};
+
+const closeForm = () => {
+    document.querySelector('.taskForm').style.display = 'none'
+};
+
+// console.log(taskFormObjects)
+ 
 
 /***/ }),
 
@@ -1210,6 +1280,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "allTasks": () => (/* binding */ allTasks),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "gatherTasks": () => (/* binding */ gatherTasks),
 /* harmony export */   "projectList": () => (/* binding */ projectList),
 /* harmony export */   "todaysTasks": () => (/* binding */ todaysTasks),
 /* harmony export */   "weeklyTasks": () => (/* binding */ weeklyTasks)
@@ -1271,17 +1342,23 @@ testProj.newTask({
 });
 
 // Gather all tasks into single array
-const grabTasks = []
-const allTasks = []
-projectList.forEach(item => {
-    grabTasks.push(item.tasks)
-});
 
-for (let i = 0; i < grabTasks.length; i++) {
-    for (let j = 0; j < grabTasks[i].length; j++) {
-        allTasks.push(grabTasks[i][j])
-    }
+const allTasks = []
+
+const gatherTasks = () => {
+    const grabTasks = []
+    projectList.forEach(item => {
+        grabTasks.push(item.tasks)
+    });
+    allTasks.length = 0;
+    for (let i = 0; i < grabTasks.length; i++) {
+        for (let j = 0; j < grabTasks[i].length; j++) {
+            allTasks.push(grabTasks[i][j])
+        }
+    };
+    
 };
+gatherTasks()
 
 // Gather all Tasks due Today
 const todaysTasks = allTasks.filter(task => (0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(task.dueDate))
