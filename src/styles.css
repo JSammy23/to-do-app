@@ -9,6 +9,7 @@
     --dark-darkGray: #1f1f1f;
     --dark-wfont: #fff;
     --accent-pink: #df9dc9;
+    --accent-color: blueviolet;
 }
 
 body {
@@ -37,7 +38,7 @@ body {
 #headerBar {
     grid-column: 1 / span 2;
     height: 40px;
-    border-bottom: 2px solid blueviolet;
+    border-bottom: 2px solid var(--accent-color);
 }
 
 #headerBar,
@@ -77,11 +78,11 @@ body {
     background-color: var(--dark-darkGray);
     padding: 8px;
     cursor: pointer;
-    border-bottom: 1px solid blueviolet;
+    border-bottom: 1px solid var(--accent-color);
 }
 
 .tile:focus {
-    color: blueviolet;
+    color: var(--accent-color);
 }
 
 .tile:nth-child(odd) {
@@ -128,7 +129,7 @@ body {
 }
 
 .roundBox:checked {
-    background-color: blueviolet;
+    background-color: var(--accent-color);
 }
 
 .taskEdit {
