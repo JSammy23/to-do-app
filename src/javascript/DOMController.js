@@ -104,6 +104,9 @@ const createCard = (task) => {
     const titleDiv = document.createElement('div')
     const title = document.createElement('h3')
     title.textContent = task.taskName
+    if (task.completed === true) {
+        title.classList.add('checked')
+    }
     titleDiv.appendChild(title)
 
     // Handle complete button
@@ -188,4 +191,4 @@ const listenForTaskCompletion = (button) => {
 displayProjects();
 
 
-export {  activeProject, refreshDOM, displayTasks }
+export {  activeProject, refreshDOM, displayTasks, displayAllTasks }
