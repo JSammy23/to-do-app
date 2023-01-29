@@ -107,21 +107,11 @@ const createCard = (task) => {
     titleDiv.appendChild(title)
 
     // Handle complete button
-    const checkBtn = document.createElement('button')
-    checkBtn.classList.add('taskCheckMark')
-    checkBtn.setAttribute('id', task.taskName)
-    const circleSvg = document.createElementNS("http://www.w3.org/2000/svg", 'svg')
-    const circlePath = document.createElementNS("http://www.w3.org/2000/svg", 'path')
-
-    circleSvg.setAttribute('width', '25px')
-    circleSvg.setAttribute('viewBox', '0 0 24 24')
-    circleSvg.setAttribute('fill', 'white')
-
-    circlePath.setAttribute('d', 'M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z')
-
-    circleSvg.appendChild(circlePath)
-    checkBtn.appendChild(circleSvg)
-    listenForTaskCompletion(checkBtn)
+    const checkBox = document.createElement('input')
+    checkBox.type = 'checkbox'
+    checkBox.id = task.taskName
+    checkBox.classList.add('roundBox')
+    listenForTaskCompletion(checkBox)
 
     // Handle note
     const note = document.createElement('p')
@@ -146,7 +136,7 @@ const createCard = (task) => {
 
 
     // Append card in order 
-    card.appendChild(checkBtn)
+    card.appendChild(checkBox)
     card.appendChild(titleDiv)
     card.appendChild(editBtn)
     body.appendChild(card)
@@ -180,8 +170,13 @@ const refreshDOM = () => {
 // Listen for completed task
 const listenForTaskCompletion = (button) => {
     button.addEventListener('click', (event) => {
-        console.log(event.target.closest('button').id)
-        // Trigger current task completed = true
+        const task = allTasks.find(task => task.taskName === event.target.id)
+        if (task.completed === false) {
+            task.completed = true
+        } else if (task.completed === true) {
+            task.completed = false
+        }
+        // console.log(task)
     })
 }
 
