@@ -60,7 +60,6 @@ const gatherTasks = () => {
     projectList.forEach(item => {
         grabTasks.push(item.tasks)
     });
-    // allTasks.length = 0;
     for (let i = 0; i < grabTasks.length; i++) {
         for (let j = 0; j < grabTasks[i].length; j++) {
             let name = grabTasks[i][j].taskName
