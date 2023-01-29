@@ -60,10 +60,14 @@ const gatherTasks = () => {
     projectList.forEach(item => {
         grabTasks.push(item.tasks)
     });
-    allTasks.length = 0;
+    // allTasks.length = 0;
     for (let i = 0; i < grabTasks.length; i++) {
         for (let j = 0; j < grabTasks[i].length; j++) {
-            allTasks.push(grabTasks[i][j])
+            let name = grabTasks[i][j].taskName
+            let index = allTasks.findIndex(task => task.taskName === name)
+            if (index === -1) {
+                allTasks.push(grabTasks[i][j])
+            }
         }
     };
     
