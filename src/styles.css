@@ -101,10 +101,6 @@ body {
     margin-top: 20px;
 }
 
-.note {
-    color: rgba(255, 255, 255, .5);
-}
-
 .card > button {
     background: none;
     outline: none;
@@ -112,8 +108,27 @@ body {
     cursor: pointer;
 }
 
-.taskCheckMark {
+.note {
+    color: rgba(255, 255, 255, .5);
+}
+
+.roundBox {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: var(--dark-darkGray);
+    border-radius: 50%;
+    /* vertical-align: middle; */
+    border: 2px solid #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
     margin-right: 10px;
+    align-self: center;
+}
+
+.roundBox:checked {
+    background-color: blueviolet;
 }
 
 .taskEdit {
