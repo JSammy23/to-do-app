@@ -111,6 +111,11 @@ const createCard = (task) => {
     checkBox.type = 'checkbox'
     checkBox.id = task.taskName
     checkBox.classList.add('roundBox')
+    if (task.completed === true) {
+        checkBox.checked = true
+    } else if (task.completed === false) {
+        checkBox.checked = false
+    }
     listenForTaskCompletion(checkBox)
 
     // Handle note
@@ -176,7 +181,7 @@ const listenForTaskCompletion = (button) => {
         } else if (task.completed === true) {
             task.completed = false
         }
-        // console.log(task)
+        console.log(task)
     })
 }
 
