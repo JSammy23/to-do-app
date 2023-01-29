@@ -102,6 +102,14 @@ body {
     margin-top: 20px;
 }
 
+.card:hover {
+    transition: all .1s ease-in-out;
+    transform: scale(1.05); 
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
 .card > button {
     background: none;
     outline: none;
@@ -130,6 +138,11 @@ body {
 
 .roundBox:checked {
     background-color: var(--accent-color);
+}
+
+.checked {
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, .5);
 }
 
 .taskEdit {
