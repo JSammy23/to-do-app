@@ -1,7 +1,7 @@
 import Project, { allTasks, projectList, todaysTasks, weeklyTasks } from "./project"
 import Task from "./task"
 import { activeProject, refreshDOM, displayTasks, displayAllTasks, createTile } from "./DOMController"
-import { isToday, isThisWeek } from "date-fns"
+import { isToday, isThisWeek, format } from "date-fns"
 
 const taskFormObjects = []
 
@@ -99,6 +99,8 @@ const listenForCloseProjectForm = (() => {
     })
 })()
 
+
+
 function dropMenu() {
     const menu = document.querySelector('.dropDownContent')
     menu.style.display = 'block'
@@ -126,4 +128,42 @@ function closeProjectForm() {
     document.getElementById('projectFormDiv').style.display = 'none'
 }
 
-export { openTaskForm, closeTaskForm, dropMenu } 
+function openTaskEditForm(taskName) {
+    document.querySelector('.editTaskForm').style.display = 'block'
+    const nameInput = document.getElementById('taskNameEdit')
+    const noteInput = document.getElementById('noteEdit')
+    const dateInput = document.getElementById('dueDateEdit')
+    const priorityInput = document.getElementById('priorityEdit')
+    const task = allTasks.find(task => task.taskName === taskName)
+    const taskDate = format((task.dueDate), 'yyyy-MM-dd')
+    nameInput.value = task.taskName
+    noteInput.value = task.note
+    dateInput.value = taskDate
+
+    // Save Changes
+    task.taskName = nameInput.value
+    task.note = noteInput.value
+    task.dueDate = dateInput.value
+    task.priority = priorityInput.value
+    
+    console.log(task)
+}
+
+const resetTaskEditForm = () => {
+    const nameInput = document.getElementById('taskNameEdit')
+    const noteInput = document.getElementById('noteEdit')
+    const dateInput = document.getElementById('dueDateEdit')
+
+    nameInput.value = ''
+    noteInput.value = ''
+    dateInput.value = ''
+}
+
+const closeTaskEditListener = (() => {
+    const button = document.getElementById('editTaskClose')
+    button.addEventListener('click', () => {
+        document.querySelector('.editTaskForm').style.display = 'none'
+    })
+})()
+
+export { openTaskForm, closeTaskForm, dropMenu, openTaskEditForm } 
