@@ -11,22 +11,26 @@
         <div id="headerBar"></div>
         <div id="sideBar">
             <div class="taskFolders">
-                <div id="allTasks" class="tile">
+                <div tabindex="0" id="allTasks" class="tile">
                     <h2>All Tasks</h2>
                 </div>
-                <div id="todaysTasks" class="tile">
+                <div tabindex="0" id="todaysTasks" class="tile">
                     <h2>Today</h2>
                 </div>
-                <div id="thisWeek" class="tile">
+                <div tabindex="0" id="thisWeek" class="tile">
                     <h2>This Week</h2>
                 </div>
             </div>
             <div class="projects">
-                <!-- <div class="tile">
-                    <h2>Project Name</h2>
-                </div> -->
             </div>
-            <div class="sideBarControls"></div>
+            <div class="sideBarControls">
+                <div class="dropDown">
+                    <div class="dropDownContent">
+                        <a id="newTask" href="#">New Task</a>
+                        <a id="newProject" href="#">New Project</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="mainBody">
         </div>
@@ -35,7 +39,7 @@
                 <form action="#" id="taskForm">
                     <div class="formHeader">
                         <h1>New Task</h1>
-                        <button id="closeTask">
+                        <button type="button" id="closeTask">
                             <svg width="50px"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.048"></g><g id="SVGRepo_iconCarrier"> <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9.16998 14.83L14.83 9.17004" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M14.83 14.83L9.16998 9.17004" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                         </button>
                     </div>
@@ -45,7 +49,8 @@
                         type="text"
                         name="taskName"
                         id="taskName"
-                        placeholder="What needs to be done" >
+                        placeholder="What needs to be done"
+                        required >
                         
                     </div>
                     <div class="formLegend">
@@ -73,6 +78,25 @@
                     </div>
                 </form>
             </div>
+        </div>
+        <div class="projectForm" id="projectFormDiv">
+            <form action="#" id="projectForm">
+                <div class="formHeader">
+                    <h1>New Project</h1>
+                </div>
+                <div class="formLegend">
+                    <label for="projectName">Title: </label>
+                    <input 
+                    type="text" 
+                    name="projectName"
+                    id="projectName"
+                    placeholder="Name of project"
+                    required>
+                </div>
+                <div class="formFooter">
+                    <button type="submit" form="projectForm">Add Project</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>

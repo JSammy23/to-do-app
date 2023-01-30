@@ -26,7 +26,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*, *::before, *::after {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n:root {\n    --dark-lightGray: #282828;\n    --dark-darkGray: #1f1f1f;\n    --dark-wfont: #fff;\n    --accent-pink: #df9dc9;\n    --accent-color: blueviolet;\n}\n\nbody {\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n\n#content {\n    width: 85vw;\n    height: 85vh;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 50px;\n    /* border: 3px solid red; */\n    display: grid;\n    color: var(--dark-wfont);\n    grid-template-columns: 375px auto;\n    grid-template-rows: min-content;\n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);;\n}\n\n#headerBar {\n    grid-column: 1 / span 2;\n    height: 40px;\n    border-bottom: 2px solid var(--accent-color);\n}\n\n#headerBar,\n#sideBar {\n    background-color: var(--dark-lightGray);\n    color: var(--dark-wfont);\n}\n\n#sideBar {\n    border-right: 1px solid black;\n    box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -webkit-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -moz-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    z-index: 10;\n    display: flex;\n    flex-direction: column;\n}\n\n.sideBarControls {\n    margin-top: auto;\n}\n\n.sideBarControls > button {\n    border: none;\n    outline: none;\n    background: none;\n    margin-top: auto;\n    cursor: pointer;\n}\n\n#mainBody {\n    background-color: var(--dark-darkGray);\n\n}\n\n.tile {\n    background-color: var(--dark-darkGray);\n    padding: 8px;\n    cursor: pointer;\n    border-bottom: 1px solid var(--accent-color);\n}\n\n.tile:focus {\n    color: var(--accent-color);\n}\n\n.tile:nth-child(odd) {\n    background-color: var(--dark-lightGray);\n}\n\n.card {\n    /* border: 2px solid red; */\n    border-radius: 10px;\n    background-color: var(--dark-lightGray);\n    display: flex;\n    /* justify-content: space-between; */\n    padding: 8px;\n    width: 85%;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 20px;\n}\n\n.card:hover {\n    transition: all .1s ease-in-out;\n    transform: scale(1.05); \n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n}\n\n.card > button {\n    background: none;\n    outline: none;\n    border: none;\n    cursor: pointer;\n}\n\n.note {\n    color: rgba(255, 255, 255, .5);\n}\n\n.roundBox {\n    width: 1.3em;\n    height: 1.3em;\n    background-color: var(--dark-darkGray);\n    border-radius: 50%;\n    /* vertical-align: middle; */\n    border: 2px solid #fff;\n    appearance: none;\n    -webkit-appearance: none;\n    outline: none;\n    cursor: pointer;\n    margin-right: 10px;\n    align-self: center;\n}\n\n.roundBox:checked {\n    background-color: var(--accent-color);\n}\n\n.checked {\n    text-decoration: line-through;\n    color: rgba(255, 255, 255, .5);\n}\n\n.taskEdit {\n    margin-left: auto;\n}\n\n.taskFolders {\n    border-bottom: 2px solid #fff;\n    min-height: 25%;\n    /* padding: 8px; */\n    margin-bottom: 1rem;\n}\n\n.taskForm {\n    /* Change display before production */\n    display: none; \n    position: fixed;\n    top: 25%;\n    left: 35%;\n    border: 2px solid var(--accent-pink);\n    width: 800px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    padding: 15px;\n    border-radius: 15px;\n    font-size: 1.25rem;\n}\n\n.formFooter {\n    display: flex;\n    justify-content: end;\n}\n\n.formFooter > button {\n    background: none;\n    outline: none;\n    border: 2px solid var(--accent-pink);\n    border-radius: 15px;\n    color: var(--accent-pink);\n    padding: 8px;\n    cursor: pointer;\n}\n\ninput {\n    font-size: 1.25rem;\n}\n\ninput[type=text] {\n    width: 500px;\n}\n\nselect {\n    font-size: 1.25rem;\n    width: 200px;\n}\n\n.formLegend {\n    padding: 20px;\n}\n\n.formHeader {\n    display: flex;\n    justify-content: space-between;\n}\n\n#closeTask {\n    border: none;\n    outline: none;\n    background: none;\n    cursor: pointer;\n}", "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"AAAA;IACI,SAAS;IACT,UAAU;IACV,sBAAsB;AAC1B;;AAEA;IACI,yBAAyB;IACzB,wBAAwB;IACxB,kBAAkB;IAClB,sBAAsB;IACtB,0BAA0B;AAC9B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,gBAAgB;IAChB,mDAAwC;AAC5C;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;IAChB,2BAA2B;IAC3B,aAAa;IACb,wBAAwB;IACxB,iCAAiC;IACjC,+BAA+B;IAC/B,8CAA8C;IAC9C,sDAAsD;IACtD,mDAAmD;AACvD;;AAEA;IACI,uBAAuB;IACvB,YAAY;IACZ,4CAA4C;AAChD;;AAEA;;IAEI,uCAAuC;IACvC,wBAAwB;AAC5B;;AAEA;IACI,6BAA6B;IAC7B,4CAA4C;IAC5C,oDAAoD;IACpD,iDAAiD;IACjD,WAAW;IACX,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,gBAAgB;IAChB,gBAAgB;IAChB,eAAe;AACnB;;AAEA;IACI,sCAAsC;;AAE1C;;AAEA;IACI,sCAAsC;IACtC,YAAY;IACZ,eAAe;IACf,4CAA4C;AAChD;;AAEA;IACI,0BAA0B;AAC9B;;AAEA;IACI,uCAAuC;AAC3C;;AAEA;IACI,2BAA2B;IAC3B,mBAAmB;IACnB,uCAAuC;IACvC,aAAa;IACb,oCAAoC;IACpC,YAAY;IACZ,UAAU;IACV,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,+BAA+B;IAC/B,sBAAsB;IACtB,8CAA8C;IAC9C,sDAAsD;IACtD,mDAAmD;AACvD;;AAEA;IACI,gBAAgB;IAChB,aAAa;IACb,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,8BAA8B;AAClC;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,sCAAsC;IACtC,kBAAkB;IAClB,4BAA4B;IAC5B,sBAAsB;IACtB,gBAAgB;IAChB,wBAAwB;IACxB,aAAa;IACb,eAAe;IACf,kBAAkB;IAClB,kBAAkB;AACtB;;AAEA;IACI,qCAAqC;AACzC;;AAEA;IACI,6BAA6B;IAC7B,8BAA8B;AAClC;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,eAAe;IACf,kBAAkB;IAClB,mBAAmB;AACvB;;AAEA;IACI,qCAAqC;IACrC,aAAa;IACb,eAAe;IACf,QAAQ;IACR,SAAS;IACT,oCAAoC;IACpC,YAAY;IACZ,uCAAuC;IACvC,WAAW;IACX,aAAa;IACb,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,oBAAoB;AACxB;;AAEA;IACI,gBAAgB;IAChB,aAAa;IACb,oCAAoC;IACpC,mBAAmB;IACnB,yBAAyB;IACzB,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,gBAAgB;IAChB,eAAe;AACnB","sourcesContent":["*, *::before, *::after {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n:root {\n    --dark-lightGray: #282828;\n    --dark-darkGray: #1f1f1f;\n    --dark-wfont: #fff;\n    --accent-pink: #df9dc9;\n    --accent-color: blueviolet;\n}\n\nbody {\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    background: url(./assets/img/forest.jpg);\n}\n\n#content {\n    width: 85vw;\n    height: 85vh;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 50px;\n    /* border: 3px solid red; */\n    display: grid;\n    color: var(--dark-wfont);\n    grid-template-columns: 375px auto;\n    grid-template-rows: min-content;\n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);;\n}\n\n#headerBar {\n    grid-column: 1 / span 2;\n    height: 40px;\n    border-bottom: 2px solid var(--accent-color);\n}\n\n#headerBar,\n#sideBar {\n    background-color: var(--dark-lightGray);\n    color: var(--dark-wfont);\n}\n\n#sideBar {\n    border-right: 1px solid black;\n    box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -webkit-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -moz-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    z-index: 10;\n    display: flex;\n    flex-direction: column;\n}\n\n.sideBarControls {\n    margin-top: auto;\n}\n\n.sideBarControls > button {\n    border: none;\n    outline: none;\n    background: none;\n    margin-top: auto;\n    cursor: pointer;\n}\n\n#mainBody {\n    background-color: var(--dark-darkGray);\n\n}\n\n.tile {\n    background-color: var(--dark-darkGray);\n    padding: 8px;\n    cursor: pointer;\n    border-bottom: 1px solid var(--accent-color);\n}\n\n.tile:focus {\n    color: var(--accent-color);\n}\n\n.tile:nth-child(odd) {\n    background-color: var(--dark-lightGray);\n}\n\n.card {\n    /* border: 2px solid red; */\n    border-radius: 10px;\n    background-color: var(--dark-lightGray);\n    display: flex;\n    /* justify-content: space-between; */\n    padding: 8px;\n    width: 85%;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 20px;\n}\n\n.card:hover {\n    transition: all .1s ease-in-out;\n    transform: scale(1.05); \n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n}\n\n.card > button {\n    background: none;\n    outline: none;\n    border: none;\n    cursor: pointer;\n}\n\n.note {\n    color: rgba(255, 255, 255, .5);\n}\n\n.roundBox {\n    width: 1.3em;\n    height: 1.3em;\n    background-color: var(--dark-darkGray);\n    border-radius: 50%;\n    /* vertical-align: middle; */\n    border: 2px solid #fff;\n    appearance: none;\n    -webkit-appearance: none;\n    outline: none;\n    cursor: pointer;\n    margin-right: 10px;\n    align-self: center;\n}\n\n.roundBox:checked {\n    background-color: var(--accent-color);\n}\n\n.checked {\n    text-decoration: line-through;\n    color: rgba(255, 255, 255, .5);\n}\n\n.taskEdit {\n    margin-left: auto;\n}\n\n.taskFolders {\n    border-bottom: 2px solid #fff;\n    min-height: 25%;\n    /* padding: 8px; */\n    margin-bottom: 1rem;\n}\n\n.taskForm {\n    /* Change display before production */\n    display: none; \n    position: fixed;\n    top: 25%;\n    left: 35%;\n    border: 2px solid var(--accent-pink);\n    width: 800px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    padding: 15px;\n    border-radius: 15px;\n    font-size: 1.25rem;\n}\n\n.formFooter {\n    display: flex;\n    justify-content: end;\n}\n\n.formFooter > button {\n    background: none;\n    outline: none;\n    border: 2px solid var(--accent-pink);\n    border-radius: 15px;\n    color: var(--accent-pink);\n    padding: 8px;\n    cursor: pointer;\n}\n\ninput {\n    font-size: 1.25rem;\n}\n\ninput[type=text] {\n    width: 500px;\n}\n\nselect {\n    font-size: 1.25rem;\n    width: 200px;\n}\n\n.formLegend {\n    padding: 20px;\n}\n\n.formHeader {\n    display: flex;\n    justify-content: space-between;\n}\n\n#closeTask {\n    border: none;\n    outline: none;\n    background: none;\n    cursor: pointer;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "*, *::before, *::after {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n:root {\n    --dark-lightGray: #282828;\n    --dark-darkGray: #1f1f1f;\n    --dark-wfont: #fff;\n    --accent-pink: #df9dc9;\n    --accent-color: blueviolet;\n}\n\nbody {\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n\n#content {\n    width: 85vw;\n    height: 85vh;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 50px;\n    /* border: 3px solid red; */\n    display: grid;\n    color: var(--dark-wfont);\n    grid-template-columns: 375px auto;\n    grid-template-rows: min-content;\n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);;\n}\n\n#headerBar {\n    grid-column: 1 / span 2;\n    height: 40px;\n    border-bottom: 2px solid var(--accent-color);\n}\n\n#headerBar,\n#sideBar {\n    background-color: var(--dark-lightGray);\n    color: var(--dark-wfont);\n}\n\n#sideBar {\n    border-right: 1px solid black;\n    box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -webkit-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -moz-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    z-index: 10;\n    display: flex;\n    flex-direction: column;\n}\n\n.sideBarControls {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: 25px;\n}\n\n.dropDown {\n    position: relative;\n    display: inline-block;\n}\n\n.dropDownContent {\n    display: none;\n    margin-top: -20px;\n    position: absolute;\n    background-color: #f1f1f1;\n    min-width: 160px;\n    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n    z-index: 1;\n}\n\n.dropDownContent a {\n    color: black;\n    padding: 12px 16px;\n    text-decoration: none;\n    display: block; \n}\n\n.dropDownContent a:hover {\n    background-color: #ddd;\n}\n\n.addSvg:hover {\n    cursor: pointer;\n}\n\n\n.sideBarControls > button,\n.card > button,\n#closeTask {\n    border: none;\n    outline: none;\n    background: none;\n    cursor: pointer;\n}\n\n#mainBody {\n    background-color: var(--dark-darkGray);\n\n}\n\n.tile {\n    background-color: var(--dark-darkGray);\n    padding: 8px;\n    cursor: pointer;\n    border-bottom: 1px solid var(--accent-color);\n}\n\n.tile:focus {\n    color: var(--accent-color);\n    /* transition: all .1s ease-in-out;\n    transform: scale(1.05); */\n}\n\n.tile:nth-child(odd) {\n    background-color: var(--dark-lightGray);\n}\n\n.card {\n    border-radius: 10px;\n    background-color: var(--dark-lightGray);\n    display: flex;\n    padding: 8px;\n    width: 85%;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 20px;\n}\n\n.card:hover {\n    transition: all .1s ease-in-out;\n    transform: scale(1.05); \n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n}\n\n.card > button {\n    background: none;\n    outline: none;\n    border: none;\n    cursor: pointer;\n}\n\n.note {\n    color: rgba(255, 255, 255, .5);\n}\n\n.roundBox {\n    width: 1.3em;\n    height: 1.3em;\n    background-color: var(--dark-darkGray);\n    border-radius: 50%;\n    border: 2px solid #fff;\n    appearance: none;\n    -webkit-appearance: none;\n    outline: none;\n    cursor: pointer;\n    margin-right: 10px;\n    align-self: center;\n}\n\n.roundBox:checked {\n    background-color: var(--accent-color);\n}\n\n.checked {\n    text-decoration: line-through;\n    color: rgba(255, 255, 255, .5);\n}\n\n.taskEdit {\n    margin-left: auto;\n}\n\n.taskFolders {\n    border-bottom: 2px solid #fff;\n    min-height: 25%;\n    margin-bottom: 1rem;\n}\n\n.taskForm,\n.projectForm {\n    /* Change display before production */\n    position: fixed;\n    top: 25%;\n    left: 35%;\n    border: 2px solid var(--accent-pink);\n    width: 800px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    padding: 15px;\n    border-radius: 15px;\n    font-size: 1.25rem;\n}\n\n#projectFormDiv {\n    display: none;\n}\n\n.taskForm {\n    display: none;\n}\n\n.formFooter {\n    display: flex;\n    justify-content: end;\n}\n\n.formFooter > button {\n    background: none;\n    outline: none;\n    border: 2px solid var(--accent-pink);\n    border-radius: 15px;\n    color: var(--accent-pink);\n    padding: 8px;\n    cursor: pointer;\n}\n\ninput {\n    font-size: 1.25rem;\n}\n\ninput[type=text] {\n    width: 500px;\n}\n\nselect {\n    font-size: 1.25rem;\n    width: 200px;\n}\n\n.formLegend {\n    padding: 20px;\n}\n\n.formHeader {\n    display: flex;\n    justify-content: space-between;\n}\n", "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"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","sourcesContent":["*, *::before, *::after {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n:root {\n    --dark-lightGray: #282828;\n    --dark-darkGray: #1f1f1f;\n    --dark-wfont: #fff;\n    --accent-pink: #df9dc9;\n    --accent-color: blueviolet;\n}\n\nbody {\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    background: url(./assets/img/forest.jpg);\n}\n\n#content {\n    width: 85vw;\n    height: 85vh;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 50px;\n    /* border: 3px solid red; */\n    display: grid;\n    color: var(--dark-wfont);\n    grid-template-columns: 375px auto;\n    grid-template-rows: min-content;\n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);;\n}\n\n#headerBar {\n    grid-column: 1 / span 2;\n    height: 40px;\n    border-bottom: 2px solid var(--accent-color);\n}\n\n#headerBar,\n#sideBar {\n    background-color: var(--dark-lightGray);\n    color: var(--dark-wfont);\n}\n\n#sideBar {\n    border-right: 1px solid black;\n    box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -webkit-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -moz-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    z-index: 10;\n    display: flex;\n    flex-direction: column;\n}\n\n.sideBarControls {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: 25px;\n}\n\n.dropDown {\n    position: relative;\n    display: inline-block;\n}\n\n.dropDownContent {\n    display: none;\n    margin-top: -20px;\n    position: absolute;\n    background-color: #f1f1f1;\n    min-width: 160px;\n    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n    z-index: 1;\n}\n\n.dropDownContent a {\n    color: black;\n    padding: 12px 16px;\n    text-decoration: none;\n    display: block; \n}\n\n.dropDownContent a:hover {\n    background-color: #ddd;\n}\n\n.addSvg:hover {\n    cursor: pointer;\n}\n\n\n.sideBarControls > button,\n.card > button,\n#closeTask {\n    border: none;\n    outline: none;\n    background: none;\n    cursor: pointer;\n}\n\n#mainBody {\n    background-color: var(--dark-darkGray);\n\n}\n\n.tile {\n    background-color: var(--dark-darkGray);\n    padding: 8px;\n    cursor: pointer;\n    border-bottom: 1px solid var(--accent-color);\n}\n\n.tile:focus {\n    color: var(--accent-color);\n    /* transition: all .1s ease-in-out;\n    transform: scale(1.05); */\n}\n\n.tile:nth-child(odd) {\n    background-color: var(--dark-lightGray);\n}\n\n.card {\n    border-radius: 10px;\n    background-color: var(--dark-lightGray);\n    display: flex;\n    padding: 8px;\n    width: 85%;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 20px;\n}\n\n.card:hover {\n    transition: all .1s ease-in-out;\n    transform: scale(1.05); \n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n}\n\n.card > button {\n    background: none;\n    outline: none;\n    border: none;\n    cursor: pointer;\n}\n\n.note {\n    color: rgba(255, 255, 255, .5);\n}\n\n.roundBox {\n    width: 1.3em;\n    height: 1.3em;\n    background-color: var(--dark-darkGray);\n    border-radius: 50%;\n    border: 2px solid #fff;\n    appearance: none;\n    -webkit-appearance: none;\n    outline: none;\n    cursor: pointer;\n    margin-right: 10px;\n    align-self: center;\n}\n\n.roundBox:checked {\n    background-color: var(--accent-color);\n}\n\n.checked {\n    text-decoration: line-through;\n    color: rgba(255, 255, 255, .5);\n}\n\n.taskEdit {\n    margin-left: auto;\n}\n\n.taskFolders {\n    border-bottom: 2px solid #fff;\n    min-height: 25%;\n    margin-bottom: 1rem;\n}\n\n.taskForm,\n.projectForm {\n    /* Change display before production */\n    position: fixed;\n    top: 25%;\n    left: 35%;\n    border: 2px solid var(--accent-pink);\n    width: 800px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    padding: 15px;\n    border-radius: 15px;\n    font-size: 1.25rem;\n}\n\n#projectFormDiv {\n    display: none;\n}\n\n.taskForm {\n    display: none;\n}\n\n.formFooter {\n    display: flex;\n    justify-content: end;\n}\n\n.formFooter > button {\n    background: none;\n    outline: none;\n    border: 2px solid var(--accent-pink);\n    border-radius: 15px;\n    color: var(--accent-pink);\n    padding: 8px;\n    cursor: pointer;\n}\n\ninput {\n    font-size: 1.25rem;\n}\n\ninput[type=text] {\n    width: 500px;\n}\n\nselect {\n    font-size: 1.25rem;\n    width: 200px;\n}\n\n.formLegend {\n    padding: 20px;\n}\n\n.formHeader {\n    display: flex;\n    justify-content: space-between;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1005,14 +1005,13 @@ module.exports = styleTagTransform;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "activeProject": () => (/* binding */ activeProject),
+/* harmony export */   "createTile": () => (/* binding */ createTile),
 /* harmony export */   "displayAllTasks": () => (/* binding */ displayAllTasks),
 /* harmony export */   "displayTasks": () => (/* binding */ displayTasks),
 /* harmony export */   "refreshDOM": () => (/* binding */ refreshDOM)
 /* harmony export */ });
 /* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ "./src/javascript/project.js");
-/* harmony import */ var _assets_icons_plus_circle_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/icons/plus-circle.png */ "./src/assets/icons/plus-circle.png");
-/* harmony import */ var _handleForms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./handleForms */ "./src/javascript/handleForms.js");
-
+/* harmony import */ var _handleForms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./handleForms */ "./src/javascript/handleForms.js");
 
 
 
@@ -1040,6 +1039,7 @@ const createTile = (projectName) => {
     const name = document.createElement('h2')
     name.textContent = projectName
     tile.appendChild(name)
+    tile.setAttribute('tabindex', '0')
     projectsDisplay.appendChild(tile)
     // This puts listeners on dynamic elements
     tile.addEventListener('click', (event) => {
@@ -1165,22 +1165,19 @@ const createCard = (task) => {
 };
 
 // Create add button in sidebar
-// TO DO: Change color to match theme
 const createAddBtn = (() => {
     // Create buttom
     const controls = document.querySelector('.sideBarControls')
-    const addBtn = document.createElement('button')
-    const icon = document.createElement('img')
-    icon.src = _assets_icons_plus_circle_png__WEBPACK_IMPORTED_MODULE_1__
-    icon.setAttribute('width', '92px')
-    
-    addBtn.appendChild(icon)
-    controls.appendChild(addBtn)
-
-    // Add event listener
-    addBtn.addEventListener('click', _handleForms__WEBPACK_IMPORTED_MODULE_2__.openForm)
-
-    
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", 'svg')
+    const path = document.createElementNS("http://www.w3.org/2000/svg", 'path')
+    svg.classList.add('addSvg')
+    svg.setAttribute('width', '65px')
+    svg.setAttribute('viewbox', "0 0 56 56")
+    svg.setAttribute('fill', 'blueviolet')
+    path.setAttribute('d', 'M 13.7851 49.5742 L 42.2382 49.5742 C 47.1366 49.5742 49.5743 47.1367 49.5743 42.3086 L 49.5743 13.6914 C 49.5743 8.8633 47.1366 6.4258 42.2382 6.4258 L 13.7851 6.4258 C 8.9101 6.4258 6.4257 8.8398 6.4257 13.6914 L 6.4257 42.3086 C 6.4257 47.1602 8.9101 49.5742 13.7851 49.5742 Z M 13.8554 45.8008 C 11.5117 45.8008 10.1992 44.5586 10.1992 42.1211 L 10.1992 13.8789 C 10.1992 11.4414 11.5117 10.1992 13.8554 10.1992 L 42.1679 10.1992 C 44.4882 10.1992 45.8007 11.4414 45.8007 13.8789 L 45.8007 42.1211 C 45.8007 44.5586 44.4882 45.8008 42.1679 45.8008 Z M 27.9882 39.0742 C 29.2304 39.0742 29.9804 38.2071 29.9804 36.8477 L 29.9804 29.9336 L 37.3163 29.9336 C 38.6288 29.9336 39.5429 29.2305 39.5429 27.9883 C 39.5429 26.7227 38.6757 25.9961 37.3163 25.9961 L 29.9804 25.9961 L 29.9804 18.6367 C 29.9804 17.2774 29.2304 16.4102 27.9882 16.4102 C 26.7460 16.4102 26.0429 17.3242 26.0429 18.6367 L 26.0429 25.9961 L 18.7304 25.9961 C 17.3710 25.9961 16.4804 26.7227 16.4804 27.9883 C 16.4804 29.2305 17.4179 29.9336 18.7304 29.9336 L 26.0429 29.9336 L 26.0429 36.8477 C 26.0429 38.1602 26.7460 39.0742 27.9882 39.0742 Z')
+    svg.appendChild(path)
+    svg.addEventListener('click', _handleForms__WEBPACK_IMPORTED_MODULE_1__.dropMenu)
+    controls.appendChild(svg)
 })()
 
 const refreshDOM = () => {
@@ -1217,8 +1214,9 @@ displayProjects();
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "closeForm": () => (/* binding */ closeForm),
-/* harmony export */   "openForm": () => (/* binding */ openForm)
+/* harmony export */   "closeTaskForm": () => (/* binding */ closeTaskForm),
+/* harmony export */   "dropMenu": () => (/* binding */ dropMenu),
+/* harmony export */   "openTaskForm": () => (/* binding */ openTaskForm)
 /* harmony export */ });
 /* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ "./src/javascript/project.js");
 /* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task */ "./src/javascript/task.js");
@@ -1232,7 +1230,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const taskFormObjects = []
 
-const handleForm = (() => {
+const handleTaskForm = (() => {
     const taskForm = document.getElementById('taskForm')
     taskForm.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -1242,11 +1240,22 @@ const handleForm = (() => {
     taskFormObjects.push(taskData)
     addNewTask(taskData)
 
-    closeForm()
+    closeTaskForm()
     taskForm.reset()
     
 })
 })() 
+
+const handleProjectForm = (() => {
+    const projectForm = document.getElementById('projectForm')
+    projectForm.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const projectName = document.getElementById('projectName').value
+        addNewProject(projectName)
+        closeProjectForm()
+        projectForm.reset()
+    })
+})()
 
 const addNewTask = taskData => {
     const newTask = (0,_task__WEBPACK_IMPORTED_MODULE_1__["default"])(taskData)
@@ -1274,17 +1283,65 @@ const addNewTask = taskData => {
     }
 }
 
+const addNewProject = name => {
+    const newProject = (0,_project__WEBPACK_IMPORTED_MODULE_0__["default"])(name)
+    _project__WEBPACK_IMPORTED_MODULE_0__.projectList.push(newProject)
+    ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.createTile)(name)
+}
+
+const listenForCloseForm = (() => {
+    const closeTaskBtn = document.getElementById('closeTask')
+    const taskForm = document.getElementById('taskForm')
+    closeTaskBtn.addEventListener('click', () => {
+        closeForm()
+        taskForm.reset()
+    })
+    
+})()
+
+const listenForTaskForm = (() => {
+    const newTask = document.getElementById('newTask')
+    newTask.addEventListener('click', () => {
+        openTaskForm()
+        hideMenu()
+    })
+})()
+
+const listenForProjectForm = (() => {
+    const newProject = document.getElementById('newProject')
+    newProject.addEventListener('click', () => {
+        openProjectForm()
+        hideMenu()
+    })
+})()
+
+function dropMenu() {
+    const menu = document.querySelector('.dropDownContent')
+    menu.style.display = 'block'
+}
+
+function hideMenu() {
+    const menu = document.querySelector('.dropDownContent')
+    menu.style.display = 'none'
+}
 
 
-const openForm = () => {
+function openTaskForm() {
     document.querySelector('.taskForm').style.display = 'block'
 };
 
-const closeForm = () => {
+function closeTaskForm() {
     document.querySelector('.taskForm').style.display = 'none'
 };
 
-// console.log(taskFormObjects)
+function openProjectForm() {
+   document.getElementById('projectFormDiv').style.display = 'block'
+}
+
+function closeProjectForm() {
+    document.getElementById('projectFormDiv').style.display = 'none'
+}
+
  
 
 /***/ }),
@@ -1433,16 +1490,6 @@ const Task = (taskDetails) => {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Task);
 
-
-/***/ }),
-
-/***/ "./src/assets/icons/plus-circle.png":
-/*!******************************************!*\
-  !*** ./src/assets/icons/plus-circle.png ***!
-  \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "images/plus-circle.png";
 
 /***/ }),
 
