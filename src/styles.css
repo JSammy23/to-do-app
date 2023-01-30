@@ -58,14 +58,49 @@ body {
 }
 
 .sideBarControls {
-    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
 }
 
-.sideBarControls > button {
+.dropDown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropDownContent {
+    display: none;
+    margin-top: -20px;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropDownContent a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; 
+}
+
+.dropDownContent a:hover {
+    background-color: #ddd;
+}
+
+.addSvg:hover {
+    cursor: pointer;
+}
+
+
+.sideBarControls > button,
+.card > button,
+#closeTask {
     border: none;
     outline: none;
     background: none;
-    margin-top: auto;
     cursor: pointer;
 }
 
@@ -83,6 +118,8 @@ body {
 
 .tile:focus {
     color: var(--accent-color);
+    /* transition: all .1s ease-in-out;
+    transform: scale(1.05); */
 }
 
 .tile:nth-child(odd) {
@@ -90,11 +127,9 @@ body {
 }
 
 .card {
-    /* border: 2px solid red; */
     border-radius: 10px;
     background-color: var(--dark-lightGray);
     display: flex;
-    /* justify-content: space-between; */
     padding: 8px;
     width: 85%;
     margin-left: auto;
@@ -126,7 +161,6 @@ body {
     height: 1.3em;
     background-color: var(--dark-darkGray);
     border-radius: 50%;
-    /* vertical-align: middle; */
     border: 2px solid #fff;
     appearance: none;
     -webkit-appearance: none;
@@ -152,13 +186,12 @@ body {
 .taskFolders {
     border-bottom: 2px solid #fff;
     min-height: 25%;
-    /* padding: 8px; */
     margin-bottom: 1rem;
 }
 
-.taskForm {
+.taskForm,
+.projectForm {
     /* Change display before production */
-    display: none; 
     position: fixed;
     top: 25%;
     left: 35%;
@@ -169,6 +202,14 @@ body {
     padding: 15px;
     border-radius: 15px;
     font-size: 1.25rem;
+}
+
+#projectFormDiv {
+    display: none;
+}
+
+.taskForm {
+    display: none;
 }
 
 .formFooter {
@@ -206,11 +247,4 @@ select {
 .formHeader {
     display: flex;
     justify-content: space-between;
-}
-
-#closeTask {
-    border: none;
-    outline: none;
-    background: none;
-    cursor: pointer;
 }
