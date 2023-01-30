@@ -64,11 +64,11 @@ const addNewProject = name => {
     createTile(name)
 }
 
-const listenForCloseForm = (() => {
+const listenForCloseTaskForm = (() => {
     const closeTaskBtn = document.getElementById('closeTask')
     const taskForm = document.getElementById('taskForm')
     closeTaskBtn.addEventListener('click', () => {
-        closeForm()
+        closeTaskForm()
         taskForm.reset()
     })
     
@@ -87,6 +87,15 @@ const listenForProjectForm = (() => {
     newProject.addEventListener('click', () => {
         openProjectForm()
         hideMenu()
+    })
+})()
+
+const listenForCloseProjectForm = (() => {
+    const closeProject = document.getElementById('closeProject')
+    const projectForm = document.getElementById('projectForm')
+    closeProject.addEventListener('click', () => {
+        closeProjectForm()
+        projectForm.reset()
     })
 })()
 

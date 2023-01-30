@@ -97,7 +97,8 @@ body {
 
 .sideBarControls > button,
 .card > button,
-#closeTask {
+#closeTask,
+#closeProject {
     border: none;
     outline: none;
     background: none;
