@@ -98,7 +98,8 @@ body {
 .sideBarControls > button,
 .card > button,
 #closeTask,
-#closeProject {
+#closeProject,
+#editTaskClose {
     border: none;
     outline: none;
     background: none;
@@ -182,7 +183,11 @@ body {
 
 .taskEdit {
     margin-left: auto;
+    cursor: pointer;
 }
+
+
+
 
 .taskFolders {
     border-bottom: 2px solid #fff;
@@ -191,7 +196,8 @@ body {
 }
 
 .taskForm,
-.projectForm {
+.projectForm,
+.editTaskForm {
     /* Change display before production */
     position: fixed;
     top: 25%;
@@ -203,6 +209,13 @@ body {
     padding: 15px;
     border-radius: 15px;
     font-size: 1.25rem;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);;
+}
+
+.editTaskForm {
+    display: none;
 }
 
 #projectFormDiv {
