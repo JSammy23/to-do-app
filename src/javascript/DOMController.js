@@ -1,5 +1,5 @@
 import { projectList, allTasks, todaysTasks, weeklyTasks, gatherTasks } from "./project"
-import { dropMenu, openTaskForm } from "./handleForms";
+import { dropMenu, openTaskEditForm, openTaskForm } from "./handleForms";
 
 let activeProject = undefined;
 
@@ -128,8 +128,6 @@ const createCard = (task) => {
     titleDiv.appendChild(note)
 
     // Handle edit button
-    const editBtn = document.createElement('button')
-    editBtn.classList.add('taskEdit')
     const dotsSvg = document.createElementNS("http://www.w3.org/2000/svg", 'svg')
     const dotsPath = document.createElementNS("http://www.w3.org/2000/svg", 'path')
 
@@ -139,14 +137,17 @@ const createCard = (task) => {
     dotsPath.setAttribute('d', 'M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z')
 
     dotsSvg.appendChild(dotsPath)
-    editBtn.appendChild(dotsSvg)
-    // TODO: listenForEditTask(editBtn)
+    dotsSvg.classList.add('taskEdit')
+    dotsSvg.addEventListener('click', (event) => {
+        console.log(event.target.previousElementSibling.firstChild.textContent)
+        openTaskEditForm(event.target.previousElementSibling.firstChild.textContent)
+    })
 
 
     // Append card in order 
     card.appendChild(checkBox)
     card.appendChild(titleDiv)
-    card.appendChild(editBtn)
+    card.appendChild(dotsSvg)
     body.appendChild(card)
 };
 
