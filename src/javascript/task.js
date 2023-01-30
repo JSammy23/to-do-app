@@ -7,10 +7,6 @@ const Task = (taskDetails) => {
     let completed = false
     let priority = taskDetails.priority;
 
-    const add = () => {
-        // handle form? 
-    }
-
     return {
         taskName, note, dueDate, completed, priority
     }
