@@ -157,6 +157,26 @@ body {
     color: rgba(255, 255, 255, .5);
 }
 
+.cardControls {
+    display: flex;
+    justify-content: end;
+    margin-left: auto;
+    gap: 10px;
+}
+
+.cardControls > p {
+    margin-right: 20px;
+    align-self: flex-end;
+}
+
+.card:hover .trashCan {
+    display: block;
+}
+
+.trashCan {
+    display: none;
+}
+
 .roundBox {
     width: 1.3em;
     height: 1.3em;
