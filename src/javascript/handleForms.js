@@ -134,10 +134,14 @@ function openTaskEditForm(task) {
     const noteInput = document.getElementById('noteEdit')
     const dateInput = document.getElementById('dueDateEdit')
     const priorityInput = document.getElementById('priorityEdit')
-    const taskDate = format((task.dueDate), 'yyyy-MM-dd')
+    if (!(task.dueDate === "" || task.dueDate === undefined)){
+        // const taskDate = format((task.dueDate), 'yyyy-MM-dd')
+        dateInput.value = task.dueDate
+    } 
+    
     nameInput.value = task.taskName
     noteInput.value = task.note
-    dateInput.value = taskDate
+    
 
     // Save Changes
     const saveBtn = document.getElementById('saveEdit')
@@ -147,15 +151,15 @@ function openTaskEditForm(task) {
         task.dueDate = dateInput.value
         task.priority = priorityInput.value
         document.querySelector('.editTaskForm').style.display = 'none'
-        console.log(task)
+        console.log(task) // TODO: All Tasks array duplicating with several edits
     })
 }
 
-const closeTaskEditListener = () => {
+const closeTaskEditListener = (() => {
     const button = document.getElementById('editTaskClose')
     button.addEventListener('click', () => {
         document.querySelector('.editTaskForm').style.display = 'none'
     })
-}
+})()
 
 export { openTaskForm, closeTaskForm, dropMenu, openTaskEditForm } 

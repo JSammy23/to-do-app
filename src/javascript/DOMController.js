@@ -64,7 +64,7 @@ const handleTodaysTaskListener = (() => {
         refreshDOM()
         grabTasks()
         displayTodaysTasks()
-        setActiveProject(event.target.textContent)
+        // setActiveProject(event.target.textContent)
     })
 })();
 
@@ -80,7 +80,7 @@ const handleWeeklyTask = (() => {
     thisWeek.addEventListener('click', (event) => {
         refreshDOM()
         displayWeeklyTasks()
-        setActiveProject(event.target.textContent)
+        // setActiveProject(event.target.textContent)
     })
 })();
 
