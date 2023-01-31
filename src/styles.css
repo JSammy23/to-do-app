@@ -182,6 +182,7 @@ body {
 
 .taskEdit {
     margin-left: auto;
+    cursor: pointer;
 }
 
 .taskFolders {
@@ -191,7 +192,8 @@ body {
 }
 
 .taskForm,
-.projectForm {
+.projectForm,
+.editTaskForm {
     /* Change display before production */
     position: fixed;
     top: 25%;
@@ -203,6 +205,10 @@ body {
     padding: 15px;
     border-radius: 15px;
     font-size: 1.25rem;
+}
+
+.editTaskForm {
+    display: none;
 }
 
 #projectFormDiv {
@@ -234,11 +240,22 @@ input {
 
 input[type=text] {
     width: 500px;
+    background-color: var(--dark-lightGray);
+    color: #fff;
+    outline: none;
+    border: none;
+}
+
+select,
+input[type=date] {
+    font-size: 1.25rem;
+    background-color: var(--dark-lightGray);
+    color: #fff;
+    border: none;
 }
 
 select {
-    font-size: 1.25rem;
-    width: 200px;
+    width: 100px;
 }
 
 .formLegend {

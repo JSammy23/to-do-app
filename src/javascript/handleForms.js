@@ -1,7 +1,7 @@
-import Project, { allTasks, projectList, todaysTasks, weeklyTasks } from "./project"
-import Task from "./task"
-import { activeProject, refreshDOM, displayTasks, displayAllTasks, createTile } from "./DOMController"
-import { isToday, isThisWeek } from "date-fns"
+import Project, { allTasks, projectMap, todaysTasks, weeklyTasks, grabTasks, activeProject, addProjectToMap } from "./project"
+import Task, { addTaskToMap } from "./task"
+import { refreshDOM, displayAllTasks, createTile, displayTasks } from "./DOMController"
+import { isToday, isThisWeek, format } from "date-fns"
 
 const taskFormObjects = []
 
@@ -14,7 +14,7 @@ const handleTaskForm = (() => {
     
     taskFormObjects.push(taskData)
     addNewTask(taskData)
-
+    grabTasks()
     closeTaskForm()
     taskForm.reset()
     
@@ -35,6 +35,7 @@ const handleProjectForm = (() => {
 const addNewTask = taskData => {
     const newTask = Task(taskData)
     const date = new Date(taskData.dueDate.replace(/-/g, '\/'))
+    addTaskToMap(newTask)
     if (activeProject === 'All Tasks' || activeProject === undefined) {
         allTasks.push(newTask)
         refreshDOM()
@@ -43,8 +44,9 @@ const addNewTask = taskData => {
         
         
     } else if ((activeProject !== 'All Tasks' || activeProject !== undefined)) {
-        const currentProject = projectList.find(item => item.projectName === activeProject)
+        const currentProject = projectMap.get(`${activeProject}`)
         currentProject.tasks.push(newTask)
+        newTask.project = activeProject
         console.log(currentProject.tasks)
         refreshDOM()
         displayTasks(activeProject)
@@ -60,7 +62,7 @@ const addNewTask = taskData => {
 
 const addNewProject = name => {
     const newProject = Project(name)
-    projectList.push(newProject)
+    addProjectToMap(newProject)
     createTile(name)
 }
 
@@ -126,4 +128,38 @@ function closeProjectForm() {
     document.getElementById('projectFormDiv').style.display = 'none'
 }
 
-export { openTaskForm, closeTaskForm, dropMenu } 
+function openTaskEditForm(task) {
+    document.querySelector('.editTaskForm').style.display = 'block'
+    const nameInput = document.getElementById('taskNameEdit')
+    const noteInput = document.getElementById('noteEdit')
+    const dateInput = document.getElementById('dueDateEdit')
+    const priorityInput = document.getElementById('priorityEdit')
+    if (!(task.dueDate === "" || task.dueDate === undefined)){
+        // const taskDate = format((task.dueDate), 'yyyy-MM-dd')
+        dateInput.value = task.dueDate
+    } 
+    
+    nameInput.value = task.taskName
+    noteInput.value = task.note
+    
+
+    // Save Changes
+    const saveBtn = document.getElementById('saveEdit')
+    saveBtn.addEventListener('click', () => {
+        task.taskName = nameInput.value
+        task.note = noteInput.value
+        task.dueDate = dateInput.value
+        task.priority = priorityInput.value
+        document.querySelector('.editTaskForm').style.display = 'none'
+        console.log(task) // TODO: All Tasks array duplicating with several edits
+    })
+}
+
+const closeTaskEditListener = (() => {
+    const button = document.getElementById('editTaskClose')
+    button.addEventListener('click', () => {
+        document.querySelector('.editTaskForm').style.display = 'none'
+    })
+})()
+
+export { openTaskForm, closeTaskForm, dropMenu, openTaskEditForm } 
