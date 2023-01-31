@@ -1,20 +1,15 @@
-import { projectList, allTasks, todaysTasks, weeklyTasks, gatherTasks } from "./project"
+import { projectMap, allTasks, todaysTasks, weeklyTasks, grabTasks, setActiveProject } from "./project"
 import { dropMenu, openTaskForm } from "./handleForms";
+import { taskList, taskMap } from "./task";
 
-let activeProject = undefined;
 
-// Set active project
-const setActiveProject = (projectName) => {
-    activeProject = projectName
-    console.log(activeProject)
-}
 
 
 const displayProjects = () => {
     const projectsDisplay = document.querySelector('.projects')
-    projectList.forEach(item => {
-        createTile(item.projectName)
-    });
+    for (let value of projectMap.values()) {
+        createCard(value)
+    }
 };
 
 // Create project tile in sidebar
@@ -37,11 +32,19 @@ const createTile = (projectName) => {
     return tile;
 };
 
-// Handle all tasks tile
+const displayTasks = projectName => {
+    const project = projectMap.get(`${projectName}`)
+    for (let i = 0; i < project.tasks.length; i++){
+        createCard(project.tasks[i])
+    }
+};
+
+// Handle All Tasks filter tile
 const handleAllTaskListener = (() => {
     const allTasksTile = document.getElementById('allTasks')
     allTasksTile.addEventListener('click', (event) => {
         refreshDOM()
+        grabTasks()
         displayAllTasks()
         setActiveProject(event.target.textContent)
     })
@@ -59,7 +62,9 @@ const handleTodaysTaskListener = (() => {
     const todaysTaskTile = document.getElementById('todaysTasks')
     todaysTaskTile.addEventListener('click', (event) => {
         refreshDOM()
+        grabTasks()
         displayTodaysTasks()
+        setActiveProject(event.target.textContent)
     })
 })();
 
@@ -75,6 +80,7 @@ const handleWeeklyTask = (() => {
     thisWeek.addEventListener('click', (event) => {
         refreshDOM()
         displayWeeklyTasks()
+        setActiveProject(event.target.textContent)
     })
 })();
 
@@ -84,16 +90,6 @@ const displayWeeklyTasks = () => {
     }
 };
 
-
-
-
-const displayTasks = (projectName) => {
-    const project = projectList.find(item => item.projectName === projectName)
-    //For loop through target project task array items and createCard()
-    for (let i = 0; i < project.tasks.length; i++){
-        createCard(project.tasks[i])
-    }
-};
 
 
 const createCard = (task) => {
@@ -169,7 +165,7 @@ const createAddBtn = (() => {
 const refreshDOM = () => {
     const body = document.getElementById('mainBody')
     body.textContent = ''
-    gatherTasks()
+    grabTasks()
 }
 
 // Listen for completed task
@@ -182,10 +178,11 @@ const listenForTaskCompletion = (button) => {
             task.completed = false
         }
         console.log(task)
+        refreshDOM()
+        //TODO: Display seleted filter tasks
     })
 }
 
 displayProjects();
 
-
-export {  activeProject, refreshDOM, displayTasks, displayAllTasks, createTile }
+export { refreshDOM, displayAllTasks, createTile, createCard, displayTasks }
