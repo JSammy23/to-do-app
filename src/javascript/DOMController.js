@@ -1,6 +1,7 @@
 import { projectMap, allTasks, todaysTasks, weeklyTasks, grabTasks, setActiveProject } from "./project"
 import { dropMenu, openTaskForm, openTaskEditForm } from "./handleForms";
 import { taskList, taskMap } from "./task";
+import format from "date-fns/format";
 
 
 
@@ -123,6 +124,34 @@ const createCard = (task) => {
     note.textContent = task.note
     titleDiv.appendChild(note)
 
+    //Handle controls div
+    const controlsDiv = document.createElement('div')
+    controlsDiv.classList.add('cardControls')
+
+    //Handle dueDate
+    const dateText = document.createElement('p')
+    dateText.classList.add('note')
+    if (!(task.dueDate === "" || task.dueDate === undefined)) {
+        const date = format((task.dueDate), 'E MMM do')
+        dateText.textContent = date
+
+        controlsDiv.appendChild(dateText)
+    }
+    
+
+    // Handle delete button
+    const deleteSvg = document.createElementNS("http://www.w3.org/2000/svg", 'svg')
+    const deletePath = document.createElementNS("http://www.w3.org/2000/svg", 'path')
+
+    deleteSvg.setAttribute('width', '24px')
+    deleteSvg.setAttribute('viewBox', "0 0 24 24")
+    deleteSvg.setAttribute('fill', "#ffffff")
+    deletePath.setAttribute('d', 'M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z')
+    deleteSvg.appendChild(deletePath)
+    deleteSvg.classList.add('trashCan')
+
+    controlsDiv.appendChild(deleteSvg)
+
     // Handle edit button
     const dotsSvg = document.createElementNS("http://www.w3.org/2000/svg", 'svg')
     const dotsPath = document.createElementNS("http://www.w3.org/2000/svg", 'path')
@@ -139,11 +168,15 @@ const createCard = (task) => {
         openTaskEditForm(task)
     })
 
+    
+    controlsDiv.appendChild(dotsSvg)
+
 
     // Append card in order 
     card.appendChild(checkBox)
     card.appendChild(titleDiv)
-    card.appendChild(dotsSvg)
+    card.appendChild(controlsDiv)
+    // card.appendChild(dotsSvg)
     body.appendChild(card)
 };
 
