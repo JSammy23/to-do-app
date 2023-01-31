@@ -1,7 +1,7 @@
 import Project, { allTasks, projectMap, todaysTasks, weeklyTasks, grabTasks, activeProject, addProjectToMap } from "./project"
 import Task, { addTaskToMap } from "./task"
 import { refreshDOM, displayAllTasks, createTile, displayTasks } from "./DOMController"
-import { isToday, isThisWeek } from "date-fns"
+import { isToday, isThisWeek, format } from "date-fns"
 
 const taskFormObjects = []
 
@@ -128,4 +128,34 @@ function closeProjectForm() {
     document.getElementById('projectFormDiv').style.display = 'none'
 }
 
-export { openTaskForm, closeTaskForm, dropMenu } 
+function openTaskEditForm(task) {
+    document.querySelector('.editTaskForm').style.display = 'block'
+    const nameInput = document.getElementById('taskNameEdit')
+    const noteInput = document.getElementById('noteEdit')
+    const dateInput = document.getElementById('dueDateEdit')
+    const priorityInput = document.getElementById('priorityEdit')
+    const taskDate = format((task.dueDate), 'yyyy-MM-dd')
+    nameInput.value = task.taskName
+    noteInput.value = task.note
+    dateInput.value = taskDate
+
+    // Save Changes
+    const saveBtn = document.getElementById('saveEdit')
+    saveBtn.addEventListener('click', () => {
+        task.taskName = nameInput.value
+        task.note = noteInput.value
+        task.dueDate = dateInput.value
+        task.priority = priorityInput.value
+        document.querySelector('.editTaskForm').style.display = 'none'
+        console.log(task)
+    })
+}
+
+const closeTaskEditListener = () => {
+    const button = document.getElementById('editTaskClose')
+    button.addEventListener('click', () => {
+        document.querySelector('.editTaskForm').style.display = 'none'
+    })
+}
+
+export { openTaskForm, closeTaskForm, dropMenu, openTaskEditForm } 
