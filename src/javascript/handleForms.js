@@ -135,7 +135,6 @@ function openTaskEditForm(task) {
     const dateInput = document.getElementById('dueDateEdit')
     const priorityInput = document.getElementById('priorityEdit')
     if (!(task.dueDate === "" || task.dueDate === undefined)){
-        // const taskDate = format((task.dueDate), 'yyyy-MM-dd')
         dateInput.value = task.dueDate
     } 
     
