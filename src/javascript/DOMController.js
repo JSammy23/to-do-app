@@ -1,5 +1,5 @@
 import { projectMap, allTasks, todaysTasks, weeklyTasks, grabTasks, setActiveProject } from "./project"
-import { dropMenu, openTaskForm } from "./handleForms";
+import { dropMenu, openTaskForm, openTaskEditForm } from "./handleForms";
 import { taskList, taskMap } from "./task";
 
 
@@ -124,8 +124,6 @@ const createCard = (task) => {
     titleDiv.appendChild(note)
 
     // Handle edit button
-    const editBtn = document.createElement('button')
-    editBtn.classList.add('taskEdit')
     const dotsSvg = document.createElementNS("http://www.w3.org/2000/svg", 'svg')
     const dotsPath = document.createElementNS("http://www.w3.org/2000/svg", 'path')
 
@@ -135,14 +133,17 @@ const createCard = (task) => {
     dotsPath.setAttribute('d', 'M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z')
 
     dotsSvg.appendChild(dotsPath)
-    editBtn.appendChild(dotsSvg)
+    dotsSvg.classList.add('taskEdit')
     // TODO: listenForEditTask(editBtn)
+    dotsSvg.addEventListener('click', () => {
+        openTaskEditForm(task)
+    })
 
 
     // Append card in order 
     card.appendChild(checkBox)
     card.appendChild(titleDiv)
-    card.appendChild(editBtn)
+    card.appendChild(dotsSvg)
     body.appendChild(card)
 };
 
