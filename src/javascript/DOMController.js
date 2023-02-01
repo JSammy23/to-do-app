@@ -3,8 +3,7 @@ import { dropMenu, openTaskForm, openTaskEditForm } from "./handleForms";
 import { taskMap, removeTask } from "./task";
 import { format, add } from "date-fns";
 
-
-
+// TODO: Display activeProject in headerBar
 
 const displayProjects = () => {
     const projectsDisplay = document.querySelector('.projects')
@@ -139,7 +138,7 @@ const createCard = (task) => {
     deleteSvg.addEventListener('click', () => {
         removeTask(task.taskName)
         refreshDOM()
-        displayAllTasks() // TODO: Filter tasks by selected tile
+        displayTasks(activeProject) // TODO: Task not deleting from custom project
     })
 
     controlsDiv.appendChild(deleteSvg)
