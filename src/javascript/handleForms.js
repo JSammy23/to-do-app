@@ -40,7 +40,7 @@ const addNewTask = taskData => {
         allTasks.push(newTask)
         refreshDOM()
         displayAllTasks()
-        console.log('Fired first if')
+        // console.log('Fired first if')
         
         
     } else if ((activeProject !== 'All Tasks' || activeProject !== undefined)) {
@@ -50,7 +50,7 @@ const addNewTask = taskData => {
         console.log(currentProject.tasks)
         refreshDOM()
         displayTasks(activeProject)
-        console.log('Fired second if')
+        // console.log('Fired second if')
     }
     if (isToday(date)){
         todaysTasks.push(newTask)
@@ -150,7 +150,8 @@ function openTaskEditForm(task) {
         task.dueDate = dateInput.value
         task.priority = priorityInput.value
         document.querySelector('.editTaskForm').style.display = 'none'
-        console.log(task) // TODO: All Tasks array duplicating with several edits
+        refreshDOM()
+        displayAllTasks() // TODO: Filter only tasks from selected tile
     })
 }
 

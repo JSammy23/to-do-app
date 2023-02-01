@@ -1,6 +1,6 @@
 import { projectMap, allTasks, todaysTasks, weeklyTasks, grabTasks, setActiveProject } from "./project"
 import { dropMenu, openTaskForm, openTaskEditForm } from "./handleForms";
-import { taskList, taskMap } from "./task";
+import { taskMap } from "./task";
 import { format, add } from "date-fns";
 
 
@@ -135,7 +135,6 @@ const createCard = (task) => {
         const date = new Date(task.dueDate)
         const addDay = add((date), { days: 1})
         const formatDate = format((addDay), 'E MMM do')
-        console.log(formatDate)
         dateText.textContent = formatDate
          
 
