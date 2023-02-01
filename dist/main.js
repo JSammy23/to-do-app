@@ -1760,6 +1760,148 @@ function toInteger(dirtyNumber) {
 
 /***/ }),
 
+/***/ "./node_modules/date-fns/esm/add/index.js":
+/*!************************************************!*\
+  !*** ./node_modules/date-fns/esm/add/index.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ add)
+/* harmony export */ });
+/* harmony import */ var _addDays_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../addDays/index.js */ "./node_modules/date-fns/esm/addDays/index.js");
+/* harmony import */ var _addMonths_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../addMonths/index.js */ "./node_modules/date-fns/esm/addMonths/index.js");
+/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../toDate/index.js */ "./node_modules/date-fns/esm/toDate/index.js");
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+/* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_lib/toInteger/index.js */ "./node_modules/date-fns/esm/_lib/toInteger/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+
+
+
+
+
+/**
+ * @name add
+ * @category Common Helpers
+ * @summary Add the specified years, months, weeks, days, hours, minutes and seconds to the given date.
+ *
+ * @description
+ * Add the specified years, months, weeks, days, hours, minutes and seconds to the given date.
+ *
+ * @param {Date|Number} date - the date to be changed
+ * @param {Duration} duration - the object with years, months, weeks, days, hours, minutes and seconds to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
+ *
+ * | Key            | Description                        |
+ * |----------------|------------------------------------|
+ * | years          | Amount of years to be added        |
+ * | months         | Amount of months to be added       |
+ * | weeks          | Amount of weeks to be added        |
+ * | days           | Amount of days to be added         |
+ * | hours          | Amount of hours to be added        |
+ * | minutes        | Amount of minutes to be added      |
+ * | seconds        | Amount of seconds to be added      |
+ *
+ * All values default to 0
+ *
+ * @returns {Date} the new date with the seconds added
+ * @throws {TypeError} 2 arguments required
+ *
+ * @example
+ * // Add the following duration to 1 September 2014, 10:19:50
+ * const result = add(new Date(2014, 8, 1, 10, 19, 50), {
+ *   years: 2,
+ *   months: 9,
+ *   weeks: 1,
+ *   days: 7,
+ *   hours: 5,
+ *   minutes: 9,
+ *   seconds: 30,
+ * })
+ * //=> Thu Jun 15 2017 15:29:20
+ */
+function add(dirtyDate, duration) {
+  (0,_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(2, arguments);
+  if (!duration || _typeof(duration) !== 'object') return new Date(NaN);
+  var years = duration.years ? (0,_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(duration.years) : 0;
+  var months = duration.months ? (0,_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(duration.months) : 0;
+  var weeks = duration.weeks ? (0,_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(duration.weeks) : 0;
+  var days = duration.days ? (0,_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(duration.days) : 0;
+  var hours = duration.hours ? (0,_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(duration.hours) : 0;
+  var minutes = duration.minutes ? (0,_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(duration.minutes) : 0;
+  var seconds = duration.seconds ? (0,_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(duration.seconds) : 0; // Add years and months
+
+  var date = (0,_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate);
+  var dateWithMonths = months || years ? (0,_addMonths_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date, months + years * 12) : date; // Add weeks and days
+
+  var dateWithDays = days || weeks ? (0,_addDays_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(dateWithMonths, days + weeks * 7) : dateWithMonths; // Add days, hours, minutes and seconds
+
+  var minutesToAdd = minutes + hours * 60;
+  var secondsToAdd = seconds + minutesToAdd * 60;
+  var msToAdd = secondsToAdd * 1000;
+  var finalDate = new Date(dateWithDays.getTime() + msToAdd);
+  return finalDate;
+}
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/esm/addDays/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/esm/addDays/index.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ addDays)
+/* harmony export */ });
+/* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_lib/toInteger/index.js */ "./node_modules/date-fns/esm/_lib/toInteger/index.js");
+/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../toDate/index.js */ "./node_modules/date-fns/esm/toDate/index.js");
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+
+
+
+/**
+ * @name addDays
+ * @category Day Helpers
+ * @summary Add the specified number of days to the given date.
+ *
+ * @description
+ * Add the specified number of days to the given date.
+ *
+ * @param {Date|Number} date - the date to be changed
+ * @param {Number} amount - the amount of days to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
+ * @returns {Date} - the new date with the days added
+ * @throws {TypeError} - 2 arguments required
+ *
+ * @example
+ * // Add 10 days to 1 September 2014:
+ * const result = addDays(new Date(2014, 8, 1), 10)
+ * //=> Thu Sep 11 2014 00:00:00
+ */
+
+function addDays(dirtyDate, dirtyAmount) {
+  (0,_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(2, arguments);
+  var date = (0,_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+  var amount = (0,_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
+
+  if (isNaN(amount)) {
+    return new Date(NaN);
+  }
+
+  if (!amount) {
+    // If 0 days, no-op to avoid changing times in the hour before end of DST
+    return date;
+  }
+
+  date.setDate(date.getDate() + amount);
+  return date;
+}
+
+/***/ }),
+
 /***/ "./node_modules/date-fns/esm/addMilliseconds/index.js":
 /*!************************************************************!*\
   !*** ./node_modules/date-fns/esm/addMilliseconds/index.js ***!
@@ -1800,6 +1942,87 @@ function addMilliseconds(dirtyDate, dirtyAmount) {
   var timestamp = (0,_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate).getTime();
   var amount = (0,_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
   return new Date(timestamp + amount);
+}
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/esm/addMonths/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/date-fns/esm/addMonths/index.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ addMonths)
+/* harmony export */ });
+/* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_lib/toInteger/index.js */ "./node_modules/date-fns/esm/_lib/toInteger/index.js");
+/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../toDate/index.js */ "./node_modules/date-fns/esm/toDate/index.js");
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+
+
+
+/**
+ * @name addMonths
+ * @category Month Helpers
+ * @summary Add the specified number of months to the given date.
+ *
+ * @description
+ * Add the specified number of months to the given date.
+ *
+ * @param {Date|Number} date - the date to be changed
+ * @param {Number} amount - the amount of months to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
+ * @returns {Date} the new date with the months added
+ * @throws {TypeError} 2 arguments required
+ *
+ * @example
+ * // Add 5 months to 1 September 2014:
+ * const result = addMonths(new Date(2014, 8, 1), 5)
+ * //=> Sun Feb 01 2015 00:00:00
+ */
+
+function addMonths(dirtyDate, dirtyAmount) {
+  (0,_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(2, arguments);
+  var date = (0,_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+  var amount = (0,_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
+
+  if (isNaN(amount)) {
+    return new Date(NaN);
+  }
+
+  if (!amount) {
+    // If 0 months, no-op to avoid changing times in the hour before end of DST
+    return date;
+  }
+
+  var dayOfMonth = date.getDate(); // The JS Date object supports date math by accepting out-of-bounds values for
+  // month, day, etc. For example, new Date(2020, 0, 0) returns 31 Dec 2019 and
+  // new Date(2020, 13, 1) returns 1 Feb 2021.  This is *almost* the behavior we
+  // want except that dates will wrap around the end of a month, meaning that
+  // new Date(2020, 13, 31) will return 3 Mar 2021 not 28 Feb 2021 as desired. So
+  // we'll default to the end of the desired month by adding 1 to the desired
+  // month and using a date of 0 to back up one day to the end of the desired
+  // month.
+
+  var endOfDesiredMonth = new Date(date.getTime());
+  endOfDesiredMonth.setMonth(date.getMonth() + amount + 1, 0);
+  var daysInMonth = endOfDesiredMonth.getDate();
+
+  if (dayOfMonth >= daysInMonth) {
+    // If we're already at the end of the month, then this is the correct date
+    // and we're done.
+    return endOfDesiredMonth;
+  } else {
+    // Otherwise, we now know that setting the original day-of-month value won't
+    // cause an overflow, so set the desired day-of-month. Note that we can't
+    // just set the date of `endOfDesiredMonth` because that object may have had
+    // its time changed in the unusual case where where a DST transition was on
+    // the last day of the month and its local time was in the hour skipped or
+    // repeated next to a DST transition.  So we use `date` instead which is
+    // guaranteed to still have the original time.
+    date.setFullYear(endOfDesiredMonth.getFullYear(), endOfDesiredMonth.getMonth(), dayOfMonth);
+    return date;
+  }
 }
 
 /***/ }),
@@ -3810,7 +4033,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ "./src/javascript/project.js");
 /* harmony import */ var _handleForms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./handleForms */ "./src/javascript/handleForms.js");
 /* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./task */ "./src/javascript/task.js");
-/* harmony import */ var date_fns_format__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns/format */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/add/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
 
 
 
@@ -3858,7 +4082,7 @@ const handleAllTaskListener = (() => {
     const allTasksTile = document.getElementById('allTasks')
     allTasksTile.addEventListener('click', (event) => {
         refreshDOM()
-        ;(0,_project__WEBPACK_IMPORTED_MODULE_0__.grabTasks)()
+        // grabTasks()
         displayAllTasks()
         ;(0,_project__WEBPACK_IMPORTED_MODULE_0__.setActiveProject)(event.target.textContent)
     })
@@ -3866,8 +4090,8 @@ const handleAllTaskListener = (() => {
 
 
 const displayAllTasks = () => {
-    for (let i = 0; i < _project__WEBPACK_IMPORTED_MODULE_0__.allTasks.length; i++) {
-        createCard(_project__WEBPACK_IMPORTED_MODULE_0__.allTasks[i])
+    for (let value of _task__WEBPACK_IMPORTED_MODULE_2__.taskMap.values()) {
+        createCard(value)
     }
 };
 
@@ -3945,8 +4169,11 @@ const createCard = (task) => {
     const dateText = document.createElement('p')
     dateText.classList.add('note')
     if (!(task.dueDate === "" || task.dueDate === undefined)) {
-        const date = (0,date_fns_format__WEBPACK_IMPORTED_MODULE_3__["default"])((task.dueDate), 'E MMM do')
-        dateText.textContent = date
+        const date = new Date(task.dueDate)
+        const addDay = (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])((date), { days: 1})
+        const formatDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])((addDay), 'E MMM do')
+        dateText.textContent = formatDate
+         
 
         controlsDiv.appendChild(dateText)
     }
@@ -3963,6 +4190,8 @@ const createCard = (task) => {
     deleteSvg.appendChild(deletePath)
     deleteSvg.classList.add('trashCan')
 
+    // TODO: Add event listener to trash button
+
     controlsDiv.appendChild(deleteSvg)
 
     // Handle edit button
@@ -3976,7 +4205,6 @@ const createCard = (task) => {
 
     dotsSvg.appendChild(dotsPath)
     dotsSvg.classList.add('taskEdit')
-    // TODO: listenForEditTask(editBtn)
     dotsSvg.addEventListener('click', () => {
         ;(0,_handleForms__WEBPACK_IMPORTED_MODULE_1__.openTaskEditForm)(task)
     })
@@ -4026,6 +4254,7 @@ const listenForTaskCompletion = (button) => {
         }
         console.log(task)
         refreshDOM()
+        displayAllTasks()
         //TODO: Display seleted filter tasks
     })
 }
@@ -4096,7 +4325,7 @@ const addNewTask = taskData => {
         _project__WEBPACK_IMPORTED_MODULE_0__.allTasks.push(newTask)
         ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.refreshDOM)()
         ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.displayAllTasks)()
-        console.log('Fired first if')
+        // console.log('Fired first if')
         
         
     } else if ((_project__WEBPACK_IMPORTED_MODULE_0__.activeProject !== 'All Tasks' || _project__WEBPACK_IMPORTED_MODULE_0__.activeProject !== undefined)) {
@@ -4106,7 +4335,7 @@ const addNewTask = taskData => {
         console.log(currentProject.tasks)
         ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.refreshDOM)()
         ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.displayTasks)(_project__WEBPACK_IMPORTED_MODULE_0__.activeProject)
-        console.log('Fired second if')
+        // console.log('Fired second if')
     }
     if ((0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(date)){
         _project__WEBPACK_IMPORTED_MODULE_0__.todaysTasks.push(newTask)
@@ -4206,7 +4435,8 @@ function openTaskEditForm(task) {
         task.dueDate = dateInput.value
         task.priority = priorityInput.value
         document.querySelector('.editTaskForm').style.display = 'none'
-        console.log(task) // TODO: All Tasks array duplicating with several edits
+        ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.refreshDOM)()
+        ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.displayAllTasks)() // TODO: Filter only tasks from selected tile
     })
 }
 
