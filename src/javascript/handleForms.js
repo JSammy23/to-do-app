@@ -1,6 +1,6 @@
 import Project, { allTasks, projectMap, todaysTasks, weeklyTasks, grabTasks, activeProject, addProjectToMap } from "./project"
 import Task, { addTaskToMap } from "./task"
-import { refreshDOM, displayAllTasks, createTile, displayTasks } from "./DOMController"
+import { refreshDOM, createTile, displayTasks } from "./DOMController"
 import { isToday, isThisWeek, format } from "date-fns"
 
 const taskFormObjects = []
@@ -39,24 +39,34 @@ const addNewTask = taskData => {
     if (activeProject === 'All Tasks' || activeProject === undefined) {
         allTasks.push(newTask)
         refreshDOM()
-        displayAllTasks()
+        displayTasks(activeProject)
         // console.log('Fired first if')
         
         
     } else if ((activeProject !== 'All Tasks' || activeProject !== undefined)) {
-        const currentProject = projectMap.get(`${activeProject}`)
-        currentProject.tasks.push(newTask)
-        newTask.project = activeProject
-        console.log(currentProject.tasks)
-        refreshDOM()
-        displayTasks(activeProject)
-        // console.log('Fired second if')
+        if (!(activeProject === 'Today' || activeProject === 'This Week')) {
+            const currentProject = projectMap.get(`${activeProject}`)
+            currentProject.tasks.push(newTask)
+            newTask.project = activeProject
+            console.log(currentProject.tasks)
+            refreshDOM()
+            displayTasks(activeProject)
+            // console.log('Fired second if')
+        }
+        
     }
     if (isToday(date)){
         todaysTasks.push(newTask)
+        if (activeProject === 'Today') {
+            refreshDOM()
+            displayTasks(activeProject)
+            // console.log(todaysTasks)
+        }
     }
     if (isThisWeek(date)) {
         weeklyTasks.push(newTask)
+        refreshDOM()
+        displayTasks(activeProject)
     }
 }
 
