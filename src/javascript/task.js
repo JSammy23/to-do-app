@@ -25,6 +25,10 @@ const addTaskToMap = task => {
 
 const taskList = taskMap.values()
 
+const removeTask = taskName => {
+    taskMap.delete(`${taskName}`)
+}
+
 const taskItem = Task({
     taskName: 'Mow the yard',
     note: 'Rain forcasted Thursday',
@@ -47,4 +51,4 @@ addTaskToMap(taskItem2)
 
 
 export default Task
-export { taskMap, addTaskToMap, taskList }
+export { taskMap, addTaskToMap, taskList, removeTask }
