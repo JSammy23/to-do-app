@@ -175,6 +175,7 @@ body {
 
 .trashCan {
     display: none;
+    cursor: pointer;
 }
 
 .roundBox {
