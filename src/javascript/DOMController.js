@@ -1,6 +1,6 @@
-import { projectMap, allTasks, todaysTasks, weeklyTasks, grabTasks, setActiveProject } from "./project"
+import { projectMap, allTasks, todaysTasks, weeklyTasks, grabTasks, setActiveProject, activeProject } from "./project"
 import { dropMenu, openTaskForm, openTaskEditForm } from "./handleForms";
-import { taskMap } from "./task";
+import { taskMap, removeTask } from "./task";
 import { format, add } from "date-fns";
 
 
@@ -33,63 +33,46 @@ const createTile = (projectName) => {
     return tile;
 };
 
-const displayTasks = projectName => {
-    const project = projectMap.get(`${projectName}`)
-    for (let i = 0; i < project.tasks.length; i++){
+const displayTasks = filter => {
+    if (filter === 'All Tasks' || filter === undefined) {
+        // Display all tasks
+        for (let value of taskMap.values()) {
+            createCard(value)
+        }
+    } else if (!(filter === 'Today' || filter === 'This Week')) {
+        // Display active project's tasks
+        const project = projectMap.get(`${filter}`)
+        for (let i = 0; i < project.tasks.length; i++){
         createCard(project.tasks[i])
+        }
+    }
+    if (filter === 'Today') {
+        // Display Today's Tasks
+        for (let i = 0; i < todaysTasks.length; i++) {
+            createCard(todaysTasks[i])
+        }
+    } else if (filter === 'This Week') {
+        // Display this week's tasks
+        for (let i = 0; i < weeklyTasks.length; i++) {
+            createCard(weeklyTasks[i])
+        }
     }
 };
 
 // Handle All Tasks filter tile
-const handleAllTaskListener = (() => {
-    const allTasksTile = document.getElementById('allTasks')
-    allTasksTile.addEventListener('click', (event) => {
-        refreshDOM()
-        // grabTasks()
-        displayAllTasks()
-        setActiveProject(event.target.textContent)
+const addEventListenersToTileFilters = (() => {
+    const filterTile = document.querySelectorAll('.tile')
+    filterTile.forEach(item => {
+        item.addEventListener('click', (event) => {
+            setActiveProject(event.target.textContent)
+            refreshDOM()
+            displayTasks(activeProject)
+        })
     })
-})();
+})()
 
 
-const displayAllTasks = () => {
-    for (let value of taskMap.values()) {
-        createCard(value)
-    }
-};
 
-// Handle today's tasks tile
-const handleTodaysTaskListener = (() => {
-    const todaysTaskTile = document.getElementById('todaysTasks')
-    todaysTaskTile.addEventListener('click', (event) => {
-        refreshDOM()
-        grabTasks()
-        displayTodaysTasks()
-        // setActiveProject(event.target.textContent)
-    })
-})();
-
-const displayTodaysTasks = () => {
-    for (let i = 0; i < todaysTasks.length; i++) {
-        createCard(todaysTasks[i])
-    }
-};
-
-// Handle this week's tasks tile
-const handleWeeklyTask = (() => {
-    const thisWeek = document.getElementById('thisWeek')
-    thisWeek.addEventListener('click', (event) => {
-        refreshDOM()
-        displayWeeklyTasks()
-        // setActiveProject(event.target.textContent)
-    })
-})();
-
-const displayWeeklyTasks = () => {
-    for (let i = 0; i < weeklyTasks.length; i++) {
-        createCard(weeklyTasks[i])
-    }
-};
 
 
 
@@ -153,7 +136,11 @@ const createCard = (task) => {
     deleteSvg.appendChild(deletePath)
     deleteSvg.classList.add('trashCan')
 
-    // TODO: Add event listener to trash button
+    deleteSvg.addEventListener('click', () => {
+        removeTask(task.taskName)
+        refreshDOM()
+        displayAllTasks() // TODO: Filter tasks by selected tile
+    })
 
     controlsDiv.appendChild(deleteSvg)
 
@@ -217,11 +204,11 @@ const listenForTaskCompletion = (button) => {
         }
         console.log(task)
         refreshDOM()
-        displayAllTasks()
+        displayTasks(activeProject)
         //TODO: Display seleted filter tasks
     })
 }
 
 displayProjects();
 
-export { refreshDOM, displayAllTasks, createTile, createCard, displayTasks }
+export { refreshDOM, createTile, createCard, displayTasks }
