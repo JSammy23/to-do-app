@@ -161,7 +161,7 @@ function openTaskEditForm(task) {
         task.priority = priorityInput.value
         document.querySelector('.editTaskForm').style.display = 'none'
         refreshDOM()
-        displayAllTasks() // TODO: Filter only tasks from selected tile
+        displayTasks() // TODO: Filter only tasks from selected tile
     })
 }
 
