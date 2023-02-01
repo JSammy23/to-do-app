@@ -1,7 +1,7 @@
 import { projectMap, allTasks, todaysTasks, weeklyTasks, grabTasks, setActiveProject } from "./project"
 import { dropMenu, openTaskForm, openTaskEditForm } from "./handleForms";
 import { taskList, taskMap } from "./task";
-import format from "date-fns/format";
+import { format, add } from "date-fns";
 
 
 
@@ -45,7 +45,7 @@ const handleAllTaskListener = (() => {
     const allTasksTile = document.getElementById('allTasks')
     allTasksTile.addEventListener('click', (event) => {
         refreshDOM()
-        grabTasks()
+        // grabTasks()
         displayAllTasks()
         setActiveProject(event.target.textContent)
     })
@@ -53,8 +53,8 @@ const handleAllTaskListener = (() => {
 
 
 const displayAllTasks = () => {
-    for (let i = 0; i < allTasks.length; i++) {
-        createCard(allTasks[i])
+    for (let value of taskMap.values()) {
+        createCard(value)
     }
 };
 
@@ -132,8 +132,12 @@ const createCard = (task) => {
     const dateText = document.createElement('p')
     dateText.classList.add('note')
     if (!(task.dueDate === "" || task.dueDate === undefined)) {
-        const date = format((task.dueDate), 'E MMM do')
-        dateText.textContent = date
+        const date = new Date(task.dueDate)
+        const addDay = add((date), { days: 1})
+        const formatDate = format((addDay), 'E MMM do')
+        console.log(formatDate)
+        dateText.textContent = formatDate
+         
 
         controlsDiv.appendChild(dateText)
     }
@@ -150,6 +154,8 @@ const createCard = (task) => {
     deleteSvg.appendChild(deletePath)
     deleteSvg.classList.add('trashCan')
 
+    // TODO: Add event listener to trash button
+
     controlsDiv.appendChild(deleteSvg)
 
     // Handle edit button
@@ -163,7 +169,6 @@ const createCard = (task) => {
 
     dotsSvg.appendChild(dotsPath)
     dotsSvg.classList.add('taskEdit')
-    // TODO: listenForEditTask(editBtn)
     dotsSvg.addEventListener('click', () => {
         openTaskEditForm(task)
     })
@@ -213,6 +218,7 @@ const listenForTaskCompletion = (button) => {
         }
         console.log(task)
         refreshDOM()
+        displayAllTasks()
         //TODO: Display seleted filter tasks
     })
 }
