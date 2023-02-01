@@ -23,12 +23,11 @@ const addTaskToMap = task => {
     taskMap.set(`${name}`, task)
 }
 
-const taskList = taskMap.values()
-
 const removeTask = taskName => {
     taskMap.delete(`${taskName}`)
 }
 
+// Default tasks for development
 const taskItem = Task({
     taskName: 'Mow the yard',
     note: 'Rain forcasted Thursday',
@@ -42,13 +41,27 @@ const taskItem2 = Task({
     dueDate: new Date(2023, 0, 31),
     priority: 'normal'
 })
-
-
 addTaskToMap(taskItem)
 addTaskToMap(taskItem2)
+
+// Local Storage
+
+const tasks = []
+const taskStrings = []
+for (let value of taskMap.values()) {
+    tasks.push(value)
+}
+
+tasks.forEach(element => {
+    // JSON.stringify(element)
+    taskStrings.push(element)
+});
+
+console.log(taskStrings)
+window.localStorage.setItem('tasks', JSON.stringify(tasks));
 
 
 
 
 export default Task
-export { taskMap, addTaskToMap, taskList, removeTask }
+export { taskMap, addTaskToMap, removeTask }
