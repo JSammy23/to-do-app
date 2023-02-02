@@ -57,8 +57,7 @@ const storeTasks = () => {
 }
 
 const loadTasks = () => {
-    const tasks = []
-    tasks.push(JSON.parse(window.localStorage.getItem('tasks')))
+    const tasks = JSON.parse(window.localStorage.getItem('tasks')) || [];
     tasks.forEach(item => {
         addTaskToMap(item)
     })

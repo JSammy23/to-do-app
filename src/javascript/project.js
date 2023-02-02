@@ -71,8 +71,7 @@ function storeProjects() {
 }
 
 function loadProjects() {
-    const projects = []
-    projects.push(JSON.parse(window.localStorage.getItem('projects')))
+    const projects = JSON.parse(window.localStorage.getItem('projects')) || [];
     projects.forEach(item => {
         addProjectToMap(item)
     })
