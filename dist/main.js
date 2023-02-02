@@ -26,7 +26,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*, *::before, *::after {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n:root {\n    --dark-lightGray: #282828;\n    --dark-darkGray: #1f1f1f;\n    --dark-wfont: #fff;\n    --accent-pink: #df9dc9;\n    --accent-color: blueviolet;\n}\n\nbody {\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n\n#content {\n    width: 85vw;\n    height: 85vh;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 50px;\n    /* border: 3px solid red; */\n    display: grid;\n    color: var(--dark-wfont);\n    grid-template-columns: 375px auto;\n    grid-template-rows: min-content;\n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);;\n}\n\n#headerBar {\n    grid-column: 1 / span 2;\n    height: 40px;\n    border-bottom: 2px solid var(--accent-color);\n}\n\n#headerBar,\n#sideBar {\n    background-color: var(--dark-lightGray);\n    color: var(--dark-wfont);\n}\n\n#sideBar {\n    border-right: 1px solid black;\n    box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -webkit-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -moz-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    z-index: 10;\n    display: flex;\n    flex-direction: column;\n}\n\n.sideBarControls {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: 25px;\n}\n\n.dropDown {\n    position: relative;\n    display: inline-block;\n}\n\n.dropDownContent {\n    display: none;\n    margin-top: -20px;\n    position: absolute;\n    background-color: #f1f1f1;\n    min-width: 160px;\n    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n    z-index: 1;\n}\n\n.dropDownContent a {\n    color: black;\n    padding: 12px 16px;\n    text-decoration: none;\n    display: block; \n}\n\n.dropDownContent a:hover {\n    background-color: #ddd;\n}\n\n.addSvg:hover {\n    cursor: pointer;\n}\n\n\n.sideBarControls > button,\n.card > button,\n#closeTask,\n#closeProject {\n    border: none;\n    outline: none;\n    background: none;\n    cursor: pointer;\n}\n\n#mainBody {\n    background-color: var(--dark-darkGray);\n\n}\n\n.tile {\n    background-color: var(--dark-darkGray);\n    padding: 8px;\n    cursor: pointer;\n    border-bottom: 1px solid var(--accent-color);\n}\n\n.tile:focus {\n    color: var(--accent-color);\n    /* transition: all .1s ease-in-out;\n    transform: scale(1.05); */\n}\n\n.tile:nth-child(odd) {\n    background-color: var(--dark-lightGray);\n}\n\n.card {\n    border-radius: 10px;\n    background-color: var(--dark-lightGray);\n    display: flex;\n    padding: 8px;\n    width: 85%;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 20px;\n}\n\n.card:hover {\n    transition: all .1s ease-in-out;\n    transform: scale(1.05); \n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n}\n\n.card > button {\n    background: none;\n    outline: none;\n    border: none;\n    cursor: pointer;\n}\n\n.note {\n    color: rgba(255, 255, 255, .5);\n}\n\n.cardControls {\n    display: flex;\n    justify-content: end;\n    margin-left: auto;\n    gap: 10px;\n}\n\n.cardControls > p {\n    margin-right: 20px;\n    align-self: flex-end;\n}\n\n.card:hover .trashCan {\n    display: block;\n}\n\n.trashCan {\n    display: none;\n}\n\n.roundBox {\n    width: 1.3em;\n    height: 1.3em;\n    background-color: var(--dark-darkGray);\n    border-radius: 50%;\n    border: 2px solid #fff;\n    appearance: none;\n    -webkit-appearance: none;\n    outline: none;\n    cursor: pointer;\n    margin-right: 10px;\n    align-self: center;\n}\n\n.roundBox:checked {\n    background-color: var(--accent-color);\n}\n\n.checked {\n    text-decoration: line-through;\n    color: rgba(255, 255, 255, .5);\n}\n\n.taskEdit {\n    margin-left: auto;\n    cursor: pointer;\n}\n\n.taskFolders {\n    border-bottom: 2px solid #fff;\n    min-height: 25%;\n    margin-bottom: 1rem;\n}\n\n.taskForm,\n.projectForm,\n.editTaskForm {\n    /* Change display before production */\n    position: fixed;\n    top: 25%;\n    left: 35%;\n    border: 2px solid var(--accent-pink);\n    width: 800px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    padding: 15px;\n    border-radius: 15px;\n    font-size: 1.25rem;\n}\n\n.editTaskForm {\n    display: none;\n}\n\n#projectFormDiv {\n    display: none;\n}\n\n.taskForm {\n    display: none;\n}\n\n.formFooter {\n    display: flex;\n    justify-content: end;\n}\n\n.formFooter > button {\n    background: none;\n    outline: none;\n    border: 2px solid var(--accent-pink);\n    border-radius: 15px;\n    color: var(--accent-pink);\n    padding: 8px;\n    cursor: pointer;\n}\n\ninput {\n    font-size: 1.25rem;\n}\n\ninput[type=text] {\n    width: 500px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    outline: none;\n    border: none;\n}\n\nselect,\ninput[type=date] {\n    font-size: 1.25rem;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    border: none;\n}\n\nselect {\n    width: 100px;\n}\n\n.formLegend {\n    padding: 20px;\n}\n\n.formHeader {\n    display: flex;\n    justify-content: space-between;\n}\n", "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"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","sourcesContent":["*, *::before, *::after {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n:root {\n    --dark-lightGray: #282828;\n    --dark-darkGray: #1f1f1f;\n    --dark-wfont: #fff;\n    --accent-pink: #df9dc9;\n    --accent-color: blueviolet;\n}\n\nbody {\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    background: url(./assets/img/forest.jpg);\n}\n\n#content {\n    width: 85vw;\n    height: 85vh;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 50px;\n    /* border: 3px solid red; */\n    display: grid;\n    color: var(--dark-wfont);\n    grid-template-columns: 375px auto;\n    grid-template-rows: min-content;\n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);;\n}\n\n#headerBar {\n    grid-column: 1 / span 2;\n    height: 40px;\n    border-bottom: 2px solid var(--accent-color);\n}\n\n#headerBar,\n#sideBar {\n    background-color: var(--dark-lightGray);\n    color: var(--dark-wfont);\n}\n\n#sideBar {\n    border-right: 1px solid black;\n    box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -webkit-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -moz-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    z-index: 10;\n    display: flex;\n    flex-direction: column;\n}\n\n.sideBarControls {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: 25px;\n}\n\n.dropDown {\n    position: relative;\n    display: inline-block;\n}\n\n.dropDownContent {\n    display: none;\n    margin-top: -20px;\n    position: absolute;\n    background-color: #f1f1f1;\n    min-width: 160px;\n    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n    z-index: 1;\n}\n\n.dropDownContent a {\n    color: black;\n    padding: 12px 16px;\n    text-decoration: none;\n    display: block; \n}\n\n.dropDownContent a:hover {\n    background-color: #ddd;\n}\n\n.addSvg:hover {\n    cursor: pointer;\n}\n\n\n.sideBarControls > button,\n.card > button,\n#closeTask,\n#closeProject {\n    border: none;\n    outline: none;\n    background: none;\n    cursor: pointer;\n}\n\n#mainBody {\n    background-color: var(--dark-darkGray);\n\n}\n\n.tile {\n    background-color: var(--dark-darkGray);\n    padding: 8px;\n    cursor: pointer;\n    border-bottom: 1px solid var(--accent-color);\n}\n\n.tile:focus {\n    color: var(--accent-color);\n    /* transition: all .1s ease-in-out;\n    transform: scale(1.05); */\n}\n\n.tile:nth-child(odd) {\n    background-color: var(--dark-lightGray);\n}\n\n.card {\n    border-radius: 10px;\n    background-color: var(--dark-lightGray);\n    display: flex;\n    padding: 8px;\n    width: 85%;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 20px;\n}\n\n.card:hover {\n    transition: all .1s ease-in-out;\n    transform: scale(1.05); \n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n}\n\n.card > button {\n    background: none;\n    outline: none;\n    border: none;\n    cursor: pointer;\n}\n\n.note {\n    color: rgba(255, 255, 255, .5);\n}\n\n.cardControls {\n    display: flex;\n    justify-content: end;\n    margin-left: auto;\n    gap: 10px;\n}\n\n.cardControls > p {\n    margin-right: 20px;\n    align-self: flex-end;\n}\n\n.card:hover .trashCan {\n    display: block;\n}\n\n.trashCan {\n    display: none;\n}\n\n.roundBox {\n    width: 1.3em;\n    height: 1.3em;\n    background-color: var(--dark-darkGray);\n    border-radius: 50%;\n    border: 2px solid #fff;\n    appearance: none;\n    -webkit-appearance: none;\n    outline: none;\n    cursor: pointer;\n    margin-right: 10px;\n    align-self: center;\n}\n\n.roundBox:checked {\n    background-color: var(--accent-color);\n}\n\n.checked {\n    text-decoration: line-through;\n    color: rgba(255, 255, 255, .5);\n}\n\n.taskEdit {\n    margin-left: auto;\n    cursor: pointer;\n}\n\n.taskFolders {\n    border-bottom: 2px solid #fff;\n    min-height: 25%;\n    margin-bottom: 1rem;\n}\n\n.taskForm,\n.projectForm,\n.editTaskForm {\n    /* Change display before production */\n    position: fixed;\n    top: 25%;\n    left: 35%;\n    border: 2px solid var(--accent-pink);\n    width: 800px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    padding: 15px;\n    border-radius: 15px;\n    font-size: 1.25rem;\n}\n\n.editTaskForm {\n    display: none;\n}\n\n#projectFormDiv {\n    display: none;\n}\n\n.taskForm {\n    display: none;\n}\n\n.formFooter {\n    display: flex;\n    justify-content: end;\n}\n\n.formFooter > button {\n    background: none;\n    outline: none;\n    border: 2px solid var(--accent-pink);\n    border-radius: 15px;\n    color: var(--accent-pink);\n    padding: 8px;\n    cursor: pointer;\n}\n\ninput {\n    font-size: 1.25rem;\n}\n\ninput[type=text] {\n    width: 500px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    outline: none;\n    border: none;\n}\n\nselect,\ninput[type=date] {\n    font-size: 1.25rem;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    border: none;\n}\n\nselect {\n    width: 100px;\n}\n\n.formLegend {\n    padding: 20px;\n}\n\n.formHeader {\n    display: flex;\n    justify-content: space-between;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "*, *::before, *::after {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n:root {\n    --dark-lightGray: #282828;\n    --dark-darkGray: #1f1f1f;\n    --dark-wfont: #fff;\n    --accent-pink: #df9dc9;\n    --accent-color: blueviolet;\n}\n\nbody {\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n\n#content {\n    width: 85vw;\n    height: 85vh;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 50px;\n    /* border: 3px solid red; */\n    display: grid;\n    color: var(--dark-wfont);\n    grid-template-columns: 375px auto;\n    grid-template-rows: min-content;\n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);;\n}\n\n#headerBar {\n    grid-column: 1 / span 2;\n    height: 40px;\n    border-bottom: 2px solid var(--accent-color);\n}\n\n#headerBar,\n#sideBar {\n    background-color: var(--dark-lightGray);\n    color: var(--dark-wfont);\n}\n\n#sideBar {\n    border-right: 1px solid black;\n    box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -webkit-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -moz-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    z-index: 10;\n    display: flex;\n    flex-direction: column;\n}\n\n.sideBarControls {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: 25px;\n}\n\n.dropDown {\n    position: relative;\n    display: inline-block;\n}\n\n.dropDownContent {\n    display: none;\n    margin-top: -20px;\n    position: absolute;\n    background-color: #f1f1f1;\n    min-width: 160px;\n    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n    z-index: 1;\n}\n\n.dropDownContent a {\n    color: black;\n    padding: 12px 16px;\n    text-decoration: none;\n    display: block; \n}\n\n.dropDownContent a:hover {\n    background-color: #ddd;\n}\n\n.addSvg:hover {\n    cursor: pointer;\n}\n\n\n.sideBarControls > button,\n.card > button,\n#closeTask,\n#closeProject {\n    border: none;\n    outline: none;\n    background: none;\n    cursor: pointer;\n}\n\n#mainBody {\n    background-color: var(--dark-darkGray);\n\n}\n\n.tile {\n    background-color: var(--dark-darkGray);\n    padding: 8px;\n    cursor: pointer;\n    border-bottom: 1px solid var(--accent-color);\n}\n\n.tile:focus {\n    color: var(--accent-color);\n    /* transition: all .1s ease-in-out;\n    transform: scale(1.05); */\n}\n\n.tile:nth-child(odd) {\n    background-color: var(--dark-lightGray);\n}\n\n.card {\n    border-radius: 10px;\n    background-color: var(--dark-lightGray);\n    display: flex;\n    padding: 8px;\n    width: 85%;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 20px;\n}\n\n.card:hover {\n    transition: all .1s ease-in-out;\n    transform: scale(1.05); \n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n}\n\n.card > button {\n    background: none;\n    outline: none;\n    border: none;\n    cursor: pointer;\n}\n\n.note {\n    color: rgba(255, 255, 255, .5);\n}\n\n.cardControls {\n    display: flex;\n    justify-content: end;\n    margin-left: auto;\n    gap: 10px;\n}\n\n.cardControls > p {\n    margin-right: 20px;\n    align-self: flex-end;\n}\n\n.card:hover .trashCan {\n    display: block;\n}\n\n.trashCan {\n    display: none;\n    cursor: pointer;\n}\n\n.roundBox {\n    width: 1.3em;\n    height: 1.3em;\n    background-color: var(--dark-darkGray);\n    border-radius: 50%;\n    border: 2px solid #fff;\n    appearance: none;\n    -webkit-appearance: none;\n    outline: none;\n    cursor: pointer;\n    margin-right: 10px;\n    align-self: center;\n}\n\n.roundBox:checked {\n    background-color: var(--accent-color);\n}\n\n.checked {\n    text-decoration: line-through;\n    color: rgba(255, 255, 255, .5);\n}\n\n.taskEdit {\n    margin-left: auto;\n    cursor: pointer;\n}\n\n.taskFolders {\n    border-bottom: 2px solid #fff;\n    min-height: 25%;\n    margin-bottom: 1rem;\n}\n\n.taskForm,\n.projectForm,\n.editTaskForm {\n    /* Change display before production */\n    position: fixed;\n    top: 25%;\n    left: 35%;\n    border: 2px solid var(--accent-pink);\n    width: 800px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    padding: 15px;\n    border-radius: 15px;\n    font-size: 1.25rem;\n}\n\n.editTaskForm {\n    display: none;\n}\n\n#projectFormDiv {\n    display: none;\n}\n\n.taskForm {\n    display: none;\n}\n\n.formFooter {\n    display: flex;\n    justify-content: end;\n}\n\n.formFooter > button {\n    background: none;\n    outline: none;\n    border: 2px solid var(--accent-pink);\n    border-radius: 15px;\n    color: var(--accent-pink);\n    padding: 8px;\n    cursor: pointer;\n}\n\ninput {\n    font-size: 1.25rem;\n}\n\ninput[type=text] {\n    width: 500px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    outline: none;\n    border: none;\n}\n\nselect,\ninput[type=date] {\n    font-size: 1.25rem;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    border: none;\n}\n\nselect {\n    width: 100px;\n}\n\n.formLegend {\n    padding: 20px;\n}\n\n.formHeader {\n    display: flex;\n    justify-content: space-between;\n}\n", "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"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","sourcesContent":["*, *::before, *::after {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n:root {\n    --dark-lightGray: #282828;\n    --dark-darkGray: #1f1f1f;\n    --dark-wfont: #fff;\n    --accent-pink: #df9dc9;\n    --accent-color: blueviolet;\n}\n\nbody {\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    background: url(./assets/img/forest.jpg);\n}\n\n#content {\n    width: 85vw;\n    height: 85vh;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 50px;\n    /* border: 3px solid red; */\n    display: grid;\n    color: var(--dark-wfont);\n    grid-template-columns: 375px auto;\n    grid-template-rows: min-content;\n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);;\n}\n\n#headerBar {\n    grid-column: 1 / span 2;\n    height: 40px;\n    border-bottom: 2px solid var(--accent-color);\n}\n\n#headerBar,\n#sideBar {\n    background-color: var(--dark-lightGray);\n    color: var(--dark-wfont);\n}\n\n#sideBar {\n    border-right: 1px solid black;\n    box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -webkit-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    -moz-box-shadow: 8px 0px 5px 0px rgba(0,0,0,0.55);\n    z-index: 10;\n    display: flex;\n    flex-direction: column;\n}\n\n.sideBarControls {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: 25px;\n}\n\n.dropDown {\n    position: relative;\n    display: inline-block;\n}\n\n.dropDownContent {\n    display: none;\n    margin-top: -20px;\n    position: absolute;\n    background-color: #f1f1f1;\n    min-width: 160px;\n    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n    z-index: 1;\n}\n\n.dropDownContent a {\n    color: black;\n    padding: 12px 16px;\n    text-decoration: none;\n    display: block; \n}\n\n.dropDownContent a:hover {\n    background-color: #ddd;\n}\n\n.addSvg:hover {\n    cursor: pointer;\n}\n\n\n.sideBarControls > button,\n.card > button,\n#closeTask,\n#closeProject {\n    border: none;\n    outline: none;\n    background: none;\n    cursor: pointer;\n}\n\n#mainBody {\n    background-color: var(--dark-darkGray);\n\n}\n\n.tile {\n    background-color: var(--dark-darkGray);\n    padding: 8px;\n    cursor: pointer;\n    border-bottom: 1px solid var(--accent-color);\n}\n\n.tile:focus {\n    color: var(--accent-color);\n    /* transition: all .1s ease-in-out;\n    transform: scale(1.05); */\n}\n\n.tile:nth-child(odd) {\n    background-color: var(--dark-lightGray);\n}\n\n.card {\n    border-radius: 10px;\n    background-color: var(--dark-lightGray);\n    display: flex;\n    padding: 8px;\n    width: 85%;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 20px;\n}\n\n.card:hover {\n    transition: all .1s ease-in-out;\n    transform: scale(1.05); \n    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);\n}\n\n.card > button {\n    background: none;\n    outline: none;\n    border: none;\n    cursor: pointer;\n}\n\n.note {\n    color: rgba(255, 255, 255, .5);\n}\n\n.cardControls {\n    display: flex;\n    justify-content: end;\n    margin-left: auto;\n    gap: 10px;\n}\n\n.cardControls > p {\n    margin-right: 20px;\n    align-self: flex-end;\n}\n\n.card:hover .trashCan {\n    display: block;\n}\n\n.trashCan {\n    display: none;\n    cursor: pointer;\n}\n\n.roundBox {\n    width: 1.3em;\n    height: 1.3em;\n    background-color: var(--dark-darkGray);\n    border-radius: 50%;\n    border: 2px solid #fff;\n    appearance: none;\n    -webkit-appearance: none;\n    outline: none;\n    cursor: pointer;\n    margin-right: 10px;\n    align-self: center;\n}\n\n.roundBox:checked {\n    background-color: var(--accent-color);\n}\n\n.checked {\n    text-decoration: line-through;\n    color: rgba(255, 255, 255, .5);\n}\n\n.taskEdit {\n    margin-left: auto;\n    cursor: pointer;\n}\n\n.taskFolders {\n    border-bottom: 2px solid #fff;\n    min-height: 25%;\n    margin-bottom: 1rem;\n}\n\n.taskForm,\n.projectForm,\n.editTaskForm {\n    /* Change display before production */\n    position: fixed;\n    top: 25%;\n    left: 35%;\n    border: 2px solid var(--accent-pink);\n    width: 800px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    padding: 15px;\n    border-radius: 15px;\n    font-size: 1.25rem;\n}\n\n.editTaskForm {\n    display: none;\n}\n\n#projectFormDiv {\n    display: none;\n}\n\n.taskForm {\n    display: none;\n}\n\n.formFooter {\n    display: flex;\n    justify-content: end;\n}\n\n.formFooter > button {\n    background: none;\n    outline: none;\n    border: 2px solid var(--accent-pink);\n    border-radius: 15px;\n    color: var(--accent-pink);\n    padding: 8px;\n    cursor: pointer;\n}\n\ninput {\n    font-size: 1.25rem;\n}\n\ninput[type=text] {\n    width: 500px;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    outline: none;\n    border: none;\n}\n\nselect,\ninput[type=date] {\n    font-size: 1.25rem;\n    background-color: var(--dark-lightGray);\n    color: #fff;\n    border: none;\n}\n\nselect {\n    width: 100px;\n}\n\n.formLegend {\n    padding: 20px;\n}\n\n.formHeader {\n    display: flex;\n    justify-content: space-between;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4026,7 +4026,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "createCard": () => (/* binding */ createCard),
 /* harmony export */   "createTile": () => (/* binding */ createTile),
-/* harmony export */   "displayAllTasks": () => (/* binding */ displayAllTasks),
 /* harmony export */   "displayTasks": () => (/* binding */ displayTasks),
 /* harmony export */   "refreshDOM": () => (/* binding */ refreshDOM)
 /* harmony export */ });
@@ -4040,8 +4039,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
+// TODO: Display activeProject in headerBar
 
 const displayProjects = () => {
     const projectsDisplay = document.querySelector('.projects')
@@ -4070,63 +4068,46 @@ const createTile = (projectName) => {
     return tile;
 };
 
-const displayTasks = projectName => {
-    const project = _project__WEBPACK_IMPORTED_MODULE_0__.projectMap.get(`${projectName}`)
-    for (let i = 0; i < project.tasks.length; i++){
+const displayTasks = filter => {
+    if (filter === 'All Tasks' || filter === undefined) {
+        // Display all tasks
+        for (let value of _task__WEBPACK_IMPORTED_MODULE_2__.taskMap.values()) {
+            createCard(value)
+        }
+    } else if (!(filter === 'Today' || filter === 'This Week')) {
+        // Display active project's tasks
+        const project = _project__WEBPACK_IMPORTED_MODULE_0__.projectMap.get(`${filter}`)
+        for (let i = 0; i < project.tasks.length; i++){
         createCard(project.tasks[i])
+        }
+    }
+    if (filter === 'Today') {
+        // Display Today's Tasks
+        for (let i = 0; i < _project__WEBPACK_IMPORTED_MODULE_0__.todaysTasks.length; i++) {
+            createCard(_project__WEBPACK_IMPORTED_MODULE_0__.todaysTasks[i])
+        }
+    } else if (filter === 'This Week') {
+        // Display this week's tasks
+        for (let i = 0; i < _project__WEBPACK_IMPORTED_MODULE_0__.weeklyTasks.length; i++) {
+            createCard(_project__WEBPACK_IMPORTED_MODULE_0__.weeklyTasks[i])
+        }
     }
 };
 
 // Handle All Tasks filter tile
-const handleAllTaskListener = (() => {
-    const allTasksTile = document.getElementById('allTasks')
-    allTasksTile.addEventListener('click', (event) => {
-        refreshDOM()
-        // grabTasks()
-        displayAllTasks()
-        ;(0,_project__WEBPACK_IMPORTED_MODULE_0__.setActiveProject)(event.target.textContent)
+const addEventListenersToTileFilters = (() => {
+    const filterTile = document.querySelectorAll('.tile')
+    filterTile.forEach(item => {
+        item.addEventListener('click', (event) => {
+            ;(0,_project__WEBPACK_IMPORTED_MODULE_0__.setActiveProject)(event.target.textContent)
+            refreshDOM()
+            displayTasks(_project__WEBPACK_IMPORTED_MODULE_0__.activeProject)
+        })
     })
-})();
+})()
 
 
-const displayAllTasks = () => {
-    for (let value of _task__WEBPACK_IMPORTED_MODULE_2__.taskMap.values()) {
-        createCard(value)
-    }
-};
 
-// Handle today's tasks tile
-const handleTodaysTaskListener = (() => {
-    const todaysTaskTile = document.getElementById('todaysTasks')
-    todaysTaskTile.addEventListener('click', (event) => {
-        refreshDOM()
-        ;(0,_project__WEBPACK_IMPORTED_MODULE_0__.grabTasks)()
-        displayTodaysTasks()
-        // setActiveProject(event.target.textContent)
-    })
-})();
-
-const displayTodaysTasks = () => {
-    for (let i = 0; i < _project__WEBPACK_IMPORTED_MODULE_0__.todaysTasks.length; i++) {
-        createCard(_project__WEBPACK_IMPORTED_MODULE_0__.todaysTasks[i])
-    }
-};
-
-// Handle this week's tasks tile
-const handleWeeklyTask = (() => {
-    const thisWeek = document.getElementById('thisWeek')
-    thisWeek.addEventListener('click', (event) => {
-        refreshDOM()
-        displayWeeklyTasks()
-        // setActiveProject(event.target.textContent)
-    })
-})();
-
-const displayWeeklyTasks = () => {
-    for (let i = 0; i < _project__WEBPACK_IMPORTED_MODULE_0__.weeklyTasks.length; i++) {
-        createCard(_project__WEBPACK_IMPORTED_MODULE_0__.weeklyTasks[i])
-    }
-};
 
 
 
@@ -4190,7 +4171,11 @@ const createCard = (task) => {
     deleteSvg.appendChild(deletePath)
     deleteSvg.classList.add('trashCan')
 
-    // TODO: Add event listener to trash button
+    deleteSvg.addEventListener('click', () => {
+        ;(0,_task__WEBPACK_IMPORTED_MODULE_2__.removeTask)(task.taskName)
+        refreshDOM()
+        displayTasks(_project__WEBPACK_IMPORTED_MODULE_0__.activeProject) // TODO: Task not deleting from custom project
+    })
 
     controlsDiv.appendChild(deleteSvg)
 
@@ -4254,7 +4239,7 @@ const listenForTaskCompletion = (button) => {
         }
         console.log(task)
         refreshDOM()
-        displayAllTasks()
+        displayTasks(_project__WEBPACK_IMPORTED_MODULE_0__.activeProject)
         //TODO: Display seleted filter tasks
     })
 }
@@ -4321,33 +4306,45 @@ const addNewTask = taskData => {
     const newTask = (0,_task__WEBPACK_IMPORTED_MODULE_1__["default"])(taskData)
     const date = new Date(taskData.dueDate.replace(/-/g, '\/'))
     ;(0,_task__WEBPACK_IMPORTED_MODULE_1__.addTaskToMap)(newTask)
+    ;(0,_task__WEBPACK_IMPORTED_MODULE_1__.storeTasks)()
     if (_project__WEBPACK_IMPORTED_MODULE_0__.activeProject === 'All Tasks' || _project__WEBPACK_IMPORTED_MODULE_0__.activeProject === undefined) {
         _project__WEBPACK_IMPORTED_MODULE_0__.allTasks.push(newTask)
         ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.refreshDOM)()
-        ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.displayAllTasks)()
+        ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.displayTasks)(_project__WEBPACK_IMPORTED_MODULE_0__.activeProject)
         // console.log('Fired first if')
         
         
     } else if ((_project__WEBPACK_IMPORTED_MODULE_0__.activeProject !== 'All Tasks' || _project__WEBPACK_IMPORTED_MODULE_0__.activeProject !== undefined)) {
-        const currentProject = _project__WEBPACK_IMPORTED_MODULE_0__.projectMap.get(`${_project__WEBPACK_IMPORTED_MODULE_0__.activeProject}`)
-        currentProject.tasks.push(newTask)
-        newTask.project = _project__WEBPACK_IMPORTED_MODULE_0__.activeProject
-        console.log(currentProject.tasks)
-        ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.refreshDOM)()
-        ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.displayTasks)(_project__WEBPACK_IMPORTED_MODULE_0__.activeProject)
-        // console.log('Fired second if')
+        if (!(_project__WEBPACK_IMPORTED_MODULE_0__.activeProject === 'Today' || _project__WEBPACK_IMPORTED_MODULE_0__.activeProject === 'This Week')) {
+            const currentProject = _project__WEBPACK_IMPORTED_MODULE_0__.projectMap.get(`${_project__WEBPACK_IMPORTED_MODULE_0__.activeProject}`)
+            currentProject.tasks.push(newTask)
+            newTask.project = _project__WEBPACK_IMPORTED_MODULE_0__.activeProject
+            console.log(currentProject.tasks)
+            ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.refreshDOM)()
+            ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.displayTasks)(_project__WEBPACK_IMPORTED_MODULE_0__.activeProject)
+            // console.log('Fired second if')
+        }
+        
     }
     if ((0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(date)){
         _project__WEBPACK_IMPORTED_MODULE_0__.todaysTasks.push(newTask)
+        if (_project__WEBPACK_IMPORTED_MODULE_0__.activeProject === 'Today') {
+            (0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.refreshDOM)()
+            ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.displayTasks)(_project__WEBPACK_IMPORTED_MODULE_0__.activeProject)
+            // console.log(todaysTasks)
+        }
     }
     if ((0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(date)) {
         _project__WEBPACK_IMPORTED_MODULE_0__.weeklyTasks.push(newTask)
+        ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.refreshDOM)()
+        ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.displayTasks)(_project__WEBPACK_IMPORTED_MODULE_0__.activeProject)
     }
 }
 
 const addNewProject = name => {
     const newProject = (0,_project__WEBPACK_IMPORTED_MODULE_0__["default"])(name)
     ;(0,_project__WEBPACK_IMPORTED_MODULE_0__.addProjectToMap)(newProject)
+    ;(0,_project__WEBPACK_IMPORTED_MODULE_0__.storeProjects)()
     ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.createTile)(name)
 }
 
@@ -4436,7 +4433,7 @@ function openTaskEditForm(task) {
         task.priority = priorityInput.value
         document.querySelector('.editTaskForm').style.display = 'none'
         ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.refreshDOM)()
-        ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.displayAllTasks)() // TODO: Filter only tasks from selected tile
+        ;(0,_DOMController__WEBPACK_IMPORTED_MODULE_2__.displayTasks)() // TODO: Filter only tasks from selected tile
     })
 }
 
@@ -4464,8 +4461,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "allTasks": () => (/* binding */ allTasks),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   "grabTasks": () => (/* binding */ grabTasks),
+/* harmony export */   "loadProjects": () => (/* binding */ loadProjects),
 /* harmony export */   "projectMap": () => (/* binding */ projectMap),
 /* harmony export */   "setActiveProject": () => (/* binding */ setActiveProject),
+/* harmony export */   "storeProjects": () => (/* binding */ storeProjects),
 /* harmony export */   "todaysTasks": () => (/* binding */ todaysTasks),
 /* harmony export */   "weeklyTasks": () => (/* binding */ weeklyTasks)
 /* harmony export */ });
@@ -4503,12 +4502,18 @@ const Project = (name) => {
 };
 
 
+
+
+
 // Gather projects into map
 const projectMap = new Map()
 const addProjectToMap = project => {
     if (project.projectName === '') return
     const name = project.projectName
-    projectMap.set(`${name}`, project)
+    if (!(projectMap.has(`${name}`))) {
+        projectMap.set(`${name}`, project)
+    } else return
+    
 }
 
 
@@ -4528,6 +4533,24 @@ const todaysTasks = allTasks.filter(task => (0,date_fns__WEBPACK_IMPORTED_MODULE
 // Gather all tasks due this week
 const weeklyTasks = allTasks.filter(task => (0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(task.dueDate))
     
+
+// Local Storage
+function storeProjects() {
+    const projects = []
+    for (let value of projectMap.values()) {
+        projects.push(value)
+    }
+    window.localStorage.setItem('projects', JSON.stringify(projects))
+}
+
+function loadProjects() {
+    const projects = []
+    projects.push(JSON.parse(window.localStorage.getItem('projects')))
+    projects.forEach(item => {
+        addProjectToMap(item)
+    })
+}
+
 
 
 
@@ -4549,7 +4572,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "addTaskToMap": () => (/* binding */ addTaskToMap),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "taskList": () => (/* binding */ taskList),
+/* harmony export */   "loadTasks": () => (/* binding */ loadTasks),
+/* harmony export */   "removeTask": () => (/* binding */ removeTask),
+/* harmony export */   "storeTasks": () => (/* binding */ storeTasks),
 /* harmony export */   "taskMap": () => (/* binding */ taskMap)
 /* harmony export */ });
 
@@ -4574,11 +4599,17 @@ const taskMap = new Map()
 const addTaskToMap = task => {
     if (task.taskName === '') return
     const name = task.taskName
-    taskMap.set(`${name}`, task)
+    if (!(taskMap.has(`${name}`))) {
+        taskMap.set(`${name}`, task)
+    } else return
+    
 }
 
-const taskList = taskMap.values()
+const removeTask = taskName => {
+    taskMap.delete(`${taskName}`)
+}
 
+// Default tasks for development
 const taskItem = Task({
     taskName: 'Mow the yard',
     note: 'Rain forcasted Thursday',
@@ -4592,10 +4623,31 @@ const taskItem2 = Task({
     dueDate: new Date(2023, 0, 31),
     priority: 'normal'
 })
-
-
 addTaskToMap(taskItem)
 addTaskToMap(taskItem2)
+
+// Local Storage
+const storeTasks = () => {
+    const tasks = []
+    for (let value of taskMap.values()) {
+        tasks.push(value)
+    }
+    window.localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+const loadTasks = () => {
+    const tasks = []
+    tasks.push(JSON.parse(window.localStorage.getItem('tasks')))
+    tasks.forEach(item => {
+        addTaskToMap(item)
+    })
+}
+
+
+
+
+
+
 
 
 
@@ -4760,9 +4812,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ "./src/styles.css");
 /* harmony import */ var _javascript_project__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./javascript/project */ "./src/javascript/project.js");
 /* harmony import */ var _javascript_DOMController__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./javascript/DOMController */ "./src/javascript/DOMController.js");
+/* harmony import */ var _javascript_task__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./javascript/task */ "./src/javascript/task.js");
 
 
- 
+
+
+
+
+window.addEventListener('load', () => {
+    (0,_javascript_project__WEBPACK_IMPORTED_MODULE_1__.setActiveProject)('All Tasks')
+    ;(0,_javascript_task__WEBPACK_IMPORTED_MODULE_3__.loadTasks)()
+    ;(0,_javascript_project__WEBPACK_IMPORTED_MODULE_1__.loadProjects)()
+    ;(0,_javascript_DOMController__WEBPACK_IMPORTED_MODULE_2__.displayTasks)(_javascript_project__WEBPACK_IMPORTED_MODULE_1__.activeProject)
+})
 
 
 
