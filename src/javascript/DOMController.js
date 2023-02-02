@@ -59,18 +59,24 @@ const displayTasks = filter => {
 };
 
 // Handle All Tasks filter tile
-const addEventListenersToTileFilters = (() => {
-    const filterTile = document.querySelectorAll('.tile')
-    filterTile.forEach(item => {
-        item.addEventListener('click', (event) => {
-            setActiveProject(event.target.textContent)
-            refreshDOM()
-            displayTasks(activeProject)
-        })
-    })
-})()
+// const addEventListenersToTileFilters = (() => {
+//     const filterTile = document.querySelectorAll('.tile')
+//     filterTile.forEach(item => {
+//         item.addEventListener('click', (event) => {
+//             setActiveProject(event.target.textContent)
+//             refreshDOM()
+//             displayTasks(activeProject)
+//         })
+//     })
+// })()
 
-
+window.addEventListener('click', (event) => {
+    if (event.target.classList.contains('filter')) {
+        setActiveProject(event.target.textContent)
+        refreshDOM()
+        displayTasks(activeProject)
+    }
+})
 
 
 
