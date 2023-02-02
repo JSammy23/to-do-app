@@ -38,13 +38,7 @@ const displayTasks = filter => {
         for (let value of taskMap.values()) {
             createCard(value)
         }
-    } else if (!(filter === 'Today' || filter === 'This Week')) {
-        // Display active project's tasks
-        const project = projectMap.get(`${filter}`)
-        for (let i = 0; i < project.tasks.length; i++){
-        createCard(project.tasks[i])
-        }
-    }
+    } 
     if (filter === 'Today') {
         // Display Today's Tasks
         for (let i = 0; i < todaysTasks.length; i++) {
@@ -55,20 +49,15 @@ const displayTasks = filter => {
         for (let i = 0; i < weeklyTasks.length; i++) {
             createCard(weeklyTasks[i])
         }
+    } else if (!(filter === 'Today' || filter === 'This Week')) {
+        // Display active project's tasks
+        const project = projectMap.get(`${filter}`)
+        for (let i = 0; i < project.tasks.length; i++){
+        createCard(project.tasks[i])
+        }
     }
-};
+}
 
-// Handle All Tasks filter tile
-// const addEventListenersToTileFilters = (() => {
-//     const filterTile = document.querySelectorAll('.tile')
-//     filterTile.forEach(item => {
-//         item.addEventListener('click', (event) => {
-//             setActiveProject(event.target.textContent)
-//             refreshDOM()
-//             displayTasks(activeProject)
-//         })
-//     })
-// })()
 
 window.addEventListener('click', (event) => {
     if (event.target.classList.contains('filter')) {
@@ -143,6 +132,11 @@ const createCard = (task) => {
 
     deleteSvg.addEventListener('click', () => {
         removeTask(task.taskName)
+        if (!(task.project === '' || task.project === undefined)){
+            const projectName = task.project
+            const project = projectMap.get(`${projectName}`)
+            project.removeTask(task.taskName)
+        }
         refreshDOM()
         displayTasks(activeProject) // TODO: Task not deleting from custom project
     })
