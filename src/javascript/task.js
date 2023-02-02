@@ -20,7 +20,10 @@ const taskMap = new Map()
 const addTaskToMap = task => {
     if (task.taskName === '') return
     const name = task.taskName
-    taskMap.set(`${name}`, task)
+    if (!(taskMap.has(`${name}`))) {
+        taskMap.set(`${name}`, task)
+    } else return
+    
 }
 
 const removeTask = taskName => {
@@ -45,23 +48,30 @@ addTaskToMap(taskItem)
 addTaskToMap(taskItem2)
 
 // Local Storage
-
-const tasks = []
-const taskStrings = []
-for (let value of taskMap.values()) {
-    tasks.push(value)
+const storeTasks = () => {
+    const tasks = []
+    for (let value of taskMap.values()) {
+        tasks.push(value)
+    }
+    window.localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-tasks.forEach(element => {
-    // JSON.stringify(element)
-    taskStrings.push(element)
-});
+const loadTasks = () => {
+    const tasks = []
+    tasks.push(JSON.parse(window.localStorage.getItem('tasks')))
+    tasks.forEach(item => {
+        addTaskToMap(item)
+    })
+}
 
-console.log(taskStrings)
-window.localStorage.setItem('tasks', JSON.stringify(tasks));
+
+
+
+
+
 
 
 
 
 export default Task
-export { taskMap, addTaskToMap, removeTask }
+export { taskMap, addTaskToMap, removeTask, storeTasks, loadTasks }

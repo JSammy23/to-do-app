@@ -29,12 +29,18 @@ const Project = (name) => {
 };
 
 
+
+
+
 // Gather projects into map
 const projectMap = new Map()
 const addProjectToMap = project => {
     if (project.projectName === '') return
     const name = project.projectName
-    projectMap.set(`${name}`, project)
+    if (!(projectMap.has(`${name}`))) {
+        projectMap.set(`${name}`, project)
+    } else return
+    
 }
 
 
@@ -55,9 +61,27 @@ const todaysTasks = allTasks.filter(task => isToday(task.dueDate))
 const weeklyTasks = allTasks.filter(task => isThisWeek(task.dueDate))
     
 
+// Local Storage
+function storeProjects() {
+    const projects = []
+    for (let value of projectMap.values()) {
+        projects.push(value)
+    }
+    window.localStorage.setItem('projects', JSON.stringify(projects))
+}
+
+function loadProjects() {
+    const projects = []
+    projects.push(JSON.parse(window.localStorage.getItem('projects')))
+    projects.forEach(item => {
+        addProjectToMap(item)
+    })
+}
+
+
 
 
 
 
 export default Project;
-export { projectMap, allTasks, todaysTasks, weeklyTasks, grabTasks, activeProject, setActiveProject, addProjectToMap }
+export { projectMap, allTasks, todaysTasks, weeklyTasks, grabTasks, activeProject, setActiveProject, addProjectToMap, storeProjects, loadProjects }

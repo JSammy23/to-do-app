@@ -1,5 +1,5 @@
-import Project, { allTasks, projectMap, todaysTasks, weeklyTasks, grabTasks, activeProject, addProjectToMap } from "./project"
-import Task, { addTaskToMap } from "./task"
+import Project, { allTasks, projectMap, todaysTasks, weeklyTasks, grabTasks, activeProject, addProjectToMap, storeProjects } from "./project"
+import Task, { addTaskToMap, loadTasks, storeTasks } from "./task"
 import { refreshDOM, createTile, displayTasks } from "./DOMController"
 import { isToday, isThisWeek, format } from "date-fns"
 
@@ -36,6 +36,7 @@ const addNewTask = taskData => {
     const newTask = Task(taskData)
     const date = new Date(taskData.dueDate.replace(/-/g, '\/'))
     addTaskToMap(newTask)
+    storeTasks()
     if (activeProject === 'All Tasks' || activeProject === undefined) {
         allTasks.push(newTask)
         refreshDOM()
@@ -73,6 +74,7 @@ const addNewTask = taskData => {
 const addNewProject = name => {
     const newProject = Project(name)
     addProjectToMap(newProject)
+    storeProjects()
     createTile(name)
 }
 
