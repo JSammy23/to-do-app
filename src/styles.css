@@ -39,6 +39,8 @@ body {
     grid-column: 1 / span 2;
     height: 40px;
     border-bottom: 2px solid var(--accent-color);
+    display: flex;
+    justify-content: end;
 }
 
 #headerBar,
@@ -277,6 +279,11 @@ input[type=date] {
 
 select {
     width: 100px;
+}
+
+.saveControls {
+    margin-left: auto;
+    cursor: pointer;
 }
 
 .formLegend {
