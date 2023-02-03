@@ -31,21 +31,21 @@ const removeTask = taskName => {
 }
 
 // Default tasks for development
-const taskItem = Task({
-    taskName: 'Mow the yard',
-    note: 'Rain forcasted Thursday',
-    dueDate: new Date(2023, 0, 31),
-    priority: 'normal'
-})
+// const taskItem = Task({
+//     taskName: 'Mow the yard',
+//     note: 'Rain forcasted Thursday',
+//     dueDate: new Date(2023, 0, 31),
+//     priority: 'normal'
+// })
 
-const taskItem2 = Task({
-    taskName: 'Finish homework',
-    note: 'Algebra & history',
-    dueDate: new Date(2023, 0, 31),
-    priority: 'normal'
-})
-addTaskToMap(taskItem)
-addTaskToMap(taskItem2)
+// const taskItem2 = Task({
+//     taskName: 'Finish homework',
+//     note: 'Algebra & history',
+//     dueDate: new Date(2023, 0, 31),
+//     priority: 'normal'
+// })
+// addTaskToMap(taskItem)
+// addTaskToMap(taskItem2)
 
 // Local Storage
 const storeTasks = () => {
