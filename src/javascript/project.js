@@ -55,10 +55,14 @@ function grabTasks () {
 
 
 // Gather all Tasks due Today
-const todaysTasks = allTasks.filter(task => isToday(task.dueDate))
+// const todaysTasks = allTasks.filter(task => isToday(task.dueDate))
+const grabTodaysTasks = () => {
+    const tasks = []
+    tasks.push(taskMap.values())
+    const todaysTasks = tasks.filter(task => isToday(task.dueDate))
+    return todaysTasks
+}
 
-// Gather all tasks due this week
-const weeklyTasks = allTasks.filter(task => isThisWeek(task.dueDate))
     
 
 // Local Storage
@@ -83,4 +87,4 @@ function loadProjects() {
 
 
 export default Project;
-export { projectMap, allTasks, todaysTasks, weeklyTasks, grabTasks, activeProject, setActiveProject, addProjectToMap, storeProjects, loadProjects }
+export { projectMap, allTasks, grabTasks, activeProject, setActiveProject, addProjectToMap, storeProjects, loadProjects, grabTodaysTasks }

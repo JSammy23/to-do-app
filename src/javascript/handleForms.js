@@ -1,9 +1,9 @@
-import Project, { allTasks, projectMap, todaysTasks, weeklyTasks, grabTasks, activeProject, addProjectToMap, storeProjects } from "./project"
+import Project, { allTasks, projectMap, activeProject, addProjectToMap, storeProjects } from "./project"
 import Task, { addTaskToMap, loadTasks, storeTasks } from "./task"
 import { refreshDOM, createTile, displayTasks } from "./DOMController"
 import { isToday, isThisWeek, format } from "date-fns"
 
-const taskFormObjects = []
+
 
 const handleTaskForm = (() => {
     const taskForm = document.getElementById('taskForm')
@@ -12,12 +12,9 @@ const handleTaskForm = (() => {
     const formData = new FormData(taskForm)
     const taskData = Object.fromEntries(formData)
     
-    taskFormObjects.push(taskData)
     addNewTask(taskData)
-    grabTasks()
     closeTaskForm()
     taskForm.reset()
-    
 })
 })() 
 
@@ -36,13 +33,10 @@ const addNewTask = taskData => {
     const newTask = Task(taskData)
     const date = new Date(taskData.dueDate.replace(/-/g, '\/'))
     addTaskToMap(newTask)
-    storeTasks()
     if (activeProject === 'All Tasks' || activeProject === undefined) {
         allTasks.push(newTask)
         refreshDOM()
         displayTasks(activeProject)
-        // console.log('Fired first if')
-        
         
     } else if ((activeProject !== 'All Tasks' || activeProject !== undefined)) {
         if (!(activeProject === 'Today' || activeProject === 'This Week')) {
@@ -52,29 +46,13 @@ const addNewTask = taskData => {
             console.log(currentProject.tasks)
             refreshDOM()
             displayTasks(activeProject)
-            // console.log('Fired second if')
-        }
-        
-    }
-    if (isToday(date)){
-        todaysTasks.push(newTask)
-        if (activeProject === 'Today') {
-            refreshDOM()
-            displayTasks(activeProject)
-            // console.log(todaysTasks)
-        }
-    }
-    if (isThisWeek(date)) {
-        weeklyTasks.push(newTask)
-        refreshDOM()
-        displayTasks(activeProject)
+        } 
     }
 }
 
 const addNewProject = name => {
     const newProject = Project(name)
     addProjectToMap(newProject)
-    storeProjects()
     createTile(name)
 }
 

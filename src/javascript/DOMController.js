@@ -1,7 +1,7 @@
-import { projectMap, allTasks, todaysTasks, weeklyTasks, grabTasks, setActiveProject, activeProject } from "./project"
+import { projectMap, allTasks, weeklyTasks, grabTasks, setActiveProject, activeProject, grabTodaysTasks } from "./project"
 import { dropMenu, openTaskForm, openTaskEditForm } from "./handleForms";
 import { taskMap, removeTask } from "./task";
-import { format, add } from "date-fns";
+import { format, add, isToday, isThisWeek } from "date-fns";
 
 // TODO: Display activeProject in headerBar
 
@@ -41,24 +41,34 @@ const displayTasks = filter => {
     } 
     if (filter === 'Today') {
         // Display Today's Tasks
-        for (let i = 0; i < todaysTasks.length; i++) {
-            createCard(todaysTasks[i])
+        for ( let value of taskMap.values()) {
+            const date = new Date(value.dueDate)
+            const correctDate = add((date), { days: 1})
+            if (isToday(correctDate)) {
+                createCard(value)
+            }
         }
-    } else if (filter === 'This Week') {
+        
+    } if (filter === 'This Week') {
         // Display this week's tasks
-        for (let i = 0; i < weeklyTasks.length; i++) {
-            createCard(weeklyTasks[i])
+        for ( let value of taskMap.values()) {
+            const date = new Date(value.dueDate)
+            const correctDate = add((date), { days: 1})
+            if (isThisWeek(correctDate)) {
+                createCard(value)
+            }
         }
     } else if (!(filter === 'Today' || filter === 'This Week')) {
         // Display active project's tasks
         const project = projectMap.get(`${filter}`)
+        if (!(projectMap.has(`${filter}`))) return
         for (let i = 0; i < project.tasks.length; i++){
         createCard(project.tasks[i])
         }
     }
 }
 
-
+// Event Listeners
 window.addEventListener('click', (event) => {
     if (event.target.classList.contains('filter')) {
         setActiveProject(event.target.textContent)
@@ -66,6 +76,10 @@ window.addEventListener('click', (event) => {
         displayTasks(activeProject)
     }
 })
+
+
+
+
 
 
 
@@ -189,7 +203,6 @@ const createAddBtn = (() => {
 const refreshDOM = () => {
     const body = document.getElementById('mainBody')
     body.textContent = ''
-    grabTasks()
 }
 
 // Listen for completed task
@@ -201,10 +214,9 @@ const listenForTaskCompletion = (button) => {
         } else if (task.completed === true) {
             task.completed = false
         }
-        console.log(task)
+        // console.log(task)
         refreshDOM()
         displayTasks(activeProject)
-        //TODO: Display seleted filter tasks
     })
 }
 
